@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BEE236CA86900C10B40 /* AppDelegate.swift */; };
+		D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */; };
+		D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF2236CA86900C10B40 /* ViewController.swift */; };
+		D68C3BF6236CA86900C10B40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF4236CA86900C10B40 /* Main.storyboard */; };
+		D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF7236CA86C00C10B40 /* Assets.xcassets */; };
+		D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */; };
+		D68C3C06236CA86C00C10B40 /* CramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C05236CA86C00C10B40 /* CramTests.swift */; };
+		D68C3C11236CA86C00C10B40 /* CramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C10236CA86C00C10B40 /* CramUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D68C3C02236CA86C00C10B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D68C3BE3236CA86900C10B40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68C3BEA236CA86900C10B40;
+			remoteInfo = Cram;
+		};
+		D68C3C0D236CA86C00C10B40 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D68C3BE3236CA86900C10B40 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68C3BEA236CA86900C10B40;
+			remoteInfo = Cram;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D68C3BEB236CA86900C10B40 /* Cram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C3BEE236CA86900C10B40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D68C3BF2236CA86900C10B40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D68C3BF5236CA86900C10B40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D68C3BF7236CA86C00C10B40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D68C3BFA236CA86C00C10B40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D68C3BFC236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68C3C01236CA86C00C10B40 /* CramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C3C05236CA86C00C10B40 /* CramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CramTests.swift; sourceTree = "<group>"; };
+		D68C3C07236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C3C10236CA86C00C10B40 /* CramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CramUITests.swift; sourceTree = "<group>"; };
+		D68C3C12236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D68C3BE8236CA86900C10B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3BFE236CA86C00C10B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3C09236CA86C00C10B40 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D68C3BE2236CA86900C10B40 = {
+			isa = PBXGroup;
+			children = (
+				D68C3BED236CA86900C10B40 /* Cram */,
+				D68C3C04236CA86C00C10B40 /* CramTests */,
+				D68C3C0F236CA86C00C10B40 /* CramUITests */,
+				D68C3BEC236CA86900C10B40 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D68C3BEC236CA86900C10B40 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D68C3BEB236CA86900C10B40 /* Cram.app */,
+				D68C3C01236CA86C00C10B40 /* CramTests.xctest */,
+				D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D68C3BED236CA86900C10B40 /* Cram */ = {
+			isa = PBXGroup;
+			children = (
+				D68C3BEE236CA86900C10B40 /* AppDelegate.swift */,
+				D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */,
+				D68C3BF2236CA86900C10B40 /* ViewController.swift */,
+				D68C3BF4236CA86900C10B40 /* Main.storyboard */,
+				D68C3BF7236CA86C00C10B40 /* Assets.xcassets */,
+				D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */,
+				D68C3BFC236CA86C00C10B40 /* Info.plist */,
+			);
+			path = Cram;
+			sourceTree = "<group>";
+		};
+		D68C3C04236CA86C00C10B40 /* CramTests */ = {
+			isa = PBXGroup;
+			children = (
+				D68C3C05236CA86C00C10B40 /* CramTests.swift */,
+				D68C3C07236CA86C00C10B40 /* Info.plist */,
+			);
+			path = CramTests;
+			sourceTree = "<group>";
+		};
+		D68C3C0F236CA86C00C10B40 /* CramUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D68C3C10236CA86C00C10B40 /* CramUITests.swift */,
+				D68C3C12236CA86C00C10B40 /* Info.plist */,
+			);
+			path = CramUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D68C3BEA236CA86900C10B40 /* Cram */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68C3C15236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "Cram" */;
+			buildPhases = (
+				D68C3BE7236CA86900C10B40 /* Sources */,
+				D68C3BE8236CA86900C10B40 /* Frameworks */,
+				D68C3BE9236CA86900C10B40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cram;
+			productName = Cram;
+			productReference = D68C3BEB236CA86900C10B40 /* Cram.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D68C3C00236CA86C00C10B40 /* CramTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68C3C18236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramTests" */;
+			buildPhases = (
+				D68C3BFD236CA86C00C10B40 /* Sources */,
+				D68C3BFE236CA86C00C10B40 /* Frameworks */,
+				D68C3BFF236CA86C00C10B40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D68C3C03236CA86C00C10B40 /* PBXTargetDependency */,
+			);
+			name = CramTests;
+			productName = CramTests;
+			productReference = D68C3C01236CA86C00C10B40 /* CramTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D68C3C0B236CA86C00C10B40 /* CramUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D68C3C1B236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramUITests" */;
+			buildPhases = (
+				D68C3C08236CA86C00C10B40 /* Sources */,
+				D68C3C09236CA86C00C10B40 /* Frameworks */,
+				D68C3C0A236CA86C00C10B40 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D68C3C0E236CA86C00C10B40 /* PBXTargetDependency */,
+			);
+			name = CramUITests;
+			productName = CramUITests;
+			productReference = D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D68C3BE3236CA86900C10B40 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = Mert;
+				TargetAttributes = {
+					D68C3BEA236CA86900C10B40 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					D68C3C00236CA86C00C10B40 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = D68C3BEA236CA86900C10B40;
+					};
+					D68C3C0B236CA86C00C10B40 = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = D68C3BEA236CA86900C10B40;
+					};
+				};
+			};
+			buildConfigurationList = D68C3BE6236CA86900C10B40 /* Build configuration list for PBXProject "Cram" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D68C3BE2236CA86900C10B40;
+			productRefGroup = D68C3BEC236CA86900C10B40 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D68C3BEA236CA86900C10B40 /* Cram */,
+				D68C3C00236CA86C00C10B40 /* CramTests */,
+				D68C3C0B236CA86C00C10B40 /* CramUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D68C3BE9236CA86900C10B40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */,
+				D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */,
+				D68C3BF6236CA86900C10B40 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3BFF236CA86C00C10B40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3C0A236CA86C00C10B40 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D68C3BE7236CA86900C10B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */,
+				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,
+				D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3BFD236CA86C00C10B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68C3C06236CA86C00C10B40 /* CramTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D68C3C08236CA86C00C10B40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D68C3C11236CA86C00C10B40 /* CramUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D68C3C03236CA86C00C10B40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68C3BEA236CA86900C10B40 /* Cram */;
+			targetProxy = D68C3C02236CA86C00C10B40 /* PBXContainerItemProxy */;
+		};
+		D68C3C0E236CA86C00C10B40 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68C3BEA236CA86900C10B40 /* Cram */;
+			targetProxy = D68C3C0D236CA86C00C10B40 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D68C3BF4236CA86900C10B40 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D68C3BF5236CA86900C10B40 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D68C3BFA236CA86C00C10B40 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D68C3C13236CA86C00C10B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D68C3C14236CA86C00C10B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D68C3C16236CA86C00C10B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = Cram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.Cram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D68C3C17236CA86C00C10B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = Cram/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.Cram;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D68C3C19236CA86C00C10B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = CramTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.CramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cram.app/Cram";
+			};
+			name = Debug;
+		};
+		D68C3C1A236CA86C00C10B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = CramTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.CramTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cram.app/Cram";
+			};
+			name = Release;
+		};
+		D68C3C1C236CA86C00C10B40 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = CramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.CramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cram;
+			};
+			name = Debug;
+		};
+		D68C3C1D236CA86C00C10B40 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				INFOPLIST_FILE = CramUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mert.CramUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Cram;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D68C3BE6236CA86900C10B40 /* Build configuration list for PBXProject "Cram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68C3C13236CA86C00C10B40 /* Debug */,
+				D68C3C14236CA86C00C10B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68C3C15236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "Cram" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68C3C16236CA86C00C10B40 /* Debug */,
+				D68C3C17236CA86C00C10B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68C3C18236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68C3C19236CA86C00C10B40 /* Debug */,
+				D68C3C1A236CA86C00C10B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D68C3C1B236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D68C3C1C236CA86C00C10B40 /* Debug */,
+				D68C3C1D236CA86C00C10B40 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D68C3BE3236CA86900C10B40 /* Project object */;
+}
