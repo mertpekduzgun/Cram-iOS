@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 enum TextFieldsViewType {
     case name
@@ -42,7 +43,7 @@ class TextFieldView: BaseView {
         bottomLine.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-    public func setUnderlineColor(color: UIColor = .cramBlue) {
+    public func setUnderlineColor(color: UIColor = UIColor.flatSkyBlueColorDark()) {
         bottomLine.backgroundColor = color
     }
     
@@ -72,7 +73,7 @@ private func setupType() {
 extension TextFieldView: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         UIView.animate(withDuration: 0.1) {
-            self.bottomLine.backgroundColor = UIColor.blue
+            self.bottomLine.backgroundColor = UIColor.flatSkyBlueColorDark()
             self.bottomLine.alpha = 0.50
         }
     }

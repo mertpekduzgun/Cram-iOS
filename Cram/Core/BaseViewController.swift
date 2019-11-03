@@ -8,6 +8,21 @@
 
 import UIKit
 
+enum NavigationLeft {
+    case whiteBack
+    case hidden
+}
+
+enum NavigationTitle {
+    case logo
+    case hidden
+}
+
+enum NavigationBackground {
+    case white
+    case blue
+}
+
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     class var reuseIdentifier: String {
@@ -43,33 +58,37 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
 
     }
     
-    func initialUI(navigationBarTitleIsImage: Bool = false, navigationBarLeft: String?, navigationBarRight: String? = nil) {
-        if navigationBarTitleIsImage {
-            let titleImage = UIImage(named: "") // TODO: Logo Yükle
-            let titleImageView = UIImageView(image: titleImage)
-            self.navigationItem.titleView = titleImageView
-        } else {
-            self.navigationItem.title = title
-        }
-        
+    func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBackground: NavigationBackground) {
         let navigationBarLeftButton = UIBarButtonItem()
-        if navigationBarLeft != nil {
-            navigationBarLeftButton.image = UIImage(named: navigationBarLeft!)
+        switch navigationBarLeft {
+        case .whiteBack:
+            navigationBarLeftButton.image = UIImage(named: "back")
             self.navigationItem.leftBarButtonItem = navigationBarLeftButton
-            self.navigationItem.leftBarButtonItem?.target =  self
-            navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed)
-        } else {
+            self.navigationItem.leftBarButtonItem?.target = self
+            navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
+        case .hidden:
+            self.navigationItem.leftBarButtonItem = nil
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
         }
         
+        switch navigationTitle {
+        case .logo:
+            let titleImageView = UIImageView(image: UIImage(named: "isik"))
+            self.navigationItem.titleView = titleImageView
+        case .hidden:
+            self.navigationItem.titleView = nil
+
+        }
         
-        self.view.backgroundColor = .white
-        navigationController?.navigationBar.backgroundColor = UIColor.red
-        navigationController?.navigationBar.barTintColor = UIColor.red
-        navigationController?.navigationBar.tintColor = UIColor.red
-        self.view.backgroundColor = UIColor.red
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white,
-                                                                   NSAttributedString.Key.font : UIFont.montserratMedium(ofsize: 18)]
+        switch navigationBackground {
+        case .blue:
+            self.navigationController?.navigationBar.barTintColor = UIColor.flatSkyBlueColorDark()
+            self.navigationController?.navigationBar.backgroundColor = UIColor.flatSkyBlueColorDark()
+        case .white:
+            self.navigationController?.navigationBar.barTintColor = UIColor.white
+            self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        }
+        
         statusBarStyle = UIStatusBarStyle.lightContent
     }
     

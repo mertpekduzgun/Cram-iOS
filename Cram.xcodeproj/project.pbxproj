@@ -10,6 +10,12 @@
 		67217846FF24F8A91CAFA061 /* Pods_Cram_CramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */; };
 		BD0376C24F27CFE06B7A94AC /* Pods_Cram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */; };
 		D111E934002C1F3512CB772D /* Pods_CramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */; };
+		D665B6C2236F2D9C00CAE65E /* Course.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D665B6C1236F2D9B00CAE65E /* Course.storyboard */; };
+		D665B6C6236F2F9200CAE65E /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */; };
+		D665B6C8236F302A00CAE65E /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6C7236F302A00CAE65E /* ClassViewController.swift */; };
+		D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D665B6C9236F3B3100CAE65E /* Colors.xcassets */; };
+		D665B6CC236F59C200CAE65E /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D665B6CB236F59C200CAE65E /* Tabbar.storyboard */; };
+		D665B6CE236F5A0600CAE65E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6CD236F5A0600CAE65E /* TabbarViewController.swift */; };
 		D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BEE236CA86900C10B40 /* AppDelegate.swift */; };
 		D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */; };
 		D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF2236CA86900C10B40 /* ViewController.swift */; };
@@ -61,6 +67,46 @@
 		8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.release.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.release.xcconfig"; sourceTree = "<group>"; };
 		C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CramTests.debug.xcconfig"; path = "Target Support Files/Pods-CramTests/Pods-CramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D665B6C1236F2D9B00CAE65E /* Course.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Course.storyboard; sourceTree = "<group>"; };
+		D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
+		D665B6C7236F302A00CAE65E /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		D665B6C9236F3B3100CAE65E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		D665B6CB236F59C200CAE65E /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
+		D665B6CD236F5A0600CAE65E /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		D665B6D1236F5DE900CAE65E /* ColorExtensions.swift */ = {isa = PBXFileReference; name = ColorExtensions.swift; path = Sources/SwifterSwift/Shared/ColorExtensions.swift; sourceTree = "<group>"; };
+		D665B6D2236F5DE900CAE65E /* UIActivityExtensions.swift */ = {isa = PBXFileReference; name = UIActivityExtensions.swift; path = Sources/SwifterSwift/UIKit/UIActivityExtensions.swift; sourceTree = "<group>"; };
+		D665B6D3236F5DE900CAE65E /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; name = UIAlertControllerExtensions.swift; path = Sources/SwifterSwift/UIKit/UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
+		D665B6D4236F5DE900CAE65E /* UIApplicationExtensions.swift */ = {isa = PBXFileReference; name = UIApplicationExtensions.swift; path = Sources/SwifterSwift/UIKit/UIApplicationExtensions.swift; sourceTree = "<group>"; };
+		D665B6D5236F5DE900CAE65E /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; name = UIBarButtonItemExtensions.swift; path = Sources/SwifterSwift/UIKit/UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
+		D665B6D6236F5DE900CAE65E /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; name = UIBezierPathExtensions.swift; path = Sources/SwifterSwift/UIKit/UIBezierPathExtensions.swift; sourceTree = "<group>"; };
+		D665B6D7236F5DE900CAE65E /* UIButtonExtensions.swift */ = {isa = PBXFileReference; name = UIButtonExtensions.swift; path = Sources/SwifterSwift/UIKit/UIButtonExtensions.swift; sourceTree = "<group>"; };
+		D665B6D8236F5DE900CAE65E /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; name = UICollectionViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6D9236F5DE900CAE65E /* UIDatePickerExtensions.swift */ = {isa = PBXFileReference; name = UIDatePickerExtensions.swift; path = Sources/SwifterSwift/UIKit/UIDatePickerExtensions.swift; sourceTree = "<group>"; };
+		D665B6DA236F5DE900CAE65E /* UIEdgeInsetsExtensions.swift */ = {isa = PBXFileReference; name = UIEdgeInsetsExtensions.swift; path = Sources/SwifterSwift/UIKit/UIEdgeInsetsExtensions.swift; sourceTree = "<group>"; };
+		D665B6DB236F5DE900CAE65E /* UIFontExtensions.swift */ = {isa = PBXFileReference; name = UIFontExtensions.swift; path = Sources/SwifterSwift/UIKit/UIFontExtensions.swift; sourceTree = "<group>"; };
+		D665B6DC236F5DE900CAE65E /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; name = UIGestureRecognizerExtensions.swift; path = Sources/SwifterSwift/UIKit/UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
+		D665B6DD236F5DE900CAE65E /* UIImageExtensions.swift */ = {isa = PBXFileReference; name = UIImageExtensions.swift; path = Sources/SwifterSwift/UIKit/UIImageExtensions.swift; sourceTree = "<group>"; };
+		D665B6DE236F5DE900CAE65E /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; name = UIImageViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6DF236F5DE900CAE65E /* UILabelExtensions.swift */ = {isa = PBXFileReference; name = UILabelExtensions.swift; path = Sources/SwifterSwift/UIKit/UILabelExtensions.swift; sourceTree = "<group>"; };
+		D665B6E0236F5DE900CAE65E /* UILayoutPriorityExtensions.swift */ = {isa = PBXFileReference; name = UILayoutPriorityExtensions.swift; path = Sources/SwifterSwift/UIKit/UILayoutPriorityExtensions.swift; sourceTree = "<group>"; };
+		D665B6E1236F5DE900CAE65E /* UINavigationBarExtensions.swift */ = {isa = PBXFileReference; name = UINavigationBarExtensions.swift; path = Sources/SwifterSwift/UIKit/UINavigationBarExtensions.swift; sourceTree = "<group>"; };
+		D665B6E2236F5DE900CAE65E /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; name = UINavigationControllerExtensions.swift; path = Sources/SwifterSwift/UIKit/UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		D665B6E3236F5DE900CAE65E /* UINavigationItemExtensions.swift */ = {isa = PBXFileReference; name = UINavigationItemExtensions.swift; path = Sources/SwifterSwift/UIKit/UINavigationItemExtensions.swift; sourceTree = "<group>"; };
+		D665B6E4236F5DE900CAE65E /* UIRefreshControlExtensions.swift */ = {isa = PBXFileReference; name = UIRefreshControlExtensions.swift; path = Sources/SwifterSwift/UIKit/UIRefreshControlExtensions.swift; sourceTree = "<group>"; };
+		D665B6E5236F5DE900CAE65E /* UIScrollViewExtensions.swift */ = {isa = PBXFileReference; name = UIScrollViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UIScrollViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6E6236F5DE900CAE65E /* UISearchBarExtensions.swift */ = {isa = PBXFileReference; name = UISearchBarExtensions.swift; path = Sources/SwifterSwift/UIKit/UISearchBarExtensions.swift; sourceTree = "<group>"; };
+		D665B6E7236F5DE900CAE65E /* UISegmentedControlExtensions.swift */ = {isa = PBXFileReference; name = UISegmentedControlExtensions.swift; path = Sources/SwifterSwift/UIKit/UISegmentedControlExtensions.swift; sourceTree = "<group>"; };
+		D665B6E8236F5DE900CAE65E /* UISliderExtensions.swift */ = {isa = PBXFileReference; name = UISliderExtensions.swift; path = Sources/SwifterSwift/UIKit/UISliderExtensions.swift; sourceTree = "<group>"; };
+		D665B6E9236F5DE900CAE65E /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; name = UIStackViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UIStackViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6EA236F5DE900CAE65E /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIStoryboardExtensions.swift; path = Sources/SwifterSwift/UIKit/UIStoryboardExtensions.swift; sourceTree = "<group>"; };
+		D665B6EB236F5DE900CAE65E /* UISwitchExtensions.swift */ = {isa = PBXFileReference; name = UISwitchExtensions.swift; path = Sources/SwifterSwift/UIKit/UISwitchExtensions.swift; sourceTree = "<group>"; };
+		D665B6EC236F5DE900CAE65E /* UITabBarExtensions.swift */ = {isa = PBXFileReference; name = UITabBarExtensions.swift; path = Sources/SwifterSwift/UIKit/UITabBarExtensions.swift; sourceTree = "<group>"; };
+		D665B6ED236F5DE900CAE65E /* UITableViewExtensions.swift */ = {isa = PBXFileReference; name = UITableViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UITableViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6EE236F5DE900CAE65E /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; name = UITextFieldExtensions.swift; path = Sources/SwifterSwift/UIKit/UITextFieldExtensions.swift; sourceTree = "<group>"; };
+		D665B6EF236F5DE900CAE65E /* UITextViewExtensions.swift */ = {isa = PBXFileReference; name = UITextViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UITextViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6F0236F5DE900CAE65E /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; name = UIViewControllerExtensions.swift; path = Sources/SwifterSwift/UIKit/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		D665B6F1236F5DE900CAE65E /* UIViewExtensions.swift */ = {isa = PBXFileReference; name = UIViewExtensions.swift; path = Sources/SwifterSwift/UIKit/UIViewExtensions.swift; sourceTree = "<group>"; };
+		D665B6F2236F5DE900CAE65E /* UIWindowExtensions.swift */ = {isa = PBXFileReference; name = UIWindowExtensions.swift; path = Sources/SwifterSwift/UIKit/UIWindowExtensions.swift; sourceTree = "<group>"; };
 		D68C3BEB236CA86900C10B40 /* Cram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C3BEE236CA86900C10B40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +188,48 @@
 				8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D665B6F3236F5DE900CAE65E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				D665B6D1236F5DE900CAE65E /* ColorExtensions.swift */,
+				D665B6D2236F5DE900CAE65E /* UIActivityExtensions.swift */,
+				D665B6D3236F5DE900CAE65E /* UIAlertControllerExtensions.swift */,
+				D665B6D4236F5DE900CAE65E /* UIApplicationExtensions.swift */,
+				D665B6D5236F5DE900CAE65E /* UIBarButtonItemExtensions.swift */,
+				D665B6D6236F5DE900CAE65E /* UIBezierPathExtensions.swift */,
+				D665B6D7236F5DE900CAE65E /* UIButtonExtensions.swift */,
+				D665B6D8236F5DE900CAE65E /* UICollectionViewExtensions.swift */,
+				D665B6D9236F5DE900CAE65E /* UIDatePickerExtensions.swift */,
+				D665B6DA236F5DE900CAE65E /* UIEdgeInsetsExtensions.swift */,
+				D665B6DB236F5DE900CAE65E /* UIFontExtensions.swift */,
+				D665B6DC236F5DE900CAE65E /* UIGestureRecognizerExtensions.swift */,
+				D665B6DD236F5DE900CAE65E /* UIImageExtensions.swift */,
+				D665B6DE236F5DE900CAE65E /* UIImageViewExtensions.swift */,
+				D665B6DF236F5DE900CAE65E /* UILabelExtensions.swift */,
+				D665B6E0236F5DE900CAE65E /* UILayoutPriorityExtensions.swift */,
+				D665B6E1236F5DE900CAE65E /* UINavigationBarExtensions.swift */,
+				D665B6E2236F5DE900CAE65E /* UINavigationControllerExtensions.swift */,
+				D665B6E3236F5DE900CAE65E /* UINavigationItemExtensions.swift */,
+				D665B6E4236F5DE900CAE65E /* UIRefreshControlExtensions.swift */,
+				D665B6E5236F5DE900CAE65E /* UIScrollViewExtensions.swift */,
+				D665B6E6236F5DE900CAE65E /* UISearchBarExtensions.swift */,
+				D665B6E7236F5DE900CAE65E /* UISegmentedControlExtensions.swift */,
+				D665B6E8236F5DE900CAE65E /* UISliderExtensions.swift */,
+				D665B6E9236F5DE900CAE65E /* UIStackViewExtensions.swift */,
+				D665B6EA236F5DE900CAE65E /* UIStoryboardExtensions.swift */,
+				D665B6EB236F5DE900CAE65E /* UISwitchExtensions.swift */,
+				D665B6EC236F5DE900CAE65E /* UITabBarExtensions.swift */,
+				D665B6ED236F5DE900CAE65E /* UITableViewExtensions.swift */,
+				D665B6EE236F5DE900CAE65E /* UITextFieldExtensions.swift */,
+				D665B6EF236F5DE900CAE65E /* UITextViewExtensions.swift */,
+				D665B6F0236F5DE900CAE65E /* UIViewControllerExtensions.swift */,
+				D665B6F1236F5DE900CAE65E /* UIViewExtensions.swift */,
+				D665B6F2236F5DE900CAE65E /* UIWindowExtensions.swift */,
+			);
+			name = UIKit;
+			path = SwifterSwift;
 			sourceTree = "<group>";
 		};
 		D68C3BE2236CA86900C10B40 = {
@@ -246,6 +334,9 @@
 		D6DF659E236CD872008EFB07 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				D665B6C1236F2D9B00CAE65E /* Course.storyboard */,
+				D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */,
+				D665B6C7236F302A00CAE65E /* ClassViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -267,6 +358,8 @@
 		D6DF65A1236CD9DA008EFB07 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				D665B6CB236F59C200CAE65E /* Tabbar.storyboard */,
+				D665B6CD236F5A0600CAE65E /* TabbarViewController.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -277,6 +370,7 @@
 				D6DF65AD236DBEC5008EFB07 /* AppIcons */,
 				D6DF65AC236DBEB3008EFB07 /* Language */,
 				D6DF65AB236DBE9A008EFB07 /* Fonts */,
+				D665B6C9236F3B3100CAE65E /* Colors.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -319,6 +413,7 @@
 		D6DF65BF236DD53B008EFB07 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D665B6F3236F5DE900CAE65E /* UIKit */,
 				D6DF65C0236DD586008EFB07 /* UIColor+Additions.swift */,
 				D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */,
 			);
@@ -444,12 +539,15 @@
 			files = (
 				D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */,
 				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
+				D665B6CC236F59C200CAE65E /* Tabbar.storyboard in Resources */,
 				D6DF65B6236DC32E008EFB07 /* Montserrat-Regular.ttf in Resources */,
 				D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */,
 				D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */,
 				D6DF65A9236CDC81008EFB07 /* GoogleService-Info.plist in Resources */,
+				D665B6C2236F2D9C00CAE65E /* Course.storyboard in Resources */,
 				D6DF65B4236DC32E008EFB07 /* Montserrat-Medium.ttf in Resources */,
 				D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */,
+				D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */,
 				D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */,
 				D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */,
 			);
@@ -579,10 +677,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D665B6C6236F2F9200CAE65E /* DepartmentViewController.swift in Sources */,
 				D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */,
+				D665B6CE236F5A0600CAE65E /* TabbarViewController.swift in Sources */,
 				D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */,
 				D6DF65BA236DCD3C008EFB07 /* TextFieldView.swift in Sources */,
 				D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */,
+				D665B6C8236F302A00CAE65E /* ClassViewController.swift in Sources */,
 				D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */,
 				D6DF65BE236DCED0008EFB07 /* BaseViewController.swift in Sources */,
 				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ChameleonFramework
 
 class LoginViewController: BaseViewController {
     
@@ -16,6 +17,7 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
         emailTextField.textFieldType = .email
         passwordTextField.textFieldType = .password
     }

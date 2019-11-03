@@ -19,6 +19,7 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
         nameTextField.textFieldType = .name
         emailTextField.textFieldType = .email
         passwordTextField.textFieldType = .password

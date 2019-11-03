@@ -34,14 +34,14 @@
                                 <rect key="frame" x="25" y="251" width="364" height="62.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FULL NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be0-NV-WSh">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.5"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-Bh-gg1" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="12.5" width="364" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -62,14 +62,14 @@
                                 <rect key="frame" x="25" y="333.5" width="364" height="62.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US2-Y2-gMy">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.5"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsC-fO-3mi" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="12.5" width="364" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -91,14 +91,14 @@
                                 <rect key="frame" x="25" y="416" width="364" height="62.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-9R-f5F">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.5"/>
                                         <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-Dy-vA9" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <rect key="frame" x="0.0" y="12.5" width="364" height="50"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                 </subviews>
@@ -118,7 +118,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34G-Jf-b51">
                                 <rect key="frame" x="25" y="518.5" width="364" height="48"/>
-                                <color key="backgroundColor" red="0.32025778290000001" green="0.58743816609999999" blue="0.83532339330000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.2644457221" green="0.49400484560000002" blue="0.70590740439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="N4D-CM-wOw"/>
                                 </constraints>
@@ -130,16 +130,16 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Di-k5-WO7">
-                                <rect key="frame" x="107.5" y="586.5" width="199" height="28"/>
+                                <rect key="frame" x="97" y="586.5" width="220.5" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aj-oz-ton">
-                                        <rect key="frame" x="0.0" y="0.0" width="151" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="28"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehA-mo-0Xx">
-                                        <rect key="frame" x="159" y="0.0" width="40" height="28"/>
+                                        <rect key="frame" x="175.5" y="0.0" width="45" height="28"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
                                         <state key="normal" title="Sign in"/>
                                         <connections>
@@ -267,7 +267,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ne-se-sdd">
                                 <rect key="frame" x="25" y="486" width="364" height="48"/>
-                                <color key="backgroundColor" red="0.32025778290000001" green="0.58743816609999999" blue="0.83532339330000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.2644457221" green="0.49400484560000002" blue="0.70590740439999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="GN9-B9-zn4"/>
                                 </constraints>
