@@ -3,18 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67217846FF24F8A91CAFA061 /* Pods_Cram_CramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */; };
+		BD0376C24F27CFE06B7A94AC /* Pods_Cram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */; };
+		D111E934002C1F3512CB772D /* Pods_CramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */; };
 		D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BEE236CA86900C10B40 /* AppDelegate.swift */; };
 		D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */; };
 		D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3BF2236CA86900C10B40 /* ViewController.swift */; };
-		D68C3BF6236CA86900C10B40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF4236CA86900C10B40 /* Main.storyboard */; };
 		D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF7236CA86C00C10B40 /* Assets.xcassets */; };
 		D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */; };
 		D68C3C06236CA86C00C10B40 /* CramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C05236CA86C00C10B40 /* CramTests.swift */; };
 		D68C3C11236CA86C00C10B40 /* CramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C10236CA86C00C10B40 /* CramUITests.swift */; };
+		D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65A2236CDA41008EFB07 /* Auth.storyboard */; };
+		D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */; };
+		D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */; };
+		D6DF65A9236CDC81008EFB07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65A8236CDC81008EFB07 /* GoogleService-Info.plist */; };
+		D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65AE236DBEFF008EFB07 /* Cram.xcassets */; };
+		D6DF65B4236DC32E008EFB07 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65B1236DC32D008EFB07 /* Montserrat-Medium.ttf */; };
+		D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65B2236DC32E008EFB07 /* Montserrat-SemiBold.ttf */; };
+		D6DF65B6236DC32E008EFB07 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65B3236DC32E008EFB07 /* Montserrat-Regular.ttf */; };
+		D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65B7236DCCA6008EFB07 /* TextFieldView.xib */; };
+		D6DF65BA236DCD3C008EFB07 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65B9236DCD3B008EFB07 /* TextFieldView.swift */; };
+		D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65BB236DCE4D008EFB07 /* BaseView.swift */; };
+		D6DF65BE236DCED0008EFB07 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65BD236DCED0008EFB07 /* BaseViewController.swift */; };
+		D6DF65C1236DD586008EFB07 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C0236DD586008EFB07 /* UIColor+Additions.swift */; };
+		D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */; };
+		D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */; };
+		D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +53,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E3588E1D1B8D95114C02A6A /* Pods-Cram-CramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram-CramUITests.release.xcconfig"; path = "Target Support Files/Pods-Cram-CramUITests/Pods-Cram-CramUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cram_CramUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		695B7F5EBB0CAAD7FE108A13 /* Pods-CramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CramTests.release.xcconfig"; path = "Target Support Files/Pods-CramTests/Pods-CramTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DD764D5855F2CA527D1EA3B /* Pods-Cram-CramUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram-CramUITests.debug.xcconfig"; path = "Target Support Files/Pods-Cram-CramUITests/Pods-Cram-CramUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.release.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.release.xcconfig"; sourceTree = "<group>"; };
+		C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CramTests.debug.xcconfig"; path = "Target Support Files/Pods-CramTests/Pods-CramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D68C3BEB236CA86900C10B40 /* Cram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C3BEE236CA86900C10B40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D68C3BF2236CA86900C10B40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D68C3BF5236CA86900C10B40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D68C3BF7236CA86C00C10B40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D68C3BFA236CA86C00C10B40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D68C3BFC236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +74,23 @@
 		D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C3C10236CA86C00C10B40 /* CramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CramUITests.swift; sourceTree = "<group>"; };
 		D68C3C12236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6DF65A2236CDA41008EFB07 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D6DF65A8236CDC81008EFB07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D6DF65AE236DBEFF008EFB07 /* Cram.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Cram.xcassets; sourceTree = "<group>"; };
+		D6DF65B1236DC32D008EFB07 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D6DF65B2236DC32E008EFB07 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		D6DF65B3236DC32E008EFB07 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D6DF65B7236DCCA6008EFB07 /* TextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldView.xib; sourceTree = "<group>"; };
+		D6DF65B9236DCD3B008EFB07 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D6DF65BB236DCE4D008EFB07 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D6DF65BD236DCED0008EFB07 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D6DF65C0236DD586008EFB07 /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableStackView.swift; sourceTree = "<group>"; };
+		DAEC3AD53BA3F01E41EE345E /* Pods-Cram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.debug.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD0376C24F27CFE06B7A94AC /* Pods_Cram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D111E934002C1F3512CB772D /* Pods_CramTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +114,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67217846FF24F8A91CAFA061 /* Pods_Cram_CramUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59ED37D9C37542CC764CE232 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAEC3AD53BA3F01E41EE345E /* Pods-Cram.debug.xcconfig */,
+				C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */,
+				6DD764D5855F2CA527D1EA3B /* Pods-Cram-CramUITests.debug.xcconfig */,
+				0E3588E1D1B8D95114C02A6A /* Pods-Cram-CramUITests.release.xcconfig */,
+				C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */,
+				695B7F5EBB0CAAD7FE108A13 /* Pods-CramTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7BAE77A78FE0B521B500DFFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */,
+				3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */,
+				8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D68C3BE2236CA86900C10B40 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +151,8 @@
 				D68C3C04236CA86C00C10B40 /* CramTests */,
 				D68C3C0F236CA86C00C10B40 /* CramUITests */,
 				D68C3BEC236CA86900C10B40 /* Products */,
+				59ED37D9C37542CC764CE232 /* Pods */,
+				7BAE77A78FE0B521B500DFFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +169,18 @@
 		D68C3BED236CA86900C10B40 /* Cram */ = {
 			isa = PBXGroup;
 			children = (
+				D6DF65BF236DD53B008EFB07 /* Extensions */,
+				D6DF65AA236DBE82008EFB07 /* Supporting Files */,
+				D6DF659C236CD7D5008EFB07 /* Core */,
+				D6DF659B236CD7C6008EFB07 /* Scenes */,
+				D6DF659A236CD7B9008EFB07 /* Custom Views */,
 				D68C3BEE236CA86900C10B40 /* AppDelegate.swift */,
 				D68C3BF0236CA86900C10B40 /* SceneDelegate.swift */,
 				D68C3BF2236CA86900C10B40 /* ViewController.swift */,
-				D68C3BF4236CA86900C10B40 /* Main.storyboard */,
 				D68C3BF7236CA86C00C10B40 /* Assets.xcassets */,
 				D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */,
 				D68C3BFC236CA86C00C10B40 /* Info.plist */,
+				D6DF65A8236CDC81008EFB07 /* GoogleService-Info.plist */,
 			);
 			path = Cram;
 			sourceTree = "<group>";
@@ -128,6 +203,136 @@
 			path = CramUITests;
 			sourceTree = "<group>";
 		};
+		D6DF659A236CD7B9008EFB07 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65C6236DDE41008EFB07 /* StackView */,
+				D6DF65B0236DBF79008EFB07 /* TextField */,
+				D6DF65A1236CD9DA008EFB07 /* Tabbar */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		D6DF659B236CD7C6008EFB07 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF659D236CD86B008EFB07 /* Auth */,
+				D6DF659E236CD872008EFB07 /* Course */,
+				D6DF65A0236CD960008EFB07 /* Chat */,
+				D6DF659F236CD8A2008EFB07 /* Account */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D6DF659C236CD7D5008EFB07 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65BB236DCE4D008EFB07 /* BaseView.swift */,
+				D6DF65BD236DCED0008EFB07 /* BaseViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		D6DF659D236CD86B008EFB07 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65A2236CDA41008EFB07 /* Auth.storyboard */,
+				D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */,
+				D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		D6DF659E236CD872008EFB07 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		D6DF659F236CD8A2008EFB07 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		D6DF65A0236CD960008EFB07 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		D6DF65A1236CD9DA008EFB07 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		D6DF65AA236DBE82008EFB07 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65AD236DBEC5008EFB07 /* AppIcons */,
+				D6DF65AC236DBEB3008EFB07 /* Language */,
+				D6DF65AB236DBE9A008EFB07 /* Fonts */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6DF65AB236DBE9A008EFB07 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65B1236DC32D008EFB07 /* Montserrat-Medium.ttf */,
+				D6DF65B3236DC32E008EFB07 /* Montserrat-Regular.ttf */,
+				D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */,
+				D6DF65B2236DC32E008EFB07 /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D6DF65AC236DBEB3008EFB07 /* Language */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Language;
+			sourceTree = "<group>";
+		};
+		D6DF65AD236DBEC5008EFB07 /* AppIcons */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65AE236DBEFF008EFB07 /* Cram.xcassets */,
+			);
+			path = AppIcons;
+			sourceTree = "<group>";
+		};
+		D6DF65B0236DBF79008EFB07 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65B7236DCCA6008EFB07 /* TextFieldView.xib */,
+				D6DF65B9236DCD3B008EFB07 /* TextFieldView.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		D6DF65BF236DD53B008EFB07 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65C0236DD586008EFB07 /* UIColor+Additions.swift */,
+				D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D6DF65C6236DDE41008EFB07 /* StackView */ = {
+			isa = PBXGroup;
+			children = (
+				D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */,
+			);
+			path = StackView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +340,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D68C3C15236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "Cram" */;
 			buildPhases = (
+				989738FD9DF90B0B7CF59DFA /* [CP] Check Pods Manifest.lock */,
 				D68C3BE7236CA86900C10B40 /* Sources */,
 				D68C3BE8236CA86900C10B40 /* Frameworks */,
 				D68C3BE9236CA86900C10B40 /* Resources */,
+				5A9B8EF929A4BA9B98219BE0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +359,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D68C3C18236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramTests" */;
 			buildPhases = (
+				714DF845E0B576E3E6A4261E /* [CP] Check Pods Manifest.lock */,
 				D68C3BFD236CA86C00C10B40 /* Sources */,
 				D68C3BFE236CA86C00C10B40 /* Frameworks */,
 				D68C3BFF236CA86C00C10B40 /* Resources */,
@@ -170,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D68C3C1B236CA86C00C10B40 /* Build configuration list for PBXNativeTarget "CramUITests" */;
 			buildPhases = (
+				03BB6EC6AA2D925CC3A38B34 /* [CP] Check Pods Manifest.lock */,
 				D68C3C08236CA86C00C10B40 /* Sources */,
 				D68C3C09236CA86C00C10B40 /* Frameworks */,
 				D68C3C0A236CA86C00C10B40 /* Resources */,
+				6DF8B392097F999FFC7700D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,9 +442,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */,
+				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
+				D6DF65B6236DC32E008EFB07 /* Montserrat-Regular.ttf in Resources */,
+				D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */,
 				D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */,
+				D6DF65A9236CDC81008EFB07 /* GoogleService-Info.plist in Resources */,
+				D6DF65B4236DC32E008EFB07 /* Montserrat-Medium.ttf in Resources */,
 				D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */,
-				D68C3BF6236CA86900C10B40 /* Main.storyboard in Resources */,
+				D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */,
+				D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +471,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03BB6EC6AA2D925CC3A38B34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cram-CramUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A9B8EF929A4BA9B98219BE0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cram/Pods-Cram-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cram/Pods-Cram-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cram/Pods-Cram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DF8B392097F999FFC7700D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cram-CramUITests/Pods-Cram-CramUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cram-CramUITests/Pods-Cram-CramUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cram-CramUITests/Pods-Cram-CramUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		714DF845E0B576E3E6A4261E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CramTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		989738FD9DF90B0B7CF59DFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cram-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D68C3BE7236CA86900C10B40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */,
+				D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */,
+				D6DF65BA236DCD3C008EFB07 /* TextFieldView.swift in Sources */,
 				D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */,
+				D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */,
+				D6DF65BE236DCED0008EFB07 /* BaseViewController.swift in Sources */,
 				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,
 				D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */,
+				D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */,
+				D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */,
+				D6DF65C1236DD586008EFB07 /* UIColor+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +625,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D68C3BF4236CA86900C10B40 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D68C3BF5236CA86900C10B40 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,6 +752,7 @@
 		};
 		D68C3C16236CA86C00C10B40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAEC3AD53BA3F01E41EE345E /* Pods-Cram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +771,7 @@
 		};
 		D68C3C17236CA86C00C10B40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +790,7 @@
 		};
 		D68C3C19236CA86C00C10B40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +813,7 @@
 		};
 		D68C3C1A236CA86C00C10B40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 695B7F5EBB0CAAD7FE108A13 /* Pods-CramTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +836,7 @@
 		};
 		D68C3C1C236CA86C00C10B40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DD764D5855F2CA527D1EA3B /* Pods-Cram-CramUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +857,7 @@
 		};
 		D68C3C1D236CA86C00C10B40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E3588E1D1B8D95114C02A6A /* Pods-Cram-CramUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

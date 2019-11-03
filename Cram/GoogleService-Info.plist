@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>275482592654-39oiedm1o0fdtt1ppo6kreb9d6d0fquv.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.275482592654-39oiedm1o0fdtt1ppo6kreb9d6d0fquv</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBOwmA0TVVsa2jAbTz_RY7APfzRVe6oUaE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>275482592654</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mert.Cram</string>
+	<key>PROJECT_ID</key>
+	<string>isik-cram</string>
+	<key>STORAGE_BUCKET</key>
+	<string>isik-cram.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:275482592654:ios:ce52b5366dee3c49add0df</string>
+	<key>DATABASE_URL</key>
+	<string>https://isik-cram.firebaseio.com</string>
+</dict>
+</plist>

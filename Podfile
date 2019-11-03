@@ -6,6 +6,14 @@ target 'Cram' do
   use_frameworks!
 
   # Pods for Cram
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'SVProgressHUD'
+  pod 'ChameleonFramework'
+  pod 'MessageKit'
+  pod 'SwifterSwift/UIKit'
+  pod 'SwifterSwift/Foundation'
 
   target 'CramTests' do
     inherit! :search_paths

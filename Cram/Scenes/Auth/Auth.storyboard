@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iFb-Om-kRP">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Register View Controller-->
+        <scene sceneID="yLv-s1-GQW">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="pfy-Jo-g1t" customClass="RegisterViewController" customModule="Cram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nu5-qd-Dyd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d0r-fG-28f">
+                                <rect key="frame" x="157" y="116" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="DZX-qD-nw1"/>
+                                    <constraint firstAttribute="width" constant="100" id="bib-tZ-lfh"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6TB-Pg-11E" customClass="DesignableStackView" customModule="Cram" customModuleProvider="target">
+                                <rect key="frame" x="25" y="251" width="364" height="62.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FULL NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Be0-NV-WSh">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rt3-Bh-gg1" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="zEd-n8-iz1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundCGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zMU-20-F7W" customClass="DesignableStackView" customModule="Cram" customModuleProvider="target">
+                                <rect key="frame" x="25" y="333.5" width="364" height="62.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US2-Y2-gMy">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsC-fO-3mi" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="084-9s-ely"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="335" id="hcI-sp-c3x"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundCGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BmB-ZN-KC7" customClass="DesignableStackView" customModule="Cram" customModuleProvider="target">
+                                <rect key="frame" x="25" y="416" width="364" height="62.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HOJ-9R-f5F">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iq2-Dy-vA9" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12" width="364" height="50.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="Ybx-cU-8wU"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="335" id="lHu-YP-ozo"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundCGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34G-Jf-b51">
+                                <rect key="frame" x="25" y="518.5" width="364" height="48"/>
+                                <color key="backgroundColor" red="0.32025778290000001" green="0.58743816609999999" blue="0.83532339330000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="N4D-CM-wOw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="tappedSignUp:" destination="pfy-Jo-g1t" eventType="touchUpInside" id="3u5-ei-qJZ"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Di-k5-WO7">
+                                <rect key="frame" x="107.5" y="586.5" width="199" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7aj-oz-ton">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="28"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehA-mo-0Xx">
+                                        <rect key="frame" x="159" y="0.0" width="40" height="28"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                        <state key="normal" title="Sign in"/>
+                                        <connections>
+                                            <action selector="tappedSignIn:" destination="pfy-Jo-g1t" eventType="touchUpInside" id="N0c-Im-mnc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zoE-bK-iF5" firstAttribute="trailing" secondItem="34G-Jf-b51" secondAttribute="trailing" constant="25" id="1Cc-F4-1gQ"/>
+                            <constraint firstItem="d0r-fG-28f" firstAttribute="centerX" secondItem="nu5-qd-Dyd" secondAttribute="centerX" id="3t8-cn-SXU"/>
+                            <constraint firstItem="zMU-20-F7W" firstAttribute="top" secondItem="6TB-Pg-11E" secondAttribute="bottom" constant="20" id="494-0u-UPy"/>
+                            <constraint firstItem="6TB-Pg-11E" firstAttribute="top" secondItem="d0r-fG-28f" secondAttribute="bottom" constant="35" id="ALl-JX-YyX"/>
+                            <constraint firstItem="BmB-ZN-KC7" firstAttribute="top" secondItem="zMU-20-F7W" secondAttribute="bottom" constant="20" id="E7H-vH-3Uc"/>
+                            <constraint firstItem="BmB-ZN-KC7" firstAttribute="leading" secondItem="zoE-bK-iF5" secondAttribute="leading" constant="25" id="Jtc-yT-oB9"/>
+                            <constraint firstItem="zoE-bK-iF5" firstAttribute="trailing" secondItem="zMU-20-F7W" secondAttribute="trailing" constant="25" id="TZl-ca-FUN"/>
+                            <constraint firstItem="zoE-bK-iF5" firstAttribute="trailing" secondItem="6TB-Pg-11E" secondAttribute="trailing" constant="25" id="V2I-eb-CLT"/>
+                            <constraint firstItem="34G-Jf-b51" firstAttribute="top" secondItem="BmB-ZN-KC7" secondAttribute="bottom" constant="40" id="V5Y-1u-NqI"/>
+                            <constraint firstItem="34G-Jf-b51" firstAttribute="leading" secondItem="zoE-bK-iF5" secondAttribute="leading" constant="25" id="YCO-ng-kX2"/>
+                            <constraint firstItem="d0r-fG-28f" firstAttribute="top" secondItem="zoE-bK-iF5" secondAttribute="top" constant="72" id="YS7-YI-TdZ"/>
+                            <constraint firstItem="zoE-bK-iF5" firstAttribute="trailing" secondItem="BmB-ZN-KC7" secondAttribute="trailing" constant="25" id="fGg-pB-yjg"/>
+                            <constraint firstItem="4Di-k5-WO7" firstAttribute="centerX" secondItem="nu5-qd-Dyd" secondAttribute="centerX" id="itb-PT-Gw7"/>
+                            <constraint firstItem="zMU-20-F7W" firstAttribute="leading" secondItem="zoE-bK-iF5" secondAttribute="leading" constant="25" id="l3e-03-Vr5"/>
+                            <constraint firstItem="6TB-Pg-11E" firstAttribute="leading" secondItem="zoE-bK-iF5" secondAttribute="leading" constant="25" id="n1l-Pc-n9C"/>
+                            <constraint firstItem="4Di-k5-WO7" firstAttribute="top" secondItem="34G-Jf-b51" secondAttribute="bottom" constant="20" id="oqe-Py-JFR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zoE-bK-iF5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="V2m-1b-3TM"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="UsC-fO-3mi" id="sok-eF-paH"/>
+                        <outlet property="nameTextField" destination="rt3-Bh-gg1" id="lox-a6-9Kj"/>
+                        <outlet property="passwordTextField" destination="iq2-Dy-vA9" id="63S-OL-9hz"/>
+                        <outlet property="profileImage" destination="d0r-fG-28f" id="qRB-XJ-YsZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkm-KQ-cEv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2494.202898550725" y="34.821428571428569"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="Ew5-94-iVR">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="ber-Ax-YO1" customClass="LoginViewController" customModule="Cram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9VY-DY-M2W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bhw-p2-RXJ" customClass="DesignableStackView" customModule="Cram" customModuleProvider="target">
+                                <rect key="frame" x="25" y="301" width="364" height="62.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMAIL ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30c-Os-Aqu">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.5"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfT-Og-VEk" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12.5" width="364" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="z66-MD-0DV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundCGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rKo-dE-QPh" customClass="DesignableStackView" customModule="Cram" customModuleProvider="target">
+                                <rect key="frame" x="25" y="383.5" width="364" height="62.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utC-Ax-NsT">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="12.5"/>
+                                        <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ms4-Yv-6Rd" customClass="TextFieldView" customModule="Cram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="12.5" width="364" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62.5" id="5Rb-pH-Wrx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundCGColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="PuB-rh-9dQ">
+                                <rect key="frame" x="119" y="554" width="176.5" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New to Işık Cram?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUq-iV-VSw">
+                                        <rect key="frame" x="0.0" y="0.0" width="117.5" height="28"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVg-nM-RqZ">
+                                        <rect key="frame" x="125.5" y="0.0" width="51" height="28"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
+                                        <state key="normal" title="Sign up"/>
+                                        <connections>
+                                            <action selector="tappedSignUp:" destination="ber-Ax-YO1" eventType="touchUpInside" id="4Ol-os-rqe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ne-se-sdd">
+                                <rect key="frame" x="25" y="486" width="364" height="48"/>
+                                <color key="backgroundColor" red="0.32025778290000001" green="0.58743816609999999" blue="0.83532339330000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="GN9-B9-zn4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Sign in"/>
+                                <connections>
+                                    <action selector="tappedSignIn:" destination="ber-Ax-YO1" eventType="touchUpInside" id="zum-2z-q79"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bhw-p2-RXJ" firstAttribute="leading" secondItem="wyV-is-AuJ" secondAttribute="leading" constant="25" id="83w-zM-w78"/>
+                            <constraint firstItem="wyV-is-AuJ" firstAttribute="trailing" secondItem="rKo-dE-QPh" secondAttribute="trailing" constant="25" id="Dcv-EF-7qU"/>
+                            <constraint firstItem="wyV-is-AuJ" firstAttribute="trailing" secondItem="bhw-p2-RXJ" secondAttribute="trailing" constant="25" id="MiK-lW-w3x"/>
+                            <constraint firstItem="rKo-dE-QPh" firstAttribute="top" secondItem="bhw-p2-RXJ" secondAttribute="bottom" constant="20" id="Rga-Un-p6v"/>
+                            <constraint firstItem="2Ne-se-sdd" firstAttribute="leading" secondItem="wyV-is-AuJ" secondAttribute="leading" constant="25" id="bhq-Di-hQa"/>
+                            <constraint firstItem="bhw-p2-RXJ" firstAttribute="top" secondItem="wyV-is-AuJ" secondAttribute="top" constant="213" id="eHj-QF-AZC"/>
+                            <constraint firstItem="PuB-rh-9dQ" firstAttribute="centerX" secondItem="9VY-DY-M2W" secondAttribute="centerX" id="fWw-qr-LhY"/>
+                            <constraint firstItem="rKo-dE-QPh" firstAttribute="leading" secondItem="wyV-is-AuJ" secondAttribute="leading" constant="25" id="hu3-6f-NPU"/>
+                            <constraint firstItem="PuB-rh-9dQ" firstAttribute="top" secondItem="2Ne-se-sdd" secondAttribute="bottom" constant="20" id="ow8-a0-FBN"/>
+                            <constraint firstItem="2Ne-se-sdd" firstAttribute="top" secondItem="rKo-dE-QPh" secondAttribute="bottom" constant="40" id="vGB-h9-t6s"/>
+                            <constraint firstItem="wyV-is-AuJ" firstAttribute="trailing" secondItem="2Ne-se-sdd" secondAttribute="trailing" constant="25" id="vqM-6X-o6G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wyV-is-AuJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oiM-ZE-gZh"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="ZfT-Og-VEk" id="LtS-7v-Bwq"/>
+                        <outlet property="passwordTextField" destination="ms4-Yv-6Rd" id="iWb-Nz-nDR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZH-83-Jm5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749.2753623188407" y="34.821428571428569"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q14-1O-itp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iFb-Om-kRP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="OVs-Yt-U7J"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KRe-wR-aGB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ber-Ax-YO1" kind="relationship" relationship="rootViewController" id="kRj-Di-vZN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M1H-Qm-rxL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839.13043478260875" y="34.821428571428569"/>
+        </scene>
+    </scenes>
+</document>
