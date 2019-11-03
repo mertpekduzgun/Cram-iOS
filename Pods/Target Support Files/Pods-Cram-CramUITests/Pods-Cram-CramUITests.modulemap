@@ -1,0 +1,6 @@
+framework module Pods_Cram_CramUITests {
+  umbrella header "Pods-Cram-CramUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
