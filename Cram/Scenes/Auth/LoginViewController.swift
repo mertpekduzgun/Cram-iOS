@@ -33,6 +33,8 @@ class LoginViewController: BaseViewController {
                 print("Login Error") // TODO: ALERT
             } else {
                 print("Success") // TODO: Go to Courses VC
+                let vc = UIStoryboard(name: "Course", bundle: .main).instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as! DepartmentViewController
+                self.navigationController?.pushViewController(vc, animated: true)
                 
             }
             

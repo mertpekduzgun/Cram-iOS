@@ -12,8 +12,6 @@ target 'Cram' do
   pod 'SVProgressHUD'
   pod 'ChameleonFramework'
   pod 'MessageKit'
-  pod 'SwifterSwift/UIKit'
-  pod 'SwifterSwift/Foundation'
 
   target 'CramTests' do
     inherit! :search_paths

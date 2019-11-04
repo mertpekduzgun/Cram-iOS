@@ -11,13 +11,13 @@ import UIKit
 @IBDesignable
 class DesignableStackView: UIStackView {
     
-    @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var makeCornerRadius: CGFloat = 0
     
     @IBInspectable var backgroundCGColor: UIColor = UIColor.white {
         didSet {
             let subView = UIView(frame: bounds)
             subView.backgroundColor = backgroundCGColor
-            subView.layer.cornerRadius = cornerRadius
+            subView.layer.cornerRadius = makeCornerRadius
             subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             insertSubview(subView, at: 0)
         }
