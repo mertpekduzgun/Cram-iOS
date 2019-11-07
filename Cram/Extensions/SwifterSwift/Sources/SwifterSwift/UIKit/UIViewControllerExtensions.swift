@@ -22,6 +22,15 @@ public extension UIViewController {
 
 // MARK: - Methods
 public extension UIViewController {
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.hideKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
+    }
 
     /// SwifterSwift: Assign as listener to notification.
     ///

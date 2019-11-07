@@ -17,6 +17,7 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
         emailTextField.textFieldType = .email
         passwordTextField.textFieldType = .password
@@ -33,7 +34,7 @@ class LoginViewController: BaseViewController {
                 print("Login Error") // TODO: ALERT
             } else {
                 print("Success") // TODO: Go to Courses VC
-                let vc = UIStoryboard(name: "Course", bundle: .main).instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as! DepartmentViewController
+                let vc = UIStoryboard(name: "Course", bundle: .main).instantiateViewController(withIdentifier: FacultyViewController.reuseIdentifier) as! FacultyViewController
                 self.navigationController?.pushViewController(vc, animated: true)
                 
             }

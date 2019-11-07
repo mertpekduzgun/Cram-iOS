@@ -10,6 +10,7 @@
 		67217846FF24F8A91CAFA061 /* Pods_Cram_CramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */; };
 		BD0376C24F27CFE06B7A94AC /* Pods_Cram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */; };
 		D111E934002C1F3512CB772D /* Pods_CramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */; };
+		D632F3DB237216CF00603116 /* FacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632F3DA237216CF00603116 /* FacultyViewController.swift */; };
 		D657770223709A6A009CA875 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6EA236F5DE900CAE65E /* UIStoryboardExtensions.swift */; };
 		D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6F2236F5DE900CAE65E /* UIWindowExtensions.swift */; };
 		D657770423709A7E009CA875 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6F1236F5DE900CAE65E /* UIViewExtensions.swift */; };
@@ -49,7 +50,6 @@
 		D657772A2370BCCD009CA875 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65777292370BCCD009CA875 /* BaseTableViewCell.swift */; };
 		D665B6C2236F2D9C00CAE65E /* Course.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D665B6C1236F2D9B00CAE65E /* Course.storyboard */; };
 		D665B6C6236F2F9200CAE65E /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */; };
-		D665B6C8236F302A00CAE65E /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6C7236F302A00CAE65E /* ClassViewController.swift */; };
 		D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D665B6C9236F3B3100CAE65E /* Colors.xcassets */; };
 		D665B6CC236F59C200CAE65E /* Tabbar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D665B6CB236F59C200CAE65E /* Tabbar.storyboard */; };
 		D665B6CE236F5A0600CAE65E /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6CD236F5A0600CAE65E /* TabbarViewController.swift */; };
@@ -60,6 +60,10 @@
 		D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */; };
 		D68C3C06236CA86C00C10B40 /* CramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C05236CA86C00C10B40 /* CramTests.swift */; };
 		D68C3C11236CA86C00C10B40 /* CramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C10236CA86C00C10B40 /* CramUITests.swift */; };
+		D6A3702E2374A5C50061B4BD /* FacultyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */; };
+		D6A3702F2374A5C50061B4BD /* FacultyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */; };
+		D6A370322374AFCE0061B4BD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A370312374AFCE0061B4BD /* TopView.swift */; };
+		D6A370342374AFE10061B4BD /* TopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A370332374AFE10061B4BD /* TopView.xib */; };
 		D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65A2236CDA41008EFB07 /* Auth.storyboard */; };
 		D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */; };
 		D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */; };
@@ -104,12 +108,12 @@
 		8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.release.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.release.xcconfig"; sourceTree = "<group>"; };
 		C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CramTests.debug.xcconfig"; path = "Target Support Files/Pods-CramTests/Pods-CramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D632F3DA237216CF00603116 /* FacultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyViewController.swift; sourceTree = "<group>"; };
 		D657772423709DFB009CA875 /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
 		D65777262370B873009CA875 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		D65777292370BCCD009CA875 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		D665B6C1236F2D9B00CAE65E /* Course.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Course.storyboard; sourceTree = "<group>"; };
 		D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentViewController.swift; sourceTree = "<group>"; };
-		D665B6C7236F302A00CAE65E /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		D665B6C9236F3B3100CAE65E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D665B6CB236F59C200CAE65E /* Tabbar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabbar.storyboard; sourceTree = "<group>"; };
 		D665B6CD236F5A0600CAE65E /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +164,10 @@
 		D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C3C10236CA86C00C10B40 /* CramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CramUITests.swift; sourceTree = "<group>"; };
 		D68C3C12236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyTableViewCell.swift; sourceTree = "<group>"; };
+		D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacultyTableViewCell.xib; sourceTree = "<group>"; };
+		D6A370312374AFCE0061B4BD /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		D6A370332374AFE10061B4BD /* TopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopView.xib; sourceTree = "<group>"; };
 		D6DF65A2236CDA41008EFB07 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				D65777262370B873009CA875 /* DepartmentTableViewCell.swift */,
+				D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */,
+				D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -339,9 +349,19 @@
 			path = CramUITests;
 			sourceTree = "<group>";
 		};
+		D6A370302374AF720061B4BD /* TopView */ = {
+			isa = PBXGroup;
+			children = (
+				D6A370312374AFCE0061B4BD /* TopView.swift */,
+				D6A370332374AFE10061B4BD /* TopView.xib */,
+			);
+			path = TopView;
+			sourceTree = "<group>";
+		};
 		D6DF659A236CD7B9008EFB07 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6A370302374AF720061B4BD /* TopView */,
 				D6DF65C6236DDE41008EFB07 /* StackView */,
 				D6DF65B0236DBF79008EFB07 /* TextField */,
 				D6DF65A1236CD9DA008EFB07 /* Tabbar */,
@@ -386,7 +406,7 @@
 				D65777282370B87A009CA875 /* Cell */,
 				D665B6C1236F2D9B00CAE65E /* Course.storyboard */,
 				D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */,
-				D665B6C7236F302A00CAE65E /* ClassViewController.swift */,
+				D632F3DA237216CF00603116 /* FacultyViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -598,10 +618,12 @@
 				D665B6C2236F2D9C00CAE65E /* Course.storyboard in Resources */,
 				D6DF65B4236DC32E008EFB07 /* Montserrat-Medium.ttf in Resources */,
 				D68C3BF8236CA86C00C10B40 /* Assets.xcassets in Resources */,
+				D6A370342374AFE10061B4BD /* TopView.xib in Resources */,
 				D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */,
 				D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */,
 				D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */,
 				D657772523709DFB009CA875 /* Tabbar.xcassets in Resources */,
+				D6A3702F2374A5C50061B4BD /* FacultyTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D657770823709A89009CA875 /* UITableViewExtensions.swift in Sources */,
+				D632F3DB237216CF00603116 /* FacultyViewController.swift in Sources */,
 				D665B6C6236F2F9200CAE65E /* DepartmentViewController.swift in Sources */,
 				D657772223709AD5009CA875 /* UIActivityExtensions.swift in Sources */,
 				D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */,
@@ -750,17 +773,18 @@
 				D657771B23709AC0009CA875 /* UIDatePickerExtensions.swift in Sources */,
 				D657771923709ABB009CA875 /* UIFontExtensions.swift in Sources */,
 				D657770A23709A8F009CA875 /* UISwitchExtensions.swift in Sources */,
-				D665B6C8236F302A00CAE65E /* ClassViewController.swift in Sources */,
 				D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */,
 				D657772123709AD1009CA875 /* UIAlertControllerExtensions.swift in Sources */,
 				D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */,
 				D6DF65BE236DCED0008EFB07 /* BaseViewController.swift in Sources */,
+				D6A370322374AFCE0061B4BD /* TopView.swift in Sources */,
 				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,
 				D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */,
 				D657772A2370BCCD009CA875 /* BaseTableViewCell.swift in Sources */,
 				D657771823709AB8009CA875 /* UIGestureRecognizerExtensions.swift in Sources */,
 				D657771D23709AC6009CA875 /* UIButtonExtensions.swift in Sources */,
 				D657770F23709A9E009CA875 /* UIScrollViewExtensions.swift in Sources */,
+				D6A3702E2374A5C50061B4BD /* FacultyTableViewCell.swift in Sources */,
 				D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */,
 				D657771223709AA6009CA875 /* UINavigationControllerExtensions.swift in Sources */,
 				D65777272370B873009CA875 /* DepartmentTableViewCell.swift in Sources */,

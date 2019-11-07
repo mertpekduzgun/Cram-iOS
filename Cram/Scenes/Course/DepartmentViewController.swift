@@ -11,17 +11,22 @@ import FirebaseDatabase
 
 class DepartmentViewController: BaseViewController {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
-    
+        
+        tableView.register(UINib(nibName: "DepartmentTableViewCell", bundle: nil), forCellReuseIdentifier: "DepartmentTableViewCell")
+        
     }
-    
-    
 
 }
 
 //extension DepartmentViewController: UITableViewDelegate, UITableViewDataSource {
+//    
+//    
+//
 //
 //
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,7 +40,8 @@ class DepartmentViewController: BaseViewController {
 //                let vc = UIStoryboard(name: "Course", bundle: nil).instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
 //                self.navigationController?.pushViewController(vc, animated: true)
 //            }
+//        return cell
 //        }
-//    return cell
+//
 //}
 
