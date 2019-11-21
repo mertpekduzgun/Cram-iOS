@@ -13,15 +13,19 @@ import UIKit
 public extension UIStoryboard {
 
     static var courses: UIStoryboard {
-        return UIStoryboard(name: "Courses", bundle: .main)
+        return UIStoryboard(name: "Course", bundle: .main)
     }
     
     static var chats: UIStoryboard {
-        return UIStoryboard(name: "Chats", bundle: .main)
+        return UIStoryboard(name: "Chat", bundle: .main)
     }
     
     static var settings: UIStoryboard {
-        return UIStoryboard(name: "Settings", bundle: .main)
+        return UIStoryboard(name: "Setting", bundle: .main)
+    }
+    
+    static var auth: UIStoryboard {
+        return UIStoryboard(name: "Auth", bundle: .main)
     }
 
 }

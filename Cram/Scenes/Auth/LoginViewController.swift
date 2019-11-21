@@ -12,11 +12,13 @@ import ChameleonFramework
 
 class LoginViewController: BaseViewController {
     
+    @IBOutlet weak var topView: TopView!
     @IBOutlet weak var emailTextField: TextFieldView!
     @IBOutlet weak var passwordTextField: TextFieldView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        topView.topViewType = .login
         hideKeyboardWhenTappedAround()
         initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
         emailTextField.textFieldType = .email
@@ -34,8 +36,10 @@ class LoginViewController: BaseViewController {
                 print("Login Error") // TODO: ALERT
             } else {
                 print("Success") // TODO: Go to Courses VC
-                let vc = UIStoryboard(name: "Course", bundle: .main).instantiateViewController(withIdentifier: FacultyViewController.reuseIdentifier) as! FacultyViewController
-                self.navigationController?.pushViewController(vc, animated: true)
+                if let vc = UIStoryboard(name: "Tabbar", bundle: nil).instantiateInitialViewController() {
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
                 
             }
             
@@ -43,7 +47,7 @@ class LoginViewController: BaseViewController {
     }
     
     @IBAction func tappedSignUp(_ sender: Any) {
-        let vc = UIStoryboard(name: "Auth", bundle: .main).instantiateViewController(withIdentifier: RegisterViewController.reuseIdentifier) as! RegisterViewController
+        let vc = UIStoryboard.auth.instantiateViewController(withIdentifier: RegisterViewController.reuseIdentifier) as! RegisterViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

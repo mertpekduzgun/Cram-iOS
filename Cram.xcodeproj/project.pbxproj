@@ -10,6 +10,7 @@
 		67217846FF24F8A91CAFA061 /* Pods_Cram_CramUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFDAE77A659BCD903013D02 /* Pods_Cram_CramUITests.framework */; };
 		BD0376C24F27CFE06B7A94AC /* Pods_Cram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B07BDB29C125C622FAD6E58 /* Pods_Cram.framework */; };
 		D111E934002C1F3512CB772D /* Pods_CramTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */; };
+		D603DC1D2385264A00A8F7CF /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D603DC1C2385264A00A8F7CF /* ClassViewController.swift */; };
 		D632F3DB237216CF00603116 /* FacultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632F3DA237216CF00603116 /* FacultyViewController.swift */; };
 		D657770223709A6A009CA875 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6EA236F5DE900CAE65E /* UIStoryboardExtensions.swift */; };
 		D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6F2236F5DE900CAE65E /* UIWindowExtensions.swift */; };
@@ -80,6 +81,11 @@
 		D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */; };
 		D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */; };
 		D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */; };
+		D6F1D9CB238195ED0001F157 /* DepartmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F1D9CA238195ED0001F157 /* DepartmentTableViewCell.xib */; };
+		D6F1D9CE2381D5070001F157 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1D9CD2381D5070001F157 /* ChatViewController.swift */; };
+		D6F1D9D02381D51D0001F157 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F1D9CF2381D51D0001F157 /* Chat.storyboard */; };
+		D6F1D9D22381D55E0001F157 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1D9D12381D55E0001F157 /* SettingViewController.swift */; };
+		D6F1D9D42381D5760001F157 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F1D9D32381D5760001F157 /* Setting.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +114,7 @@
 		8214BB2DE44678D9831FFC0C /* Pods_CramTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CramTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.release.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.release.xcconfig"; sourceTree = "<group>"; };
 		C5D1975CDC4D24A3522C2AC4 /* Pods-CramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CramTests.debug.xcconfig"; path = "Target Support Files/Pods-CramTests/Pods-CramTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D603DC1C2385264A00A8F7CF /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		D632F3DA237216CF00603116 /* FacultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyViewController.swift; sourceTree = "<group>"; };
 		D657772423709DFB009CA875 /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
 		D65777262370B873009CA875 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
@@ -184,6 +191,11 @@
 		D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableStackView.swift; sourceTree = "<group>"; };
+		D6F1D9CA238195ED0001F157 /* DepartmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentTableViewCell.xib; sourceTree = "<group>"; };
+		D6F1D9CD2381D5070001F157 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D6F1D9CF2381D51D0001F157 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
+		D6F1D9D12381D55E0001F157 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		D6F1D9D32381D5760001F157 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		DAEC3AD53BA3F01E41EE345E /* Pods-Cram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cram.debug.xcconfig"; path = "Target Support Files/Pods-Cram/Pods-Cram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -238,12 +250,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D65777282370B87A009CA875 /* Cell */ = {
+		D603DC19238524CD00A8F7CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */,
+				D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D603DC1A238524D600A8F7CF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				D65777262370B873009CA875 /* DepartmentTableViewCell.swift */,
-				D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */,
-				D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */,
+				D6F1D9CA238195ED0001F157 /* DepartmentTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D603DC1B2385262300A8F7CF /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				D603DC1E2385265000A8F7CF /* Cell */,
+				D603DC1C2385264A00A8F7CF /* ClassViewController.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		D603DC1E2385265000A8F7CF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -361,6 +397,7 @@
 		D6DF659A236CD7B9008EFB07 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6F1D9CC238196AE0001F157 /* CellView */,
 				D6A370302374AF720061B4BD /* TopView */,
 				D6DF65C6236DDE41008EFB07 /* StackView */,
 				D6DF65B0236DBF79008EFB07 /* TextField */,
@@ -375,7 +412,7 @@
 				D6DF659D236CD86B008EFB07 /* Auth */,
 				D6DF659E236CD872008EFB07 /* Course */,
 				D6DF65A0236CD960008EFB07 /* Chat */,
-				D6DF659F236CD8A2008EFB07 /* Account */,
+				D6DF659F236CD8A2008EFB07 /* Setting */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -403,24 +440,28 @@
 		D6DF659E236CD872008EFB07 /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				D65777282370B87A009CA875 /* Cell */,
+				D6F1D9C82381944A0001F157 /* Faculty */,
+				D6F1D9C9238194740001F157 /* Department */,
 				D665B6C1236F2D9B00CAE65E /* Course.storyboard */,
-				D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */,
-				D632F3DA237216CF00603116 /* FacultyViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
 		};
-		D6DF659F236CD8A2008EFB07 /* Account */ = {
+		D6DF659F236CD8A2008EFB07 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				D6F1D9D12381D55E0001F157 /* SettingViewController.swift */,
+				D6F1D9D32381D5760001F157 /* Setting.storyboard */,
 			);
-			path = Account;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		D6DF65A0236CD960008EFB07 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D603DC1B2385262300A8F7CF /* Class */,
+				D6F1D9CD2381D5070001F157 /* ChatViewController.swift */,
+				D6F1D9CF2381D51D0001F157 /* Chat.storyboard */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -497,6 +538,31 @@
 				D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */,
 			);
 			path = StackView;
+			sourceTree = "<group>";
+		};
+		D6F1D9C82381944A0001F157 /* Faculty */ = {
+			isa = PBXGroup;
+			children = (
+				D603DC19238524CD00A8F7CF /* Cell */,
+				D632F3DA237216CF00603116 /* FacultyViewController.swift */,
+			);
+			path = Faculty;
+			sourceTree = "<group>";
+		};
+		D6F1D9C9238194740001F157 /* Department */ = {
+			isa = PBXGroup;
+			children = (
+				D603DC1A238524D600A8F7CF /* Cell */,
+				D665B6C5236F2F9200CAE65E /* DepartmentViewController.swift */,
+			);
+			path = Department;
+			sourceTree = "<group>";
+		};
+		D6F1D9CC238196AE0001F157 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CellView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -608,11 +674,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6F1D9D02381D51D0001F157 /* Chat.storyboard in Resources */,
 				D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */,
 				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
 				D665B6CC236F59C200CAE65E /* Tabbar.storyboard in Resources */,
 				D6DF65B6236DC32E008EFB07 /* Montserrat-Regular.ttf in Resources */,
+				D6F1D9D42381D5760001F157 /* Setting.storyboard in Resources */,
 				D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */,
+				D6F1D9CB238195ED0001F157 /* DepartmentTableViewCell.xib in Resources */,
 				D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */,
 				D6DF65A9236CDC81008EFB07 /* GoogleService-Info.plist in Resources */,
 				D665B6C2236F2D9C00CAE65E /* Course.storyboard in Resources */,
@@ -759,6 +828,7 @@
 				D665B6CE236F5A0600CAE65E /* TabbarViewController.swift in Sources */,
 				D657770223709A6A009CA875 /* UIStoryboardExtensions.swift in Sources */,
 				D657770B23709A94009CA875 /* UIStackViewExtensions.swift in Sources */,
+				D6F1D9CE2381D5070001F157 /* ChatViewController.swift in Sources */,
 				D657771123709AA4009CA875 /* UINavigationItemExtensions.swift in Sources */,
 				D657771023709AA1009CA875 /* UIRefreshControlExtensions.swift in Sources */,
 				D657770523709A81009CA875 /* UIViewControllerExtensions.swift in Sources */,
@@ -771,8 +841,10 @@
 				D657771423709AAD009CA875 /* UILabelExtensions.swift in Sources */,
 				D657770D23709A99009CA875 /* UISegmentedControlExtensions.swift in Sources */,
 				D657771B23709AC0009CA875 /* UIDatePickerExtensions.swift in Sources */,
+				D603DC1D2385264A00A8F7CF /* ClassViewController.swift in Sources */,
 				D657771923709ABB009CA875 /* UIFontExtensions.swift in Sources */,
 				D657770A23709A8F009CA875 /* UISwitchExtensions.swift in Sources */,
+				D6F1D9D22381D55E0001F157 /* SettingViewController.swift in Sources */,
 				D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */,
 				D657772123709AD1009CA875 /* UIAlertControllerExtensions.swift in Sources */,
 				D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */,

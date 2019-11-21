@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManagerSwift
+import ChameleonFramework
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         FirebaseApp.configure()
+        
+        let tabbar = UITabBar.appearance()
+        tabbar.tintColor = UIColor.flatSkyBlueColorDark()
+        tabbar.setColors(background: .white, selectedBackground: .clear, item: .lightGray, selectedItem: UIColor.flatSkyBlueColorDark())
         
         return true
     }
@@ -37,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    
 
 
 }

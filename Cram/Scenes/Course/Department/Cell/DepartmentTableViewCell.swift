@@ -10,18 +10,15 @@ import UIKit
 
 class DepartmentTableViewCell: BaseTableViewCell {
     
-    
-    @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var departmentImageView: UIImageView!
-    @IBOutlet weak var departmentNameLabel: UILabel!
-    @IBOutlet weak var numberOfMember: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
     
     internal var tapped: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.cellView.addGestureRecognizer(UIGestureRecognizer(target: self, action: #selector(tappedView)))
+        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedView)))
         
     }
     

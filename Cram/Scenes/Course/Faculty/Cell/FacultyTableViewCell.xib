@@ -21,8 +21,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="isik" translatesAutoresizingMaskIntoConstraints="NO" id="w36-0F-Sbl">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmT-7W-aa8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w36-0F-Sbl">
                         <rect key="frame" x="16" y="10" width="288" height="155"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="155" id="4sO-Zj-IDx"/>
+                            <constraint firstAttribute="width" constant="288" id="v2e-6I-j00"/>
+                        </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4v9-D7-bBs">
                         <rect key="frame" x="16" y="129" width="288" height="35"/>
@@ -34,19 +42,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.22399400684931506" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99990195039999996" green="1" blue="0.99987989659999998" alpha="0.64204302226027399" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="5ix-c2-Utu"/>
                             <constraint firstItem="2dc-0K-SEl" firstAttribute="centerY" secondItem="4v9-D7-bBs" secondAttribute="centerY" id="9ou-za-8tz"/>
                             <constraint firstItem="2dc-0K-SEl" firstAttribute="leading" secondItem="4v9-D7-bBs" secondAttribute="leading" constant="10" id="hDR-sd-f5W"/>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="jGm-Cw-46j"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="TmT-7W-aa8" secondAttribute="bottom" id="646-cM-bBZ"/>
+                    <constraint firstAttribute="trailing" secondItem="TmT-7W-aa8" secondAttribute="trailing" id="6xS-Ip-nFs"/>
                     <constraint firstItem="w36-0F-Sbl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GtI-7S-ND7"/>
                     <constraint firstItem="w36-0F-Sbl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ShY-UV-PVv"/>
+                    <constraint firstItem="TmT-7W-aa8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="X4B-L5-V8n"/>
                     <constraint firstAttribute="bottom" secondItem="w36-0F-Sbl" secondAttribute="bottom" constant="15" id="Xxq-BQ-dns"/>
+                    <constraint firstItem="TmT-7W-aa8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dJf-MO-OtD"/>
                     <constraint firstAttribute="trailing" secondItem="w36-0F-Sbl" secondAttribute="trailing" constant="16" id="fGK-HJ-fiw"/>
                     <constraint firstItem="4v9-D7-bBs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hQx-ip-ap1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4v9-D7-bBs" secondAttribute="trailing" id="tgy-UI-edL"/>
@@ -61,7 +72,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="102.45535714285714"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="isik" width="122" height="112"/>
-    </resources>
 </document>

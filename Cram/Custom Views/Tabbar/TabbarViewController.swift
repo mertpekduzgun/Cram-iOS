@@ -22,37 +22,45 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         chatViewController = UIStoryboard.chats.instantiateInitialViewController()!
         settingViewController = UIStoryboard.settings.instantiateInitialViewController()!
         
-        courseViewController.tabBarItem.image = UIImage(named: "") // TODO: tabbar image
-        courseViewController.tabBarItem.selectedImage = UIImage(named: "") // TODO:
+        courseViewController.tabBarItem.image = UIImage(named: "course") // TODO: tabbar image
+        courseViewController.tabBarItem.selectedImage = UIImage(named: "courseSelected") // TODO:
         courseViewController.tabBarItem.title = "Courses"
         
-        chatViewController.tabBarItem.image = UIImage(named: "") // TODO: tabbar image
-        chatViewController.tabBarItem.selectedImage = UIImage(named: "") // TODO:
+        chatViewController.tabBarItem.image = UIImage(named: "chat") // TODO: tabbar image
+        chatViewController.tabBarItem.selectedImage = UIImage(named: "chatSelected") // TODO:
         chatViewController.tabBarItem.title = "Chats"
         
-        settingViewController.tabBarItem.image = UIImage(named: "") // TODO: tabbar image
-        settingViewController.tabBarItem.selectedImage = UIImage(named: "") // TODO:
+        settingViewController.tabBarItem.image = UIImage(named: "setting") // TODO: tabbar image
+        settingViewController.tabBarItem.selectedImage = UIImage(named: "settingSelected") // TODO:
         settingViewController.tabBarItem.title = "Settings"
         
         viewControllers = [courseViewController, chatViewController, settingViewController]
         
         for tabBarItem in tabBar.items! {
             tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.montserratMedium(ofsize: 11)], for: .normal)
-            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
-            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.flatBlueColorDark], for: .selected)
+//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
+//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.flatBlueColorDark], for: .selected)
         }
+        
+        let lineView = UIView(frame: CGRect(x: 0, y: 0, width: self.tabBar.frame.size.width, height: 1))
+        lineView.backgroundColor = UIColor.black.withAlphaComponent(0.05)
+        self.tabBar.addSubview(lineView)
         
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = self.selectedIndex
+        if self.viewControllers![tabBarIndex] == viewController{
+            if tabBarController.selectedIndex == 0 {
+                let vc = viewController as! UINavigationController
+                if vc.viewControllers.count == 1{
+                    let indexPath = NSIndexPath(row: 0, section: 0)
+                    let navigVC = viewController as? UINavigationController
+                    let finalVC = navigVC?.viewControllers[0] as? FacultyViewController
+                    finalVC?.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
+                }
+            }
+        }
     }
-    */
 
 }
