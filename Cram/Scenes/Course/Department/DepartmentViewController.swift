@@ -11,7 +11,7 @@ import Firebase
 
 enum facultyType {
     case engineering
-    case fineArts
+    case artsScience
     case architecture
     case economics
 }
@@ -23,13 +23,12 @@ class DepartmentViewController: BaseViewController {
     @IBOutlet weak var topView: TopView!
     
     //    MARK: Variables
-    internal var departmentArray = [[String: Any]] () {
+    internal var departmentArray = [Department]() {
         didSet {
             tableView.reloadData()
         }
     }
     
-    internal var ref: DatabaseReference! = Database.database().reference()
     internal var firestoreDatabase = Firestore.firestore()
     internal var type: facultyType = .engineering
     
@@ -51,25 +50,89 @@ class DepartmentViewController: BaseViewController {
         
     }
     
+//    MARK: GetDepartmemts
     func getDepartments() {
         switch type {
         case .engineering:
-//            self.ref.child("departments/0/engineering").observeSingleEvent(of: .value) { (snapshot) in
-//                for item in snapshot.children {
-//                    let snap = item as! DataSnapshot
-//                    let depDict = snap.value as! [String: Any]
-//                    self.departmentArray.append(depDict)
-//                }
-            firestoreDatabase.collection("departments").order(by: "Date")
-            
+
+            firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
+                if error != nil {
+                    print("error") // TODO: Alert
+                } else {
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        self.departmentArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let departmentName = document.get("name") as? String{
+                                if let facultyName = document.get("facultyName") as? String {
+                                    let snap = Department(departmentName: departmentName, facultyName: facultyName)
+                                    self.departmentArray.append(snap)
+                                }
+                            }
+                        }
+                    }
+                }
             }
-        case .fineArts:
+        case .artsScience:
             
-            
+            firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "ArtsScience").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
+                if error != nil {
+                    print("error") // TODO: Alert
+                } else {
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        self.departmentArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let departmentName = document.get("name") as? String{
+                                if let facultyName = document.get("facultyName") as? String {
+                                    let snap = Department(departmentName: departmentName, facultyName: facultyName)
+                                    self.departmentArray.append(snap)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
         case .architecture:
-           
             
+            firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Architecture").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
+                if error != nil {
+                    print("error") // TODO: Alert
+                } else {
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        self.departmentArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let departmentName = document.get("name") as? String{
+                                if let facultyName = document.get("facultyName") as? String {
+                                    let snap = Department(departmentName: departmentName, facultyName: facultyName)
+                                    self.departmentArray.append(snap)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
         case .economics:
+            
+            firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Economics").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
+                if error != nil {
+                    print("error") // TODO: Alert
+                } else {
+                    if snapshot?.isEmpty == false && snapshot != nil {
+                        self.departmentArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let departmentName = document.get("name") as? String{
+                                if let facultyName = document.get("facultyName") as? String {
+                                    let snap = Department(departmentName: departmentName, facultyName: facultyName)
+                                    self.departmentArray.append(snap)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             
         default:
             break
@@ -93,44 +156,30 @@ extension DepartmentViewController: UITableViewDelegate, UITableViewDataSource {
         
         if type == .engineering {
 
-            
             cell.departmentImageView.image = UIImage(named: "eng")
-            ref.child("departments/0/engineering/\(indexPath.row)/displayName").observeSingleEvent(of: .value) { (snaphot) in
-                let departmentName = snaphot.value as? String
-                cell.departmentLabel.text = departmentName
-                LoadingScreen.hide()
+            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
+            LoadingScreen.hide()
+                
             }
-        }
         
-        if type == .fineArts {
-            
+        if type == .artsScience {
+
             cell.departmentImageView.image = UIImage(named: "art")
-            let ref = Database.database().reference()
-            
-            ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
-                let departmentName = snaphot.value as? String
-                cell.departmentLabel.text = departmentName
-                LoadingScreen.hide()
-
-            }
+            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
+            LoadingScreen.hide()
         }
-        
+
         if type == .architecture {
-            
-            cell.departmentImageView.image = UIImage(named: "arc")
-            let ref = Database.database().reference()
-            
-            ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
-                let departmentName = snaphot.value as? String
-                cell.departmentLabel.text = departmentName
-                LoadingScreen.hide()
 
-            }
+            cell.departmentImageView.image = UIImage(named: "arc")
+            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
+            LoadingScreen.hide()
         }
-        
+
         if type == .economics {
-            
+
             cell.departmentImageView.image = UIImage(named: "eco")
+            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
             LoadingScreen.hide()
 
 

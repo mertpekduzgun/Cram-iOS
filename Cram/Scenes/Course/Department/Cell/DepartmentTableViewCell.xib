@@ -34,8 +34,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Wf-bH-mqX">
                                 <rect key="frame" x="16" y="130" width="288" height="35"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VG-4v-SsC">
-                                        <rect key="frame" x="10" y="8.5" width="42" height="18.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VG-4v-SsC">
+                                        <rect key="frame" x="10" y="8.5" width="268" height="18.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -45,6 +45,7 @@
                                 <constraints>
                                     <constraint firstItem="9VG-4v-SsC" firstAttribute="leading" secondItem="9Wf-bH-mqX" secondAttribute="leading" constant="10" id="WMo-Jv-XNn"/>
                                     <constraint firstItem="9VG-4v-SsC" firstAttribute="centerY" secondItem="9Wf-bH-mqX" secondAttribute="centerY" id="WdU-sU-Koq"/>
+                                    <constraint firstAttribute="trailing" secondItem="9VG-4v-SsC" secondAttribute="trailing" constant="10" id="nzr-R8-m77"/>
                                     <constraint firstAttribute="height" constant="35" id="qqR-Jb-ujy"/>
                                 </constraints>
                             </view>

@@ -17,7 +17,6 @@ class AddClassViewController: BaseViewController {
     @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var sectionTextField: UITextField!
     
-    internal var ref: DatabaseReference! = Database.database().reference()
 
     
     //    MARK: LifeCycle
@@ -29,7 +28,10 @@ class AddClassViewController: BaseViewController {
     
     
     @IBAction func saveButton(_ sender: Any) {
-        self.ref.child("course").childByAutoId().setValue(["displayName": nameTextField.text, "section": sectionTextField.text])
+        
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        
         let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
         self.navigationController?.pushViewController(vc, animated: true)
         

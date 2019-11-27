@@ -11,6 +11,7 @@ import Foundation
 struct Department  {
     
     var departmentName: String
-    var imageURL: String
+    var facultyName: String
+//    var imageURL: String
 
 }

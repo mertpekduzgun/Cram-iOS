@@ -40,7 +40,7 @@ class ClassViewController: BaseViewController {
     
     //    MARK: BackButton
     override func navigationBarBackButtonPressed(animated: Bool = true) {
-        navigationController?.popToRootViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     override func addButtonPressed(animated: Bool = true) {

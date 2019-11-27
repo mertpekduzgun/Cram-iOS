@@ -75,17 +75,17 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
             LoadingScreen.show("Loading...")
             switch indexPath.row {
             case 0:
+                
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
-                    
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .engineering
+
                 }
                 
             case 1:
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
-                    vc.type = .fineArts
-
+                    vc.type = .artsScience
 
                 }
                 
@@ -93,14 +93,12 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .architecture
-
                 }
                 
             case 3:
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .economics
-
                 }
                 
             default:

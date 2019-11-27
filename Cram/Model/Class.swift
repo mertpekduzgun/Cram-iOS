@@ -10,7 +10,7 @@ import UIKit
 
 public struct Class {
     let name: String
-    let id: String
     let section: String
-    let imageURL: String?
+    let code: String
+    let departmentName: String
 }
