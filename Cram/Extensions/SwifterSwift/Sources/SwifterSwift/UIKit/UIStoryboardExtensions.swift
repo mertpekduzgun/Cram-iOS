@@ -27,6 +27,10 @@ public extension UIStoryboard {
     static var auth: UIStoryboard {
         return UIStoryboard(name: "Auth", bundle: .main)
     }
+    
+    static var tabbar: UIStoryboard {
+        return UIStoryboard(name: "Tabbar", bundle: .main)
+    }
 
 }
 

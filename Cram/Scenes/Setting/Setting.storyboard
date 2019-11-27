@@ -14,7 +14,20 @@
                     <view key="view" contentMode="scaleToFill" id="FvE-qC-iZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glp-me-WoE">
+                                <rect key="frame" x="184" y="433" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logoutAction:" destination="ObV-KB-xCo" eventType="touchUpInside" id="cSa-Dx-QGo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="glp-me-WoE" firstAttribute="centerY" secondItem="FvE-qC-iZ5" secondAttribute="centerY" id="s9v-OI-ena"/>
+                            <constraint firstItem="glp-me-WoE" firstAttribute="centerX" secondItem="FvE-qC-iZ5" secondAttribute="centerX" id="vK7-uO-ilI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="HfD-68-GvV"/>
                     </view>
                     <navigationItem key="navigationItem" id="F7K-Ge-eRP"/>

@@ -23,6 +23,11 @@ enum NavigationBackground {
     case blue
 }
 
+enum NavigationRight {
+    case white
+    case hidden
+}
+
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     class var reuseIdentifier: String {
@@ -58,7 +63,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
 
     }
     
-    func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBackground: NavigationBackground) {
+    func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBarRight: NavigationRight, navigationBackground: NavigationBackground) {
         let navigationBarLeftButton = UIBarButtonItem()
         switch navigationBarLeft {
         case .whiteBack:
@@ -79,6 +84,17 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             self.navigationItem.titleView = nil
 
         }
+        let navigationBarRightButton = UIBarButtonItem()
+        switch navigationBarRight {
+        case .white:
+            navigationBarRightButton.image = UIImage(named: "add")
+            self.navigationItem.rightBarButtonItem = navigationBarRightButton
+            self.navigationItem.rightBarButtonItem?.target = self
+            navigationBarRightButton.action = #selector(addButtonPressed(animated:))
+        case .hidden:
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
+        }
         
         switch navigationBackground {
         case .blue:
@@ -94,6 +110,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @objc open func navigationBarBackButtonPressed(animated: Bool = true) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc open func addButtonPressed(animated: Bool = true) {
+        let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: AddClassViewController.reuseIdentifier) as! AddClassViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

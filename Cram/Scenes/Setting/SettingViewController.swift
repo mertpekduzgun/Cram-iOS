@@ -7,24 +7,46 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func logoutAction(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            let alert = UIAlertController(title: "Logout!", message: "Are you sure you want to sign out?", preferredStyle: .alert)
+            
+             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+                self.dismiss(animated: false, completion: nil)
+            })
+            cancel.setValue(UIColor.lightGray, forKey: "titleTextColor")
+            alert.addAction(cancel)
+            
+            let logout = UIAlertAction(title: "Logout", style: .default, handler: { (alert) in
+                if let vc = UIStoryboard.auth.instantiateViewController(withIdentifier: LoginViewController.reuseIdentifier) as? LoginViewController {
+                    let nc = UINavigationController(rootViewController: vc)
+                    nc.modalPresentationStyle = .fullScreen
+                    self.present(nc, animated: false, completion: nil) // TODO: cancel button
+                }
+            })
+            
+            logout.setValue(UIColor.flatBlackColorDark(), forKey: "titleTextColor")
+            alert.addAction(logout)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+            
+            self.present(alert, animated: false)
+        } catch {
+            
+        }
     }
-    */
-
+    
+    
+    
 }

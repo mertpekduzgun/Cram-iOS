@@ -6,9 +6,11 @@ target 'Cram' do
   use_frameworks!
 
   # Pods for Cram
-  pod 'Firebase'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'SVProgressHUD'
   pod 'ChameleonFramework'
   pod 'MessageKit'

@@ -11,9 +11,16 @@ import Firebase
 import IQKeyboardManagerSwift
 import ChameleonFramework
 
+public struct App {
+    static var shared = App()
+
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    internal var window: UIWindow?
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,6 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         FirebaseApp.configure()
+        
+        if Auth.auth().currentUser != nil {
+            self.window?.rootViewController = UIStoryboard.tabbar.instantiateInitialViewController()
+        } else {
+            self.window?.rootViewController = UIStoryboard.auth.instantiateInitialViewController()
+        }
         
         let tabbar = UITabBar.appearance()
         tabbar.tintColor = UIColor.flatSkyBlueColorDark()

@@ -12,15 +12,17 @@ import ChameleonFramework
 
 class LoginViewController: BaseViewController {
     
+//    MARK: Outlet
     @IBOutlet weak var topView: TopView!
     @IBOutlet weak var emailTextField: TextFieldView!
     @IBOutlet weak var passwordTextField: TextFieldView!
-    
+        
+//    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.topViewType = .login
         hideKeyboardWhenTappedAround()
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBackground: .blue)
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
         emailTextField.textFieldType = .email
         passwordTextField.textFieldType = .password
     }
@@ -29,6 +31,7 @@ class LoginViewController: BaseViewController {
         super.didReceiveMemoryWarning()
     }
     
+//    Sign In
     @IBAction func tappedSignIn(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (User, error) in
             
@@ -36,7 +39,7 @@ class LoginViewController: BaseViewController {
                 print("Login Error") // TODO: ALERT
             } else {
                 print("Success") // TODO: Go to Courses VC
-                if let vc = UIStoryboard(name: "Tabbar", bundle: nil).instantiateInitialViewController() {
+                if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
@@ -46,6 +49,7 @@ class LoginViewController: BaseViewController {
         }
     }
     
+//    MARK: Go To Sign Up
     @IBAction func tappedSignUp(_ sender: Any) {
         let vc = UIStoryboard.auth.instantiateViewController(withIdentifier: RegisterViewController.reuseIdentifier) as! RegisterViewController
         self.navigationController?.pushViewController(vc, animated: true)

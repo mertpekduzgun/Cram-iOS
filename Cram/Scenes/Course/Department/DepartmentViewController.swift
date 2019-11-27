@@ -7,99 +7,133 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
+
+enum facultyType {
+    case engineering
+    case fineArts
+    case architecture
+    case economics
+}
 
 class DepartmentViewController: BaseViewController {
     
+    //    MARK: Outlet
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topView: TopView!
     
-    internal var departmentData = [String]()
-    private let ref = Database.database().reference()
+    //    MARK: Variables
+    internal var departmentArray = [[String: Any]] () {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
+    internal var ref: DatabaseReference! = Database.database().reference()
+    internal var firestoreDatabase = Firestore.firestore()
+    internal var type: facultyType = .engineering
+    
+    
+    //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.topViewType = .department
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBackground: .blue)
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         tableView.register(UINib(nibName: DepartmentTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: DepartmentTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.tableFooterView = UIView(frame: .zero)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getDepartments()
+        
+    }
+    
+    func getDepartments() {
+        switch type {
+        case .engineering:
+//            self.ref.child("departments/0/engineering").observeSingleEvent(of: .value) { (snapshot) in
+//                for item in snapshot.children {
+//                    let snap = item as! DataSnapshot
+//                    let depDict = snap.value as! [String: Any]
+//                    self.departmentArray.append(depDict)
+//                }
+            firestoreDatabase.collection("departments").order(by: "Date")
+            
+            }
+        case .fineArts:
+            
+            
+        case .architecture:
+           
+            
+        case .economics:
+            
+        default:
+            break
+        }
+        
+    }
+    
+    
 }
 
+//  MARK: TableView
 extension DepartmentViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        ref.child("departments/0/engineering/0/displayName").observe(.childAdded) { (snapshot) in
-            let post = snapshot.value as? String
-            if let actualPost = post {
-                self.departmentData.append(actualPost)
-            }
-        }
-
-        return 1
+        
+        return departmentArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentTableViewCell.reuseIdentifier, for: indexPath) as! DepartmentTableViewCell
         
-        let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: FacultyViewController.reuseIdentifier) as! FacultyViewController
-        
-        if vc.type == .engineering {
+        if type == .engineering {
+
             
             cell.departmentImageView.image = UIImage(named: "eng")
-            
-            ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
-//                let departmentName = snaphot.value as? String
-//                cell.departmentLabel.text = departmentName
-               for item in listNames {
-                    let itemRef = shoppingListsRef.child(item)
-                    itemRef.observe(.value, with: { (snapshot) in
-                        if let value = snapshot.value as? [String: Any] {
-                            let name = value["name"] as? String ?? ""
-                            let owner = value["owner"] as? String ?? ""
-                            print(name, owner)
-                        }
-                    })
-                }
-                
+            ref.child("departments/0/engineering/\(indexPath.row)/displayName").observeSingleEvent(of: .value) { (snaphot) in
+                let departmentName = snaphot.value as? String
+                cell.departmentLabel.text = departmentName
+                LoadingScreen.hide()
             }
         }
         
-        if vc.type == .fineArts {
+        if type == .fineArts {
             
-            cell.departmentImageView.image = UIImage(named: "eng")
+            cell.departmentImageView.image = UIImage(named: "art")
             let ref = Database.database().reference()
             
             ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
                 let departmentName = snaphot.value as? String
                 cell.departmentLabel.text = departmentName
+                LoadingScreen.hide()
+
             }
         }
         
-        if vc.type == .architecture {
+        if type == .architecture {
             
-            cell.departmentImageView.image = UIImage(named: "eng")
+            cell.departmentImageView.image = UIImage(named: "arc")
             let ref = Database.database().reference()
             
             ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
                 let departmentName = snaphot.value as? String
                 cell.departmentLabel.text = departmentName
+                LoadingScreen.hide()
+
             }
         }
         
-        if vc.type == .economics {
+        if type == .economics {
             
-            cell.departmentImageView.image = UIImage(named: "eng")
-            let ref = Database.database().reference()
-            
-            ref.child("departments/0/engineering/0/displayName").observeSingleEvent(of: .value) { (snaphot) in
-                let departmentName = snaphot.value as? String
-                cell.departmentLabel.text = departmentName
-            }
+            cell.departmentImageView.image = UIImage(named: "eco")
+            LoadingScreen.hide()
+
+
         }
         
         

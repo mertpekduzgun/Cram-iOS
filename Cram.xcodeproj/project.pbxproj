@@ -81,6 +81,16 @@
 		D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */; };
 		D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */; };
 		D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */; };
+		D6ED7A3B23888CED00C772D3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A3A23888CED00C772D3 /* User.swift */; };
+		D6ED7A3D23888DDB00C772D3 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A3C23888DDB00C772D3 /* Message.swift */; };
+		D6ED7A3F2389627200C772D3 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A3E2389627200C772D3 /* Department.swift */; };
+		D6ED7A52238C52C100C772D3 /* ClassTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A50238C52C100C772D3 /* ClassTableViewCell.swift */; };
+		D6ED7A53238C52C100C772D3 /* ClassTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ED7A51238C52C100C772D3 /* ClassTableViewCell.xib */; };
+		D6ED7A56238D921600C772D3 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A55238D921600C772D3 /* LoadingScreen.swift */; };
+		D6ED7A58238D923100C772D3 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ED7A57238D923100C772D3 /* LoadingView.xib */; };
+		D6ED7A5A238D923F00C772D3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A59238D923F00C772D3 /* LoadingView.swift */; };
+		D6ED7A5C238D9E4F00C772D3 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A5B238D9E4F00C772D3 /* Class.swift */; };
+		D6ED7A5F238DB50500C772D3 /* AddClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6ED7A5E238DB50500C772D3 /* AddClassViewController.swift */; };
 		D6F1D9CB238195ED0001F157 /* DepartmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F1D9CA238195ED0001F157 /* DepartmentTableViewCell.xib */; };
 		D6F1D9CE2381D5070001F157 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F1D9CD2381D5070001F157 /* ChatViewController.swift */; };
 		D6F1D9D02381D51D0001F157 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6F1D9CF2381D51D0001F157 /* Chat.storyboard */; };
@@ -191,6 +201,16 @@
 		D6DF65C2236DD919008EFB07 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		D6DF65C4236DDA0A008EFB07 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableStackView.swift; sourceTree = "<group>"; };
+		D6ED7A3A23888CED00C772D3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D6ED7A3C23888DDB00C772D3 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D6ED7A3E2389627200C772D3 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
+		D6ED7A50238C52C100C772D3 /* ClassTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassTableViewCell.swift; sourceTree = "<group>"; };
+		D6ED7A51238C52C100C772D3 /* ClassTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClassTableViewCell.xib; sourceTree = "<group>"; };
+		D6ED7A55238D921600C772D3 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		D6ED7A57238D923100C772D3 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		D6ED7A59238D923F00C772D3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D6ED7A5B238D9E4F00C772D3 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		D6ED7A5E238DB50500C772D3 /* AddClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassViewController.swift; sourceTree = "<group>"; };
 		D6F1D9CA238195ED0001F157 /* DepartmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartmentTableViewCell.xib; sourceTree = "<group>"; };
 		D6F1D9CD2381D5070001F157 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		D6F1D9CF2381D51D0001F157 /* Chat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
@@ -273,6 +293,7 @@
 			children = (
 				D603DC1E2385265000A8F7CF /* Cell */,
 				D603DC1C2385264A00A8F7CF /* ClassViewController.swift */,
+				D6ED7A5E238DB50500C772D3 /* AddClassViewController.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -280,6 +301,8 @@
 		D603DC1E2385265000A8F7CF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				D6ED7A50238C52C100C772D3 /* ClassTableViewCell.swift */,
+				D6ED7A51238C52C100C772D3 /* ClassTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -351,6 +374,8 @@
 		D68C3BED236CA86900C10B40 /* Cram */ = {
 			isa = PBXGroup;
 			children = (
+				D6ED7A3923888CB500C772D3 /* Model */,
+				D6ED7A3823888C9F00C772D3 /* Services */,
 				D6DF65BF236DD53B008EFB07 /* Extensions */,
 				D6DF65AA236DBE82008EFB07 /* Supporting Files */,
 				D6DF659C236CD7D5008EFB07 /* Core */,
@@ -397,6 +422,7 @@
 		D6DF659A236CD7B9008EFB07 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				D6ED7A54238D91FC00C772D3 /* Loading */,
 				D6F1D9CC238196AE0001F157 /* CellView */,
 				D6A370302374AF720061B4BD /* TopView */,
 				D6DF65C6236DDE41008EFB07 /* StackView */,
@@ -442,6 +468,7 @@
 			children = (
 				D6F1D9C82381944A0001F157 /* Faculty */,
 				D6F1D9C9238194740001F157 /* Department */,
+				D603DC1B2385262300A8F7CF /* Class */,
 				D665B6C1236F2D9B00CAE65E /* Course.storyboard */,
 			);
 			path = Course;
@@ -459,7 +486,6 @@
 		D6DF65A0236CD960008EFB07 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				D603DC1B2385262300A8F7CF /* Class */,
 				D6F1D9CD2381D5070001F157 /* ChatViewController.swift */,
 				D6F1D9CF2381D51D0001F157 /* Chat.storyboard */,
 			);
@@ -538,6 +564,34 @@
 				D6DF65C7236DDE5E008EFB07 /* DesignableStackView.swift */,
 			);
 			path = StackView;
+			sourceTree = "<group>";
+		};
+		D6ED7A3823888C9F00C772D3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D6ED7A3923888CB500C772D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D6ED7A3A23888CED00C772D3 /* User.swift */,
+				D6ED7A3C23888DDB00C772D3 /* Message.swift */,
+				D6ED7A3E2389627200C772D3 /* Department.swift */,
+				D6ED7A5B238D9E4F00C772D3 /* Class.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6ED7A54238D91FC00C772D3 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				D6ED7A55238D921600C772D3 /* LoadingScreen.swift */,
+				D6ED7A57238D923100C772D3 /* LoadingView.xib */,
+				D6ED7A59238D923F00C772D3 /* LoadingView.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		D6F1D9C82381944A0001F157 /* Faculty */ = {
@@ -674,6 +728,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6ED7A53238C52C100C772D3 /* ClassTableViewCell.xib in Resources */,
 				D6F1D9D02381D51D0001F157 /* Chat.storyboard in Resources */,
 				D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */,
 				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
@@ -691,6 +746,7 @@
 				D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */,
 				D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */,
 				D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */,
+				D6ED7A58238D923100C772D3 /* LoadingView.xib in Resources */,
 				D657772523709DFB009CA875 /* Tabbar.xcassets in Resources */,
 				D6A3702F2374A5C50061B4BD /* FacultyTableViewCell.xib in Resources */,
 			);
@@ -840,16 +896,21 @@
 				D657771A23709ABE009CA875 /* UIEdgeInsetsExtensions.swift in Sources */,
 				D657771423709AAD009CA875 /* UILabelExtensions.swift in Sources */,
 				D657770D23709A99009CA875 /* UISegmentedControlExtensions.swift in Sources */,
+				D6ED7A56238D921600C772D3 /* LoadingScreen.swift in Sources */,
+				D6ED7A3B23888CED00C772D3 /* User.swift in Sources */,
 				D657771B23709AC0009CA875 /* UIDatePickerExtensions.swift in Sources */,
 				D603DC1D2385264A00A8F7CF /* ClassViewController.swift in Sources */,
+				D6ED7A5C238D9E4F00C772D3 /* Class.swift in Sources */,
 				D657771923709ABB009CA875 /* UIFontExtensions.swift in Sources */,
 				D657770A23709A8F009CA875 /* UISwitchExtensions.swift in Sources */,
 				D6F1D9D22381D55E0001F157 /* SettingViewController.swift in Sources */,
+				D6ED7A5F238DB50500C772D3 /* AddClassViewController.swift in Sources */,
 				D6DF65BC236DCE4D008EFB07 /* BaseView.swift in Sources */,
 				D657772123709AD1009CA875 /* UIAlertControllerExtensions.swift in Sources */,
 				D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */,
 				D6DF65BE236DCED0008EFB07 /* BaseViewController.swift in Sources */,
 				D6A370322374AFCE0061B4BD /* TopView.swift in Sources */,
+				D6ED7A3F2389627200C772D3 /* Department.swift in Sources */,
 				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,
 				D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */,
 				D657772A2370BCCD009CA875 /* BaseTableViewCell.swift in Sources */,
@@ -864,11 +925,14 @@
 				D657771723709AB5009CA875 /* UIImageExtensions.swift in Sources */,
 				D657770423709A7E009CA875 /* UIViewExtensions.swift in Sources */,
 				D657771E23709AC8009CA875 /* UIBezierPathExtensions.swift in Sources */,
+				D6ED7A3D23888DDB00C772D3 /* Message.swift in Sources */,
 				D657771623709AB2009CA875 /* UIImageViewExtensions.swift in Sources */,
 				D657772023709ACE009CA875 /* UIApplicationExtensions.swift in Sources */,
 				D657770923709A8C009CA875 /* UITabBarExtensions.swift in Sources */,
+				D6ED7A52238C52C100C772D3 /* ClassTableViewCell.swift in Sources */,
 				D657770623709A83009CA875 /* UITextViewExtensions.swift in Sources */,
 				D657770723709A86009CA875 /* UITextFieldExtensions.swift in Sources */,
+				D6ED7A5A238D923F00C772D3 /* LoadingView.swift in Sources */,
 				D657770C23709A97009CA875 /* UISliderExtensions.swift in Sources */,
 				D657771F23709ACB009CA875 /* UIBarButtonItemExtensions.swift in Sources */,
 				D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */,
