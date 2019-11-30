@@ -190,6 +190,7 @@
                         <viewLayoutGuide key="safeArea" id="2Dc-qh-ClD"/>
                     </view>
                     <connections>
+                        <outlet property="departmentNameTextField" destination="Fge-rj-N80" id="br4-3N-ki3"/>
                         <outlet property="nameLabel" destination="HQp-ra-xn5" id="vNa-kx-HBn"/>
                         <outlet property="nameTextField" destination="vfF-s7-ZQC" id="dhi-Tc-NPu"/>
                         <outlet property="sectionLabel" destination="KPE-ha-4po" id="jbk-EO-Dpf"/>

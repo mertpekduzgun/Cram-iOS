@@ -9,8 +9,8 @@
 import UIKit
 
 public struct Class {
+    
     let name: String
     let section: String
-    let code: String
     let departmentName: String
 }

@@ -16,14 +16,9 @@ class ClassViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //    MARK: Variables
-    internal var ref: DatabaseReference! = Database.database().reference()
-    internal var databaseHandle: DatabaseHandle?
+    let firestoreDatabase = Firestore.firestore()
     
-    internal var classData = [String]() {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    internal var classArray = [Class]()
     
     //    MARK: LifeCycle
     override func viewDidLoad() {
@@ -49,14 +44,70 @@ class ClassViewController: BaseViewController {
     }
     
     func getClasses() {
-         ref.child("course").observeSingleEvent(of: .childAdded) { (snapshot) in
-            let post = snapshot.value as? String
-            print(snapshot.key)
-            if let actualPost = post {
-                self.classData.append(actualPost)
+        
+        //        firestoreDatabase.collection("departments").whereField("courses", isEqualTo: true).getDocuments { (snapshot, error) in
+        //            if let error = error {
+        //                print("error")
+        //            } else {
+        //                for document in snapshot!.documents {
+        //                    print("\(document.documentID) => \(document.data())")
+        //                }
+        //            }
+        //        }
+        //    }
+        
+        //        firestoreDatabase.collection("classes").whereField("departmentName", isEqualTo: "management").getDocuments { (snapshot, error) in
+        //            if let error = error {
+        //                print(error)
+        //            } else {
+        //                if snapshot?.documents == nil {
+        //                    print("boş")
+        //                } else {
+        //                    for document in snapshot!.documents {
+        //                        print("\(document.documentID) => \(document.data())")
+        //                    }
+        //                }
+        //            }
+        //        }
+        
+        
+        firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").whereField("courses", isEqualTo: "name").getDocuments { (snapshot, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if snapshot?.documents == nil {
+                    print("boş")
+                } else {
+                    for document in snapshot!.documents {
+                        print("\(document.documentID) => \(document.data())")
+                    }
+                }
             }
         }
+        
     }
+    
+    
+    //        firestoreDatabase.collection("classes").whereField("departmentName", isEqualTo: "Computer Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
+    //            if error != nil {
+    //                print("error") // TODO: Alert
+    //            } else {
+    //                if snapshot?.isEmpty == false && snapshot != nil {
+    //                    self.classArray.removeAll()
+    //                    for document in snapshot!.documents {
+    //                        if let departmentName = document.get("departmentName") as? String{
+    //                            if let name = document.get("name") as? String {
+    //                                if let section = document.get("section") {
+    //                                    let snap = Class(name: name, section: section as! String, departmentName: departmentName)
+    //                                self.classArray.append(snap)
+    //                                }
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
     
 }
 
@@ -64,18 +115,16 @@ class ClassViewController: BaseViewController {
 extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return classData.count
+        return classArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseIdentifier, for: indexPath) as! ClassTableViewCell
-        //        ref.child("departments/0/engineering/0/courses/\(indexPath.row)/displayName").observeSingleEvent(of: .value) { (snaphot) in
-        //            let className = snaphot.value as? String
-        //            cell.classNameLabel.text = className
-        //        }
         
-        ref.child("courses")
+        cell.classImageView.image = UIImage(named: "eng")
+        cell.classNameLabel.text = classArray[indexPath.row].name
+        cell.classSectionLabel.text = classArray[indexPath.row].section
         
         return cell
     }
