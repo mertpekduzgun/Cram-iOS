@@ -7,22 +7,68 @@
 //
 
 import UIKit
+import Firebase
+import MessageKit
 
-class Message: NSObject {
+struct Message {
     
-    var fromId: String?
-    var text: String?
-    var toId: String?
-    var timestamp: TimeInterval?
+    var id: String
+    var senderID: String
+    var senderName: String
+    var content: String
+    var created: Timestamp
     
-    init(dictionary: [String: AnyObject]) {
+    var dictionary: [String: Any] {
         
-        super.init()
-        
-        fromId = dictionary["fromId"] as? String
-        text = dictionary["text"] as? String
-        timestamp = dictionary["timestamp"] as? TimeInterval
-        toId = dictionary["toId"] as? String
+        return [
+            "id": id,
+            "senderID": senderID,
+            "senderName": senderName,
+            "content": content,
+            "created": created,
+        ]
     }
+}
+
+extension Message {
+    
+    init?(dictionary: [String: Any]) {
+        guard let id = dictionary["id"] as? String,
+            let content = dictionary["content"] as? String,
+            let senderID = dictionary["senderID"] as? String,
+            let senderName = dictionary["senderName"] as? String,
+            let created = dictionary["created"] as? Timestamp
+            
+            
+            else {
+                return nil
+        }
+        
+        self.init(id: id, senderID: senderID, senderName: senderName, content: content, created: created)
+        
+    }
+    
+}
+
+extension Message: MessageType {
+    
+    var sender: SenderType {
+        return Sender(id: senderID, displayName: senderName)
+        
+    }
+    
+    var messageId: String {
+        return id
+    }
+    
+    var sentDate: Date {
+        return created.dateValue()
+    }
+    
+    var kind: MessageKind {
+        return .text(content)
+    }
+    
+    
     
 }

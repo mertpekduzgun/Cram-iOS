@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="197" id="KGk-i7-Jjw" customClass="ChatRoomTableViewCell" customModule="Cram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QPf-0w-ijp">
+                        <rect key="frame" x="16" y="10" width="288" height="155"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="155" id="SSJ-tl-Gaf"/>
+                            <constraint firstAttribute="width" constant="288" id="ovi-Ie-CmL"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="84r-mB-IST">
+                        <rect key="frame" x="16" y="130" width="288" height="35"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-8l-h2Q">
+                                <rect key="frame" x="10" y="8.5" width="42" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-re-gsl">
+                                <rect key="frame" x="242" y="9.5" width="36" height="16"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.64750107020547942" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2dd-8l-h2Q" firstAttribute="centerY" secondItem="84r-mB-IST" secondAttribute="centerY" id="AA9-uq-DIm"/>
+                            <constraint firstAttribute="trailing" secondItem="Cjv-re-gsl" secondAttribute="trailing" constant="10" id="ALi-Ob-uju"/>
+                            <constraint firstItem="Cjv-re-gsl" firstAttribute="centerY" secondItem="2dd-8l-h2Q" secondAttribute="centerY" id="LEO-Zb-udq"/>
+                            <constraint firstItem="2dd-8l-h2Q" firstAttribute="leading" secondItem="84r-mB-IST" secondAttribute="leading" constant="10" id="QLc-Eu-Wva"/>
+                            <constraint firstAttribute="width" constant="288" id="jKW-TE-a7L"/>
+                            <constraint firstAttribute="height" constant="35" id="si2-Mf-Xhy"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QPf-0w-ijp" secondAttribute="trailing" constant="16" id="Q5a-bM-sWA"/>
+                    <constraint firstItem="QPf-0w-ijp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="kfC-Pj-TMf"/>
+                    <constraint firstAttribute="bottom" secondItem="QPf-0w-ijp" secondAttribute="bottom" constant="15" id="lSd-Is-1BH"/>
+                    <constraint firstItem="84r-mB-IST" firstAttribute="leading" secondItem="QPf-0w-ijp" secondAttribute="leading" id="muP-a7-Q7n"/>
+                    <constraint firstItem="84r-mB-IST" firstAttribute="bottom" secondItem="QPf-0w-ijp" secondAttribute="bottom" id="tfn-LY-i12"/>
+                    <constraint firstItem="QPf-0w-ijp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="z1F-X7-6Kz"/>
+                    <constraint firstItem="84r-mB-IST" firstAttribute="trailing" secondItem="QPf-0w-ijp" secondAttribute="trailing" id="zpc-fQ-25S"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="chatRoomImageView" destination="QPf-0w-ijp" id="6pq-D7-Py9"/>
+                <outlet property="chatRoomLabel" destination="2dd-8l-h2Q" id="Sew-cd-o4n"/>
+                <outlet property="chatRoomSectionLabel" destination="Cjv-re-gsl" id="Syi-zj-luG"/>
+            </connections>
+            <point key="canvasLocation" x="65" y="-12"/>
+        </tableViewCell>
+    </objects>
+</document>

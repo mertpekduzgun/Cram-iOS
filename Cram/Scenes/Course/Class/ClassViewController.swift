@@ -43,6 +43,7 @@ class ClassViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+//    MARK: GetClasses
     func getClasses() {
         
         //        firestoreDatabase.collection("departments").whereField("courses", isEqualTo: true).getDocuments { (snapshot, error) in

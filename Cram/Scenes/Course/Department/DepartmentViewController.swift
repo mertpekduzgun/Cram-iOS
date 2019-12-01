@@ -50,11 +50,10 @@ class DepartmentViewController: BaseViewController {
         
     }
     
-//    MARK: GetDepartmemts
+    //    MARK: GetDepartmemts
     func getDepartments() {
         switch type {
         case .engineering:
-
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -73,7 +72,6 @@ class DepartmentViewController: BaseViewController {
                 }
             }
         case .artsScience:
-            
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "ArtsScience").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -91,10 +89,9 @@ class DepartmentViewController: BaseViewController {
                     }
                 }
             }
-
-
-        case .architecture:
             
+            
+        case .architecture:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Architecture").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -112,10 +109,9 @@ class DepartmentViewController: BaseViewController {
                     }
                 }
             }
-
-
-        case .economics:
             
+            
+        case .economics:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Economics").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -137,10 +133,7 @@ class DepartmentViewController: BaseViewController {
         default:
             break
         }
-        
     }
-    
-    
 }
 
 //  MARK: TableView
@@ -155,37 +148,34 @@ extension DepartmentViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentTableViewCell.reuseIdentifier, for: indexPath) as! DepartmentTableViewCell
         
         if type == .engineering {
-
+            
             cell.departmentImageView.image = UIImage(named: "eng")
             cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
             LoadingScreen.hide()
-                
-            }
+            
+        }
         
         if type == .artsScience {
-
+            
             cell.departmentImageView.image = UIImage(named: "art")
             cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
             LoadingScreen.hide()
         }
-
+        
         if type == .architecture {
-
+            
             cell.departmentImageView.image = UIImage(named: "arc")
             cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
             LoadingScreen.hide()
         }
-
+        
         if type == .economics {
-
+            
             cell.departmentImageView.image = UIImage(named: "eco")
             cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
             LoadingScreen.hide()
-
-
+            
         }
-        
-        
         cell.tapped = {
             let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
             self.navigationController?.pushViewController(vc, animated: true)
