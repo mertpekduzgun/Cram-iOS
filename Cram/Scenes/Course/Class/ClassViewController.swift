@@ -16,8 +16,6 @@ class ClassViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //    MARK: Variables
-    let firestoreDatabase = Firestore.firestore()
-    
     internal var classArray = [Class]()
     
     //    MARK: LifeCycle
@@ -72,21 +70,43 @@ class ClassViewController: BaseViewController {
         //        }
         
         
-        firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").whereField("courses", isEqualTo: "name").getDocuments { (snapshot, error) in
+//        firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").whereField("courses", isEqualTo: "name").getDocuments { (snapshot, error) in
+//            if let error = error {
+//                print(error)
+//            } else {
+//                if snapshot?.documents == nil {
+//                    print("boş")
+//                } else {
+//                    for document in snapshot!.documents {
+//                        print("\(document.documentID) => \(document.data())")
+//                    }
+//                }
+//            }
+//        }
+        
+        
+        let firestoreDatabase = Firestore.firestore().collection("departments").whereField("courses", arrayContains: classArray)
+        
+        firestoreDatabase.getDocuments { (snapshot, error) in
             if let error = error {
-                print(error)
+                print("Error: \(error)")
+                return
             } else {
                 if snapshot?.documents == nil {
-                    print("boş")
+                    print("Empty")
                 } else {
                     for document in snapshot!.documents {
                         print("\(document.documentID) => \(document.data())")
-                    }
                 }
             }
         }
         
     }
+    }
+    
+//    func createClasses() {
+//        let classes = []
+//    }
     
     
     //        firestoreDatabase.collection("classes").whereField("departmentName", isEqualTo: "Computer Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in

@@ -33,7 +33,7 @@ class ChatViewController: MessagesViewController {
         maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(UIColor.flatBlueColorDark(), for: .normal)
-        
+        self.user2UID = "R7HOdWzlu9aTKt9AyhDLr5qzZMj2"
         loadChat()
     }
     
@@ -52,8 +52,32 @@ class ChatViewController: MessagesViewController {
                 }
                 if queryCount == 0 {
                     self.createNewChat()
+                } else if queryCount >= 1 {
+                    for doc in snapshot!.documents {
+                        let chat = Chat(dictionary: doc.data())
+                        if (chat?.users.contains(self.user2UID!))! {
+                            self.ref = doc.reference
+                            doc.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
+                                if let error = error {
+                                    print("Error: \(error)")
+                                    return
+                                } else {
+                                    self.messages.removeAll()
+                                    for message in threadQuery!.documents {
+                                        let msg = Message(dictionary: message.data())
+                                        self.messages.append(msg!)
+                                        print("Data: \(msg?.content ?? "No Messages")")
+                                    }
+                                    self.messagesCollectionView.reloadData()
+                                    self.messagesCollectionView.scrollToBottom(animated: true)
+                                }
+                            })
+                            return
+                        }
+                    }
+                    self.createNewChat()
                 } else {
-                    print("OOppps Error!")
+                    print("OOOppps Error")
                 }
             }
         }
@@ -107,7 +131,7 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate, InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: currentUser.displayName!, content: text, created: Timestamp())
+        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: currentUser.displayName ?? "", content: text, created: Timestamp())
         insertNewMessage(message)
         save(message)
         

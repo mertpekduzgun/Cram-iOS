@@ -41,10 +41,11 @@ class FacultyViewController: BaseViewController {
             } else {
                 if snapshot?.isEmpty == false && snapshot != nil {
                     for document in snapshot!.documents {
-                        if let userEmail = document.get("email") as? String {
-                            User.sharedUserInfo.email = userEmail
+                        let userEmail = document.get("email") as? String
+                        let userName = document.get("name") as? String
+                        User(uid: self.currentUser!.uid, name: userName!, email: userEmail!)
                             
-                        }
+                        
                     }
                 }
             }

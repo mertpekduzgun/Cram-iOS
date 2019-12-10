@@ -25,7 +25,7 @@ struct Message {
             "senderID": senderID,
             "senderName": senderName,
             "content": content,
-            "created": created,
+            "created": created
         ]
     }
 }

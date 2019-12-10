@@ -7,16 +7,41 @@
 //
 
 import UIKit
+import Firebase
 
-class User {
+struct User {
     
-    static let sharedUserInfo = User()
+    var uid: String
+    var name: String
+    var email: String
     
-    var uid = ""
-    var name = ""
-    var email = ""
-    
-    private init() {
+    var dictionary: [String: Any] {
+        
+        return [
+            "uid": uid,
+            "name": name,
+            "email": email
+        ]
         
     }
 }
+
+extension User {
+    
+    init?(dictionary: [String: Any]) {
+        guard let uid = dictionary["uid"] as? String,
+            let name = dictionary["name"] as? String,
+            let email = dictionary["email"] as? String
+         
+            
+            
+            else {
+                return nil
+        }
+        
+        self.init(uid: uid, name: name, email: email)
+        
+    }
+}
+
+
