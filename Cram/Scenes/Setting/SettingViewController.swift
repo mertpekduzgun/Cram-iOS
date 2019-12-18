@@ -20,13 +20,13 @@ class SettingViewController: UIViewController {
     
     @IBAction func logoutAction(_ sender: Any) {
         do {
-            try Auth.auth().signOut()
+            
             let alert = UIAlertController(title: "Logout!", message: "Are you sure you want to sign out?", preferredStyle: .alert)
             
              let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
                 self.dismiss(animated: false, completion: nil)
             })
-            cancel.setValue(UIColor.lightGray, forKey: "titleTextColor")
+            cancel.setValue(UIColor.flatBlueColorDark(), forKey: "titleTextColor")
             alert.addAction(cancel)
             
             let logout = UIAlertAction(title: "Logout", style: .default, handler: { (alert) in
@@ -34,6 +34,7 @@ class SettingViewController: UIViewController {
                     let nc = UINavigationController(rootViewController: vc)
                     nc.modalPresentationStyle = .fullScreen
                     self.present(nc, animated: false, completion: nil) // TODO: cancel button
+                    
                 }
             })
             
@@ -42,6 +43,7 @@ class SettingViewController: UIViewController {
 
             
             self.present(alert, animated: false)
+            try Auth.auth().signOut()
         } catch {
             
         }

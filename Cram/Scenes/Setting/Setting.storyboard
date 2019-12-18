@@ -2,10 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PUc-EA-Phs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Medium.ttf">
+            <string>Montserrat-Medium</string>
+        </array>
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Setting View Controller-->
         <scene sceneID="72r-T5-5Rz">
@@ -15,18 +24,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glp-me-WoE">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="logoutAction:" destination="ObV-KB-xCo" eventType="touchUpInside" id="cSa-Dx-QGo"/>
-                                </connections>
-                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="FkO-Ds-c8D">
+                                <rect key="frame" x="157" y="113" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="GqN-MV-dwM"/>
+                                    <constraint firstAttribute="width" constant="100" id="JgX-O0-z3W"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JX6-AE-lXU">
+                                <rect key="frame" x="162.5" y="238" width="89" height="18.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-t4-Jwt">
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxf-xf-9TO">
+                                        <rect key="frame" x="47" y="0.0" width="42" height="18.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus" translatesAutoresizingMaskIntoConstraints="NO" id="67a-pQ-iIR">
+                                <rect key="frame" x="232" y="188" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="TL9-tv-LB0"/>
+                                    <constraint firstAttribute="height" constant="25" id="ryO-HB-BOg"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-iM-9iT">
+                                <rect key="frame" x="0.0" y="281.5" width="414" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glp-me-WoE">
+                                        <rect key="frame" x="15" y="-0.5" width="54" height="31"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
+                                        <state key="normal" title="Logout">
+                                            <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutAction:" destination="ObV-KB-xCo" eventType="touchUpInside" id="cSa-Dx-QGo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="glp-me-WoE" firstAttribute="leading" secondItem="Cdd-iM-9iT" secondAttribute="leading" constant="15" id="6OG-Mq-v3Z"/>
+                                    <constraint firstItem="glp-me-WoE" firstAttribute="centerY" secondItem="Cdd-iM-9iT" secondAttribute="centerY" id="IdD-9u-SPg"/>
+                                    <constraint firstAttribute="height" constant="30" id="VTw-SU-adi"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.8969173210526481" green="0.8969173210526481" blue="0.8969173210526481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="glp-me-WoE" firstAttribute="centerY" secondItem="FvE-qC-iZ5" secondAttribute="centerY" id="s9v-OI-ena"/>
-                            <constraint firstItem="glp-me-WoE" firstAttribute="centerX" secondItem="FvE-qC-iZ5" secondAttribute="centerX" id="vK7-uO-ilI"/>
+                            <constraint firstItem="67a-pQ-iIR" firstAttribute="trailing" secondItem="FkO-Ds-c8D" secondAttribute="trailing" id="7or-uY-jf9"/>
+                            <constraint firstItem="JX6-AE-lXU" firstAttribute="centerX" secondItem="FvE-qC-iZ5" secondAttribute="centerX" id="98G-Oc-Fbd"/>
+                            <constraint firstItem="FkO-Ds-c8D" firstAttribute="centerX" secondItem="FvE-qC-iZ5" secondAttribute="centerX" id="ACw-R1-VcL"/>
+                            <constraint firstItem="Cdd-iM-9iT" firstAttribute="leading" secondItem="HfD-68-GvV" secondAttribute="leading" id="Xg7-Vq-gmL"/>
+                            <constraint firstItem="67a-pQ-iIR" firstAttribute="bottom" secondItem="FkO-Ds-c8D" secondAttribute="bottom" id="dIb-uN-Jle"/>
+                            <constraint firstItem="FkO-Ds-c8D" firstAttribute="top" secondItem="HfD-68-GvV" secondAttribute="top" constant="25" id="dwE-V0-z4C"/>
+                            <constraint firstItem="HfD-68-GvV" firstAttribute="trailing" secondItem="Cdd-iM-9iT" secondAttribute="trailing" id="efk-MU-TFB"/>
+                            <constraint firstItem="JX6-AE-lXU" firstAttribute="top" secondItem="FkO-Ds-c8D" secondAttribute="bottom" constant="25" id="lJr-UI-hNW"/>
+                            <constraint firstItem="Cdd-iM-9iT" firstAttribute="top" secondItem="JX6-AE-lXU" secondAttribute="bottom" constant="25" id="m2k-Zj-gRQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HfD-68-GvV"/>
                     </view>
@@ -55,4 +121,8 @@
             <point key="canvasLocation" x="-288.40579710144931" y="-8.0357142857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="plus" width="512" height="512"/>
+        <image name="user" width="512" height="512"/>
+    </resources>
 </document>
