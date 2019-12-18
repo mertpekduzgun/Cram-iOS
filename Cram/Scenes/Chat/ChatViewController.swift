@@ -20,6 +20,8 @@ class ChatViewController: MessagesViewController {
     
     internal var user2Name: String?
     internal var user2UID: String?
+    internal var user3Name: String?
+    internal var user3UID: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,8 @@ class ChatViewController: MessagesViewController {
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(UIColor.flatBlueColorDark(), for: .normal)
         self.user2UID = "R7HOdWzlu9aTKt9AyhDLr5qzZMj2"
+        self.user3UID = "J60Swy5E63UZh7ZCt08MBc8QyWp2"
+        let userArray = [self.user2UID, self.user3UID]
         loadChat()
     }
     
@@ -55,7 +59,7 @@ class ChatViewController: MessagesViewController {
                 } else if queryCount >= 1 {
                     for doc in snapshot!.documents {
                         let chat = Chat(dictionary: doc.data())
-                        if (chat?.users.contains(self.user2UID!))! {
+                        if (chat?.users.contains(self.user2UID!))! && ((chat?.users.contains(self.user3UID!))!) {
                             self.ref = doc.reference
                             doc.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                                 if let error = error {
@@ -84,7 +88,7 @@ class ChatViewController: MessagesViewController {
     }
     
     func createNewChat() {
-        let users = [self.currentUser.uid, self.user2UID]
+        let users = [self.currentUser.uid, self.user2UID, self.user3UID]
         let data: [String: Any] = [
             "users": users
         ]
@@ -131,7 +135,7 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate, InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: currentUser.displayName ?? "", content: text, created: Timestamp())
+        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: currentUser.displayName ?? "test name", content: text, created: Timestamp())
         insertNewMessage(message)
         save(message)
         

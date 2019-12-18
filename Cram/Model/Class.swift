@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct Class {
+struct Class {
     
     let name: String
     let section: String

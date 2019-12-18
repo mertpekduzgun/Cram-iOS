@@ -14,15 +14,15 @@ class ClassTableViewCell: BaseTableViewCell {
     @IBOutlet weak var classNameLabel: UILabel!
     @IBOutlet weak var classSectionLabel: UILabel!
     
+    internal var tapped: (()->())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedView)))
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @objc func tappedView() {
+        self.tapped?()
     }
     
 }

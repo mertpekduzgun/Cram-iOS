@@ -80,6 +80,9 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .engineering
+                    vc.imageName = "eng"
+                    LoadingScreen.hide()
+
 
                 }
                 
@@ -87,6 +90,8 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .artsScience
+                    vc.imageName = "art"
+                    LoadingScreen.hide()
 
                 }
                 
@@ -94,12 +99,16 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .architecture
+                    vc.imageName = "arc"
+                    LoadingScreen.hide()
                 }
                 
             case 3:
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .economics
+                    vc.imageName = "eco"
+                    LoadingScreen.hide()
                 }
                 
             default:
