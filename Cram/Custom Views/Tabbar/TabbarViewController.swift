@@ -11,7 +11,7 @@ import UIKit
 class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
     
     var courseViewController: UIViewController!
-    var chatViewController: UIViewController!
+    var chatRoomViewController: UIViewController!
     var settingViewController: UIViewController!
 
     override func viewDidLoad() {
@@ -19,22 +19,22 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         
         courseViewController = UIStoryboard.courses.instantiateInitialViewController()!
-        chatViewController = UIStoryboard.chats.instantiateInitialViewController()!
+        chatRoomViewController = UIStoryboard.chats.instantiateInitialViewController()!
         settingViewController = UIStoryboard.settings.instantiateInitialViewController()!
         
         courseViewController.tabBarItem.image = UIImage(named: "course") // TODO: tabbar image
         courseViewController.tabBarItem.selectedImage = UIImage(named: "courseSelected") // TODO:
         courseViewController.tabBarItem.title = "Courses"
         
-        chatViewController.tabBarItem.image = UIImage(named: "chat") // TODO: tabbar image
-        chatViewController.tabBarItem.selectedImage = UIImage(named: "chatSelected") // TODO:
-        chatViewController.tabBarItem.title = "Chats"
+        chatRoomViewController.tabBarItem.image = UIImage(named: "chat") // TODO: tabbar image
+        chatRoomViewController.tabBarItem.selectedImage = UIImage(named: "chatSelected") // TODO:
+        chatRoomViewController.tabBarItem.title = "Chats"
         
         settingViewController.tabBarItem.image = UIImage(named: "setting") // TODO: tabbar image
         settingViewController.tabBarItem.selectedImage = UIImage(named: "settingSelected") // TODO:
         settingViewController.tabBarItem.title = "Settings"
         
-        viewControllers = [courseViewController, chatViewController, settingViewController]
+        viewControllers = [courseViewController, chatRoomViewController, settingViewController]
         
         for tabBarItem in tabBar.items! {
             tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.montserratMedium(ofsize: 11)], for: .normal)

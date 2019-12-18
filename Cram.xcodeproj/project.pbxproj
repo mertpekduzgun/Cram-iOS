@@ -61,6 +61,12 @@
 		D68C3BFB236CA86C00C10B40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D68C3BF9236CA86C00C10B40 /* LaunchScreen.storyboard */; };
 		D68C3C06236CA86C00C10B40 /* CramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C05236CA86C00C10B40 /* CramTests.swift */; };
 		D68C3C11236CA86C00C10B40 /* CramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68C3C10236CA86C00C10B40 /* CramUITests.swift */; };
+		D69589432393208900C9D208 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69589412393208900C9D208 /* MessageTableViewCell.swift */; };
+		D69589442393208900C9D208 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69589422393208900C9D208 /* MessageTableViewCell.xib */; };
+		D695894623940EE400C9D208 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695894523940EE400C9D208 /* Chat.swift */; };
+		D6958949239434AC00C9D208 /* ChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6958948239434AC00C9D208 /* ChatRoomViewController.swift */; };
+		D695894D2394360800C9D208 /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D695894B2394360800C9D208 /* ChatRoomTableViewCell.swift */; };
+		D695894E2394360800C9D208 /* ChatRoomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D695894C2394360800C9D208 /* ChatRoomTableViewCell.xib */; };
 		D6A3702E2374A5C50061B4BD /* FacultyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */; };
 		D6A3702F2374A5C50061B4BD /* FacultyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */; };
 		D6A370322374AFCE0061B4BD /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A370312374AFCE0061B4BD /* TopView.swift */; };
@@ -181,6 +187,13 @@
 		D68C3C0C236CA86C00C10B40 /* CramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D68C3C10236CA86C00C10B40 /* CramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CramUITests.swift; sourceTree = "<group>"; };
 		D68C3C12236CA86C00C10B40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D69589412393208900C9D208 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		D69589422393208900C9D208 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		D695894523940EE400C9D208 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		D69589472394237600C9D208 /* Cram.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cram.entitlements; sourceTree = "<group>"; };
+		D6958948239434AC00C9D208 /* ChatRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomViewController.swift; sourceTree = "<group>"; };
+		D695894B2394360800C9D208 /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
+		D695894C2394360800C9D208 /* ChatRoomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRoomTableViewCell.xib; sourceTree = "<group>"; };
 		D6A3702C2374A5C50061B4BD /* FacultyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyTableViewCell.swift; sourceTree = "<group>"; };
 		D6A3702D2374A5C50061B4BD /* FacultyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacultyTableViewCell.xib; sourceTree = "<group>"; };
 		D6A370312374AFCE0061B4BD /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -374,6 +387,7 @@
 		D68C3BED236CA86900C10B40 /* Cram */ = {
 			isa = PBXGroup;
 			children = (
+				D69589472394237600C9D208 /* Cram.entitlements */,
 				D6ED7A3923888CB500C772D3 /* Model */,
 				D6ED7A3823888C9F00C772D3 /* Services */,
 				D6DF65BF236DD53B008EFB07 /* Extensions */,
@@ -408,6 +422,24 @@
 				D68C3C12236CA86C00C10B40 /* Info.plist */,
 			);
 			path = CramUITests;
+			sourceTree = "<group>";
+		};
+		D69589402393205700C9D208 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				D69589412393208900C9D208 /* MessageTableViewCell.swift */,
+				D69589422393208900C9D208 /* MessageTableViewCell.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		D695894A239435E100C9D208 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D695894B2394360800C9D208 /* ChatRoomTableViewCell.swift */,
+				D695894C2394360800C9D208 /* ChatRoomTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D6A370302374AF720061B4BD /* TopView */ = {
@@ -486,6 +518,9 @@
 		D6DF65A0236CD960008EFB07 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				D695894A239435E100C9D208 /* Cell */,
+				D69589402393205700C9D208 /* Message */,
+				D6958948239434AC00C9D208 /* ChatRoomViewController.swift */,
 				D6F1D9CD2381D5070001F157 /* ChatViewController.swift */,
 				D6F1D9CF2381D51D0001F157 /* Chat.storyboard */,
 			);
@@ -580,6 +615,7 @@
 				D6ED7A3C23888DDB00C772D3 /* Message.swift */,
 				D6ED7A3E2389627200C772D3 /* Department.swift */,
 				D6ED7A5B238D9E4F00C772D3 /* Class.swift */,
+				D695894523940EE400C9D208 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -728,7 +764,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D695894E2394360800C9D208 /* ChatRoomTableViewCell.xib in Resources */,
 				D6ED7A53238C52C100C772D3 /* ClassTableViewCell.xib in Resources */,
+				D69589442393208900C9D208 /* MessageTableViewCell.xib in Resources */,
 				D6F1D9D02381D51D0001F157 /* Chat.storyboard in Resources */,
 				D6DF65C5236DDA0A008EFB07 /* Montserrat-Bold.ttf in Resources */,
 				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
@@ -889,6 +927,7 @@
 				D657771023709AA1009CA875 /* UIRefreshControlExtensions.swift in Sources */,
 				D657770523709A81009CA875 /* UIViewControllerExtensions.swift in Sources */,
 				D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */,
+				D695894623940EE400C9D208 /* Chat.swift in Sources */,
 				D6DF65BA236DCD3C008EFB07 /* TextFieldView.swift in Sources */,
 				D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */,
 				D657770E23709A9C009CA875 /* UISearchBarExtensions.swift in Sources */,
@@ -913,6 +952,7 @@
 				D6ED7A3F2389627200C772D3 /* Department.swift in Sources */,
 				D68C3BEF236CA86900C10B40 /* AppDelegate.swift in Sources */,
 				D68C3BF1236CA86900C10B40 /* SceneDelegate.swift in Sources */,
+				D695894D2394360800C9D208 /* ChatRoomTableViewCell.swift in Sources */,
 				D657772A2370BCCD009CA875 /* BaseTableViewCell.swift in Sources */,
 				D657771823709AB8009CA875 /* UIGestureRecognizerExtensions.swift in Sources */,
 				D657771D23709AC6009CA875 /* UIButtonExtensions.swift in Sources */,
@@ -937,8 +977,10 @@
 				D657771F23709ACB009CA875 /* UIBarButtonItemExtensions.swift in Sources */,
 				D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */,
 				D6DF65C1236DD586008EFB07 /* UIColor+Additions.swift in Sources */,
+				D69589432393208900C9D208 /* MessageTableViewCell.swift in Sources */,
 				D657771C23709AC3009CA875 /* UICollectionViewExtensions.swift in Sources */,
 				D657772323709AD8009CA875 /* ColorExtensions.swift in Sources */,
+				D6958949239434AC00C9D208 /* ChatRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,17 +1146,21 @@
 			baseConfigurationReference = DAEC3AD53BA3F01E41EE345E /* Pods-Cram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cram/Cram.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				DEVELOPMENT_TEAM = GJ77XX22QL;
 				INFOPLIST_FILE = Cram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mert.Cram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1123,17 +1169,21 @@
 			baseConfigurationReference = C0D0A9BADACCEB3CD6180C80 /* Pods-Cram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Cram/Cram.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A2SM8U2RAS;
+				DEVELOPMENT_TEAM = B8RL56KRBX;
 				INFOPLIST_FILE = Cram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mert.Cram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,7 +17,6 @@ class DepartmentTableViewCell: BaseTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedView)))
         
     }

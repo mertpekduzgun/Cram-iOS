@@ -31,7 +31,7 @@ class DepartmentViewController: BaseViewController {
     
     internal var firestoreDatabase = Firestore.firestore()
     internal var type: facultyType = .engineering
-    
+    internal var imageName: String = ""
     
     //    MARK: LifeCycle
     override func viewDidLoad() {
@@ -50,11 +50,10 @@ class DepartmentViewController: BaseViewController {
         
     }
     
-//    MARK: GetDepartmemts
+    //    MARK: GetDepartmemts
     func getDepartments() {
         switch type {
         case .engineering:
-
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -73,7 +72,6 @@ class DepartmentViewController: BaseViewController {
                 }
             }
         case .artsScience:
-            
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "ArtsScience").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -91,10 +89,9 @@ class DepartmentViewController: BaseViewController {
                     }
                 }
             }
-
-
-        case .architecture:
             
+            
+        case .architecture:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Architecture").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -112,10 +109,9 @@ class DepartmentViewController: BaseViewController {
                     }
                 }
             }
-
-
-        case .economics:
             
+            
+        case .economics:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Economics").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
                     print("error") // TODO: Alert
@@ -137,10 +133,7 @@ class DepartmentViewController: BaseViewController {
         default:
             break
         }
-        
     }
-    
-    
 }
 
 //  MARK: TableView
@@ -153,45 +146,147 @@ extension DepartmentViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DepartmentTableViewCell.reuseIdentifier, for: indexPath) as! DepartmentTableViewCell
-        
-        if type == .engineering {
-
-            cell.departmentImageView.image = UIImage(named: "eng")
-            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
-            LoadingScreen.hide()
-                
-            }
-        
-        if type == .artsScience {
-
-            cell.departmentImageView.image = UIImage(named: "art")
-            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
-            LoadingScreen.hide()
-        }
-
-        if type == .architecture {
-
-            cell.departmentImageView.image = UIImage(named: "arc")
-            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
-            LoadingScreen.hide()
-        }
-
-        if type == .economics {
-
-            cell.departmentImageView.image = UIImage(named: "eco")
-            cell.departmentLabel.text = departmentArray[indexPath.row].departmentName
-            LoadingScreen.hide()
-
-
-        }
-        
-        
+        cell.departmentLabel.text = self.departmentArray[indexPath.row].departmentName
+        cell.departmentImageView.image = UIImage(named: self.imageName)
+        LoadingScreen.hide()
         cell.tapped = {
-            let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            LoadingScreen.show("Loading...")
+            if self.type == .engineering {
+                switch indexPath.row {
+                case 0:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .civil
+                        
+                    }
+                case 1:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .computer
+                        
+                    }
+                    
+                case 2:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .electrical
+                        
+                    }
+                    
+                case 3:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .industrial
+                        
+                    }
+                    
+                case 4:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .mechanical
+                        
+                    }
+                    
+                default:
+                    break
+                }
+            }
+            if self.type == .artsScience {
+                switch indexPath.row {
+                case 0:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .humanities
+                        
+                    }
+                    
+                case 1:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .information
+                        
+                    }
+                    
+                case 2:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .math
+                        
+                    }
+                    
+                case 3:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .physics
+                        
+                    }
+                    
+                case 4:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .psychology
+                        
+                    }
+                default:
+                    break
+                }
+            }
+            
+            if self.type == .architecture {
+                switch indexPath.row {
+                case 0:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .arch
+                        
+                    }
+                    
+                case 1:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .industrialDesign
+                        
+                    }
+                    
+                case 2:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .interiorArch
+                        
+                    }
+                default:
+                    break
+                }
+            }
+            
+            if self.type == .economics {
+                switch indexPath.row {
+                case 0:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .eco
+                        
+                    }
+                    
+                case 1:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .internationalRelations
+                        
+                    }
+                    
+                case 2:
+                    if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as? ClassViewController {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        vc.type = .management
+                        
+                    }
+                default:
+                    break
+                }
+            }
         }
         return cell
     }
-    
 }
 

@@ -41,10 +41,11 @@ class FacultyViewController: BaseViewController {
             } else {
                 if snapshot?.isEmpty == false && snapshot != nil {
                     for document in snapshot!.documents {
-                        if let userEmail = document.get("email") as? String {
-                            User.sharedUserInfo.email = userEmail
+                        let userEmail = document.get("email") as? String
+                        let userName = document.get("name") as? String
+                        User(uid: self.currentUser!.uid, name: userName!, email: userEmail!)
                             
-                        }
+                        
                     }
                 }
             }
@@ -79,6 +80,9 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .engineering
+                    vc.imageName = "eng"
+                    LoadingScreen.hide()
+
 
                 }
                 
@@ -86,6 +90,8 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .artsScience
+                    vc.imageName = "art"
+                    LoadingScreen.hide()
 
                 }
                 
@@ -93,12 +99,16 @@ extension FacultyViewController: UITableViewDelegate, UITableViewDataSource {
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .architecture
+                    vc.imageName = "arc"
+                    LoadingScreen.hide()
                 }
                 
             case 3:
                 if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: DepartmentViewController.reuseIdentifier) as? DepartmentViewController {
                     self.navigationController?.pushViewController(vc, animated: true)
                     vc.type = .economics
+                    vc.imageName = "eco"
+                    LoadingScreen.hide()
                 }
                 
             default:

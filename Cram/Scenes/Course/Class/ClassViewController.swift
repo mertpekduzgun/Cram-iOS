@@ -9,6 +9,25 @@
 import UIKit
 import Firebase
 
+enum departmentType {
+    case civil
+    case computer
+    case industrial
+    case electrical
+    case mechanical
+    case humanities
+    case information
+    case math
+    case physics
+    case psychology
+    case arch
+    case industrialDesign
+    case interiorArch
+    case eco
+    case internationalRelations
+    case management
+}
+
 class ClassViewController: BaseViewController {
     
     //    MARK: Outlet
@@ -16,9 +35,15 @@ class ClassViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //    MARK: Variables
-    let firestoreDatabase = Firestore.firestore()
+    internal var classArray = [Class]() {
+        didSet {
+            tableView?.reloadData()
+            LoadingScreen.hide()
+
+        }
+    }
     
-    internal var classArray = [Class]()
+    internal var type: departmentType = .computer
     
     //    MARK: LifeCycle
     override func viewDidLoad() {
@@ -30,7 +55,12 @@ class ClassViewController: BaseViewController {
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.tableFooterView = UIView(frame: .zero)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getClasses()
+        
     }
     
     //    MARK: BackButton
@@ -43,72 +73,417 @@ class ClassViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    //    MARK: GetClasses
     func getClasses() {
         
-        //        firestoreDatabase.collection("departments").whereField("courses", isEqualTo: true).getDocuments { (snapshot, error) in
-        //            if let error = error {
-        //                print("error")
-        //            } else {
-        //                for document in snapshot!.documents {
-        //                    print("\(document.documentID) => \(document.data())")
-        //                }
-        //            }
-        //        }
-        //    }
-        
-        //        firestoreDatabase.collection("classes").whereField("departmentName", isEqualTo: "management").getDocuments { (snapshot, error) in
-        //            if let error = error {
-        //                print(error)
-        //            } else {
-        //                if snapshot?.documents == nil {
-        //                    print("boş")
-        //                } else {
-        //                    for document in snapshot!.documents {
-        //                        print("\(document.documentID) => \(document.data())")
-        //                    }
-        //                }
-        //            }
-        //        }
-        
-        
-        firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").whereField("courses", isEqualTo: "name").getDocuments { (snapshot, error) in
-            if let error = error {
-                print(error)
-            } else {
-                if snapshot?.documents == nil {
-                    print("boş")
+        switch type {
+        case .civil:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Civil Engineering")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
                 } else {
-                    for document in snapshot!.documents {
-                        print("\(document.documentID) => \(document.data())")
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
+        case .computer:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Computer Engineering")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .electrical:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Electrical and Electronics Engineering")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .industrial:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Industrial Engineering")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .mechanical:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Mechanical Engineering")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .humanities:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Humanities and Social Sciences")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .information:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Information Technologies")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        case .math:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Mathematics")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        case .physics:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Physics")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .psychology:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Psychology")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .arch:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Architecture")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .industrialDesign:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Industrial Design")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .interiorArch:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Interior Architecture and Environmental Design")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .eco:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Economics")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .internationalRelations:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "International Relations")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        case .management:
+            let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Management")
+            
+            firestoreDatabase.getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error: \(error)")
+                    return
+                } else {
+                    if snapshot?.documents == nil {
+                        print("Empty")
+                    } else {
+                        self.classArray.removeAll()
+                        for document in snapshot!.documents {
+                            if let className = document.get("courseName") as? String {
+                                if let departmentName = document.get("departmentName") as? String {
+                                    if let classSection = document.get("section") as? String {
+                                        let snap = Class(name: className, section: classSection, departmentName: departmentName)
+                                        self.classArray.append(snap)
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        default:
+            break
         }
-        
     }
-    
-    
-    //        firestoreDatabase.collection("classes").whereField("departmentName", isEqualTo: "Computer Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
-    //            if error != nil {
-    //                print("error") // TODO: Alert
-    //            } else {
-    //                if snapshot?.isEmpty == false && snapshot != nil {
-    //                    self.classArray.removeAll()
-    //                    for document in snapshot!.documents {
-    //                        if let departmentName = document.get("departmentName") as? String{
-    //                            if let name = document.get("name") as? String {
-    //                                if let section = document.get("section") {
-    //                                    let snap = Class(name: name, section: section as! String, departmentName: departmentName)
-    //                                self.classArray.append(snap)
-    //                                }
-    //                            }
-    //                        }
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    
 }
 
 //  MARK: TableView
@@ -119,18 +494,122 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseIdentifier, for: indexPath) as! ClassTableViewCell
+        if type == .civil {
+            cell.classImageView.image = UIImage(named: "eng")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+    
+        }
         
-        cell.classImageView.image = UIImage(named: "eng")
-        cell.classNameLabel.text = classArray[indexPath.row].name
-        cell.classSectionLabel.text = classArray[indexPath.row].section
+        if type == .computer {
+            cell.classImageView.image = UIImage(named: "eng")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+
+            
+        }
         
+        if type == .electrical {
+            cell.classImageView.image = UIImage(named: "eng")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .industrial {
+            cell.classImageView.image = UIImage(named: "eng")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            LoadingScreen.hide()
+
+        }
+        
+        if type == .mechanical {
+            cell.classImageView.image = UIImage(named: "eng")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            LoadingScreen.hide()
+            
+        }
+        
+        if type == .humanities {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            LoadingScreen.hide()
+
+        }
+        
+        if type == .information {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .math {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .physics {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .psychology {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .arch {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .industrialDesign {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .interiorArch {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .eco {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .internationalRelations {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
+        
+        if type == .management {
+            cell.classImageView.image = UIImage(named: "art")
+            cell.classNameLabel.text = classArray[indexPath.row].name
+            cell.classSectionLabel.text = classArray[indexPath.row].section
+            
+        }
         return cell
     }
-    
-    
-    
-    
-    
 }

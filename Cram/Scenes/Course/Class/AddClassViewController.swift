@@ -11,7 +11,7 @@ import Firebase
 
 class AddClassViewController: BaseViewController {
     
-    
+//    MARK: Outlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var sectionLabel: UILabel!
@@ -26,7 +26,7 @@ class AddClassViewController: BaseViewController {
         
     }
     
-    
+//    MARK: SaveClasses
     @IBAction func saveButton(_ sender: Any) {
         
         let firestore = Firestore.firestore()
