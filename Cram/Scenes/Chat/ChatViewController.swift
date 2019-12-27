@@ -34,7 +34,7 @@ class ChatViewController: MessagesViewController {
         navigationItem.largeTitleDisplayMode = .never
         maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.inputTextView.tintColor = .black
-        messageInputBar.sendButton.setTitleColor(UIColor.flatBlueColorDark(), for: .normal)
+        messageInputBar.sendButton.setTitleColor(UIColor.flatSkyBlueColorDark(), for: .normal)
         self.user2UID = "R7HOdWzlu9aTKt9AyhDLr5qzZMj2"
         self.user3UID = "J60Swy5E63UZh7ZCt08MBc8QyWp2"
         let userArray = [self.user2UID, self.user3UID]

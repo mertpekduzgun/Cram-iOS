@@ -13,15 +13,10 @@ import ChameleonFramework
 
 public struct App {
     static var shared = App()
+    var user: User?
 
 }
 
-@available(iOS 13.0, *)
-@available(iOS 13.0, *)
-@available(iOS 13.0, *)
-@available(iOS 13.0, *)
-@available(iOS 13.0, *)
-@available(iOS 13.0, *)
 @available(iOS 13.0, *)
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -38,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Auth.auth().currentUser != nil {
             self.window?.rootViewController = UIStoryboard.tabbar.instantiateInitialViewController()
+            
         } else {
             self.window?.rootViewController = UIStoryboard.auth.instantiateInitialViewController()
         }

@@ -24,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="FkO-Ds-c8D">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="FkO-Ds-c8D">
                                 <rect key="frame" x="157" y="113" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="GqN-MV-dwM"/>
@@ -37,16 +37,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JX6-AE-lXU">
-                                <rect key="frame" x="162.5" y="238" width="89" height="18.5"/>
+                                <rect key="frame" x="186" y="238" width="42" height="18.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-t4-Jwt">
                                         <rect key="frame" x="0.0" y="0.0" width="42" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxf-xf-9TO">
-                                        <rect key="frame" x="47" y="0.0" width="42" height="18.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -82,7 +76,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.8969173210526481" green="0.8969173210526481" blue="0.8969173210526481" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.95408340607802877" green="0.95408340607802877" blue="0.95408340607802877" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="67a-pQ-iIR" firstAttribute="trailing" secondItem="FkO-Ds-c8D" secondAttribute="trailing" id="7or-uY-jf9"/>
                             <constraint firstItem="JX6-AE-lXU" firstAttribute="centerX" secondItem="FvE-qC-iZ5" secondAttribute="centerX" id="98G-Oc-Fbd"/>
@@ -97,6 +91,10 @@
                         <viewLayoutGuide key="safeArea" id="HfD-68-GvV"/>
                     </view>
                     <navigationItem key="navigationItem" id="F7K-Ge-eRP"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="Qyk-t4-Jwt" id="G95-Uc-4qV"/>
+                        <outlet property="profileImageView" destination="FkO-Ds-c8D" id="SYZ-Ru-Uqi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNh-WT-XJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

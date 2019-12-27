@@ -48,6 +48,8 @@ class ClassViewController: BaseViewController {
     //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Courses"
         topView.topViewType = .classroom
         initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .white, navigationBackground: .blue)
         tableView.register(UINib(nibName: ClassTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: ClassTableViewCell.reuseIdentifier)
