@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Kingfisher
 import SkeletonView
+import NotificationBannerSwift
 
 class Helper {
     static func setImageWithLoading(url: String?,_ imageView: UIImageView){
@@ -24,6 +25,13 @@ class Helper {
                     break
                 }
             })
+        }
+    }
+    
+    static func showAlert(title:String,message: String,style:BannerStyle = .danger,position: BannerPosition = .top){
+        let banner = NotificationBanner(title: NSLocalizedString(title, comment: ""), subtitle: message, style: style)
+        if NotificationBannerQueue.default.numberOfBanners == 0 {
+            banner.show(bannerPosition: position)
         }
     }
     

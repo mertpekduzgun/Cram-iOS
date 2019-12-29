@@ -132,6 +132,7 @@ PODS:
     - Kingfisher/Core (= 5.9.0)
   - Kingfisher/Core (5.9.0)
   - leveldb-library (1.22)
+  - MarqueeLabel (4.0.0)
   - MessageKit (3.0.0):
     - InputBarAccessoryView (~> 4.2.2)
   - nanopb (0.3.9011):
@@ -139,9 +140,13 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - NotificationBannerSwift (3.0.0):
+    - MarqueeLabel (~> 4.0.0)
+    - SnapKit (~> 5.0.0)
   - Protobuf (3.10.0)
   - QuickLayout (3.0.0)
   - SkeletonView (1.8.2)
+  - SnapKit (5.0.1)
   - SVProgressHUD (2.2.5)
   - SwiftEntryKit (1.2.3):
     - QuickLayout (= 3.0.0)
@@ -157,6 +162,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - Kingfisher
   - MessageKit
+  - NotificationBannerSwift (= 3.0.0)
   - SkeletonView
   - SVProgressHUD
   - SwiftEntryKit (= 1.2.3)
@@ -188,11 +194,14 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
+    - MarqueeLabel
     - MessageKit
     - nanopb
+    - NotificationBannerSwift
     - Protobuf
     - QuickLayout
     - SkeletonView
+    - SnapKit
     - SVProgressHUD
     - SwiftEntryKit
 
@@ -222,14 +231,17 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c75366f1f19590e8caeae45fcd5815c9289d6099
   Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   MessageKit: e892a9ca49ebe6d82684d3a93ad84021fa23e2c6
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  NotificationBannerSwift: 842401d30f5c36e4f2eafc152824566f6b3c1bb5
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
   SkeletonView: bb27c39857e5492136f02ee8a3aa78de55d12ecd
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
 
-PODFILE CHECKSUM: 917e25ef32decfc7e859ee047e4f331a2c9b6d95
+PODFILE CHECKSUM: b1e82a11e477a46df5fec55a86449975b8364a27
 
 COCOAPODS: 1.8.4
