@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CFAlertViewController
 
 enum departmentType {
     case civil
@@ -39,11 +40,23 @@ class ClassViewController: BaseViewController {
         didSet {
             tableView?.reloadData()
             LoadingScreen.hide()
-
+            
         }
     }
     
+    let firestoreDatabase = Firestore.firestore()
+    
+    internal var uid = Auth.auth().currentUser?.uid
+    
     internal var type: departmentType = .computer
+
+    internal var currentClassName: String = ""
+    
+    internal var currentSection: String = ""
+    
+    internal var currentIndex = 0
+    
+    var documentsArray: [String] = []
     
     //    MARK: LifeCycle
     override func viewDidLoad() {
@@ -59,10 +72,23 @@ class ClassViewController: BaseViewController {
         
     }
     
+    func getDocumentID() {
+        firestoreDatabase.collection("classes").getDocuments() { (snapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot!.documents {
+                    self.documentsArray.append(document.documentID)
+                }
+            }
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getClasses()
-        
+        getDocumentID()
     }
     
     //    MARK: BackButton
@@ -74,6 +100,63 @@ class ClassViewController: BaseViewController {
         let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: AddClassViewController.reuseIdentifier) as! AddClassViewController
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //    MARK: Alert
+    func openAlert() {
+        let alertController = CFAlertViewController(title: "",
+                                                    message: "",
+                                                    textAlignment: .center,
+                                                    preferredStyle: .actionSheet,
+                                                    didDismissAlertHandler: {(dismiss) in
+        })
+        
+        let joinAction = CFAlertAction(title: "Join Class",
+                                       style: .Default,
+                                       alignment: .justified,
+                                       backgroundColor: UIColor.flatSkyBlueColorDark(),
+                                       textColor: .white,
+                                       handler: { (action) in
+                                        self.joinClass()
+        })
+        
+        let boardAction = CFAlertAction(title: "See Board",
+                                        style: .Default,
+                                        alignment: .justified,
+                                        backgroundColor: UIColor.white,
+                                        textColor: UIColor.flatSkyBlueColorDark(),
+                                        handler: { (action) in
+                                            self.seeBoard()
+        })
+        
+        alertController.addAction(joinAction)
+        alertController.addAction(boardAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    //    MARK: JoinClass
+    func joinClass() {
+        LoadingScreen.show("Loading...")
+        let classDecumentName = self.documentsArray[self.currentIndex]
+        
+        let classRef = firestoreDatabase.collection("classes").document(classDecumentName)
+        classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+        
+        let userRef = firestoreDatabase.collection("users").document(self.uid!)
+        userRef.updateData(["chatRooms": FieldValue.arrayUnion([classDecumentName])])
+        tabBarController?.selectedIndex = 1
+        
+            
+    }
+    
+    //    MARK: SeeBoard
+    func seeBoard() {
+        if let vc = UIStoryboard.chats.instantiateViewController(withIdentifier: ChatViewController.reuseIdentifier) as? ChatViewController {
+        navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     
     //    MARK: GetClasses
     func getClasses() {
@@ -118,6 +201,7 @@ class ClassViewController: BaseViewController {
                         self.classArray.removeAll()
                         for document in snapshot!.documents {
                             if let className = document.get("courseName") as? String {
+                                self.currentClassName = className
                                 if let departmentName = document.get("departmentName") as? String {
                                     if let classSection = document.get("section") as? String {
                                         let snap = Class(name: className, section: classSection, departmentName: departmentName)
@@ -501,21 +585,45 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
-    
+            cell.tapped = {
+                self.openAlert()
+            }
+            
         }
         
         if type == .computer {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
-
+            cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
+                self.openAlert()
+            }
             
+            //            firestoreDatabase.collection("classes").document("courseName").addSnapshotListener { (documentSnapshot, error) in
+            //                guard let document = documentSnapshot else {
+            //                    print("Error fetching document: \(error!)")
+            //                    return
+            //                }
+            //                guard let data = document.data() else {
+            //                    print("Document data was empty.")
+            //                    return
+            //                }
+            //                print("Current data: \(data)")
+            //            }
         }
+        
         
         if type == .electrical {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+                
+            }
             
         }
         
@@ -524,7 +632,10 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
-
+            cell.tapped = {
+                self.openAlert()
+            }
+            
         }
         
         if type == .mechanical {
@@ -532,6 +643,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -540,13 +654,19 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
-
+            cell.tapped = {
+                self.openAlert()
+            }
+            
         }
         
         if type == .information {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -554,6 +674,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -561,6 +684,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -568,6 +694,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -575,6 +704,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -582,6 +714,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -589,6 +724,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -596,6 +734,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -603,6 +744,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         
@@ -610,8 +754,13 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classImageView.image = UIImage(named: "art")
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
+            cell.tapped = {
+                self.openAlert()
+            }
             
         }
         return cell
     }
 }
+
+

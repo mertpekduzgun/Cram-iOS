@@ -15,35 +15,55 @@ class ChatViewController: MessagesViewController {
    
     //    MARK: Properties
     internal var currentUser = Auth.auth().currentUser!
+    let firestoreDatabase = Firestore.firestore()
     private var ref: DocumentReference?
     internal var messages: [Message] = []
+        
+    internal var userArray: [String] = []
     
-    internal var user2Name: String?
-    internal var user2UID: String?
-    internal var user3Name: String?
-    internal var user3UID: String?
+    internal var currentChatRoom: String = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
         
-        self.title = user2Name ?? "Chat"
+        self.title = self.currentChatRoom
         navigationItem.largeTitleDisplayMode = .never
         maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(UIColor.flatSkyBlueColorDark(), for: .normal)
-        self.user2UID = "R7HOdWzlu9aTKt9AyhDLr5qzZMj2"
-        self.user3UID = "J60Swy5E63UZh7ZCt08MBc8QyWp2"
-        let userArray = [self.user2UID, self.user3UID]
+        
+        
+        print(userArray)
+        print()
+        
+        
         loadChat()
     }
     
+//    func getUserID() {
+//        firestoreDatabase.collection("classes").document() { (snapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in snapshot!.documents {
+//                    self.documentsArray.append(document.documentID)
+//                }
+//            }
+//        }
+//    }
+
+    
     func loadChat() {
         
-        let firestoreDatabase = Firestore.firestore().collection("Chats").whereField("users", arrayContains: Auth.auth().currentUser?.uid ?? "Not Found User 1")
+        let firestoreDatabase = Firestore.firestore().collection("classes").whereField("users", arrayContains: self.currentUser.uid)
         
         firestoreDatabase.getDocuments { (snapshot, error) in
             if let error = error {
@@ -55,13 +75,13 @@ class ChatViewController: MessagesViewController {
                     return
                 }
                 if queryCount == 0 {
-                    self.createNewChat()
+//                    self.createNewChat()
                 } else if queryCount >= 1 {
                     for doc in snapshot!.documents {
                         let chat = Chat(dictionary: doc.data())
-                        if (chat?.users.contains(self.user2UID!))! && ((chat?.users.contains(self.user3UID!))!) {
+                        if (chat?.users.contains(self.currentUser.uid))! {
                             self.ref = doc.reference
-                            doc.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
+                            doc.reference.collection(self.currentChatRoom).order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                                 if let error = error {
                                     print("Error: \(error)")
                                     return
@@ -79,30 +99,29 @@ class ChatViewController: MessagesViewController {
                             return
                         }
                     }
-                    self.createNewChat()
-                } else {
-                    print("OOOppps Error")
+//                    self.createNewChat()
                 }
             }
         }
     }
     
-    func createNewChat() {
-        let users = [self.currentUser.uid, self.user2UID, self.user3UID]
-        let data: [String: Any] = [
-            "users": users
-        ]
-        
-        let firestoreDatabase = Firestore.firestore().collection("Chats")
-        firestoreDatabase.addDocument(data: data) { (error) in
-            if let error = error {
-                print("Unable to create chat! \(error)")
-                return
-            } else {
-                self.loadChat()
-            }
-        }
-    }
+    
+//    func createNewChat() {
+////        let users = userArray
+////        let data: [String: Any] = [
+////            "users": users
+////        ]
+//
+//        let firestoreDatabase = Firestore.firestore().collection("classes").document(self.currentChatRoom)
+//        firestoreDatabase.updateData(data) { (error) in
+//            if let error = error {
+//                print("Unable to create chat! \(error)")
+//                return
+//            } else {
+//                self.loadChat()
+//            }
+//        }
+//    }
     
     private func insertNewMessage(_ message: Message) {
         messages.append(message)
@@ -121,7 +140,7 @@ class ChatViewController: MessagesViewController {
             "senderName": message.senderName
         ]
         
-        ref?.collection("thread").addDocument(data: data, completion: { (error) in
+        ref?.collection(self.currentChatRoom).addDocument(data: data, completion: { (error) in
             if let error = error {
                 print("Error Sending message: \(error)")
                 return
@@ -178,4 +197,60 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
         
         return .bubbleTail(corner, .curved)
     }
+}
+
+extension ChatViewController {
+    
+    class var reuseIdentifier: String {
+        get {
+            return String(describing: self.classForCoder())
+        }
+    }
+    
+    @objc open func navigationBarBackButtonPressed(animated: Bool = true) {
+           navigationController?.popViewController(animated: true)
+       }
+    
+    func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBarRight: NavigationRight, navigationBackground: NavigationBackground) {
+           let navigationBarLeftButton = UIBarButtonItem()
+           switch navigationBarLeft {
+           case .whiteBack:
+               navigationBarLeftButton.image = UIImage(named: "back")
+               self.navigationItem.leftBarButtonItem = navigationBarLeftButton
+               self.navigationItem.leftBarButtonItem?.target = self
+               navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
+           case .hidden:
+               self.navigationItem.leftBarButtonItem = nil
+               self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
+           }
+           
+           switch navigationTitle {
+           case .logo:
+               let titleImageView = UIImageView(image: UIImage(named: "isik"))
+               self.navigationItem.titleView = titleImageView
+           case .hidden:
+               self.navigationItem.titleView = nil
+
+           }
+           let navigationBarRightButton = UIBarButtonItem()
+           switch navigationBarRight {
+           case .white:
+               navigationBarRightButton.image = UIImage(named: "add")
+               self.navigationItem.rightBarButtonItem = navigationBarRightButton
+               self.navigationItem.rightBarButtonItem?.target = self
+           case .hidden:
+               self.navigationItem.rightBarButtonItem = nil
+               self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
+           }
+           
+           switch navigationBackground {
+           case .blue:
+               self.navigationController?.navigationBar.barTintColor = UIColor.flatSkyBlueColorDark()
+               self.navigationController?.navigationBar.backgroundColor = UIColor.flatSkyBlueColorDark()
+           case .white:
+               self.navigationController?.navigationBar.barTintColor = UIColor.white
+               self.navigationController?.navigationBar.backgroundColor = UIColor.white
+           }
+           
+       }
 }

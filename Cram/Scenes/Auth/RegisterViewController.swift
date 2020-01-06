@@ -19,7 +19,7 @@ class RegisterViewController: BaseViewController {
     
     //    MARK: Variables
     internal var ref: DatabaseReference! = Database.database().reference()
-    internal var uid = Auth.auth().currentUser?.uid
+    internal var chatRooms: [String] = []
     
     //    MARK: Lifecycle
     override func viewDidLoad() {
@@ -40,8 +40,6 @@ class RegisterViewController: BaseViewController {
             Helper.showAlert(title: "Error", message: "Email cannot be blank!", style: .danger, position: .top)
         } else if passwordTextField.textField.text!.isEmpty {
             Helper.showAlert(title: "Error", message: "Password connot be blank!", style: .danger, position: .top)
-        } else if !passwordTextField.isValid {
-            Helper.showAlert(title: "Error", message: "Password must be more than 5 characters!", style: .danger, position: .top)
         }
         
         return nameTextField.isValid && emailTextField.isValid && passwordTextField.isValid
@@ -54,7 +52,6 @@ class RegisterViewController: BaseViewController {
     
     //    MARK: Sign Up
     @IBAction func tappedSignUp(_ sender: Any) {
-        if self.allValid {
             Auth.auth().signInAnonymously(completion: nil)
             Auth.auth().createUser(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (user, error) in
                 if error != nil {
@@ -63,8 +60,8 @@ class RegisterViewController: BaseViewController {
                     //                self.ref.child("users").child(self.uid!).setValue(["name": self.nameTextField.textField.text, "email": self.emailTextField.textField.text])
                     
                     let fireStore = Firestore.firestore()
-                    let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!] as [String: Any]
-                    fireStore.collection("User").addDocument(data: userDict)
+                    let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!, "date": FieldValue.serverTimestamp(), "chatRooms": self.chatRooms, "userID": user?.user.uid] as [String: Any]
+                    fireStore.collection("users").document((user?.user.uid)!).setData(userDict)
                     if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
@@ -72,7 +69,7 @@ class RegisterViewController: BaseViewController {
                 }
             }
         }
-    }
+    
     
     //    MARK: Sign In
     @IBAction func tappedSignIn(_ sender: Any) {

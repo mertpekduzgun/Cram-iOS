@@ -71,8 +71,6 @@ class TextFieldView: BaseView {
             self.isValid = self.textField.text!.count > 1
         case .email:
             self.isValid = self.textField.text!.isValidEmail
-        case .password:
-            self.isValid = self.textField.text!.count > 5
         default:
             return
         }
