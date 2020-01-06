@@ -14,15 +14,17 @@ class ChatRoomTableViewCell: BaseTableViewCell {
     @IBOutlet weak var chatRoomLabel: UILabel!
     @IBOutlet weak var chatRoomSectionLabel: UILabel!
     
+    internal var tapped: (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        contentView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tappedView)))
+
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
+    @objc func tappedView() {
+        self.tapped?()
     }
     
 }

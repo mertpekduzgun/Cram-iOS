@@ -18,6 +18,8 @@ class AddClassViewController: BaseViewController {
     @IBOutlet weak var sectionTextField: UITextField!
     @IBOutlet weak var departmentNameTextField: UITextField!
     
+    var userArray: [String] = []
+    
     
     //    MARK: LifeCycle
     override func viewDidLoad() {
@@ -33,14 +35,14 @@ class AddClassViewController: BaseViewController {
         
         
         
-        let classDictionary = ["courseName": self.nameTextField.text!, "section": self.sectionTextField.text!, "departmentName": self.departmentNameTextField.text!, "date": FieldValue.serverTimestamp()] as [String : Any]
-        firestore.collection("classes").addDocument(data: classDictionary) { (error) in
+        let classDictionary = ["courseName": self.nameTextField.text!, "section": self.sectionTextField.text!, "departmentName": self.departmentNameTextField.text!, "date": FieldValue.serverTimestamp(), "users": self.userArray] as [String : Any]
+        firestore.collection("classes").document(self.nameTextField.text!).setData(classDictionary) { (error) in
             if error == nil {
                 
                 let classDict = Class(name: self.nameTextField.text!, section: self.sectionTextField.text!, departmentName: self.departmentNameTextField.text!)
                 let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
                 vc.classArray.append(classDict)
-                self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.popToRootViewController(animated: true)
             } else {
                 print(error)
             }

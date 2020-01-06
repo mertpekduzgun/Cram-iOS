@@ -25,6 +25,8 @@ class FacultyViewController: BaseViewController {
 //    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Courses"
         topView.topViewType = .faculty
         initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
         tableView.register(UINib(nibName: FacultyTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: FacultyTableViewCell.reuseIdentifier)
@@ -43,7 +45,8 @@ class FacultyViewController: BaseViewController {
                     for document in snapshot!.documents {
                         let userEmail = document.get("email") as? String
                         let userName = document.get("name") as? String
-                        User(uid: self.currentUser!.uid, name: userName!, email: userEmail!)
+                        let imageURL = document.get("imageURL") as? String
+                        User(uid: self.currentUser!.uid, name: userName!, email: userEmail!, imageURL: imageURL)
                             
                         
                     }

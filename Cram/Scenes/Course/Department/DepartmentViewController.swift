@@ -36,6 +36,8 @@ class DepartmentViewController: BaseViewController {
     //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationItem.title = "Courses"
         topView.topViewType = .department
         initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         tableView.register(UINib(nibName: DepartmentTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: DepartmentTableViewCell.reuseIdentifier)
@@ -56,7 +58,7 @@ class DepartmentViewController: BaseViewController {
         case .engineering:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
-                    print("error") // TODO: Alert
+                    print(error) // TODO: Alert
                 } else {
                     if snapshot?.isEmpty == false && snapshot != nil {
                         self.departmentArray.removeAll()

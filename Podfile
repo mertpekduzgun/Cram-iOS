@@ -15,6 +15,11 @@ target 'Cram' do
   pod 'ChameleonFramework'
   pod 'MessageKit'
   pod 'IQKeyboardManagerSwift'
+  pod 'CFAlertViewController'
+  pod 'Kingfisher'
+  pod 'SkeletonView'
+  pod 'SwiftEntryKit', '1.2.3'
+  pod 'NotificationBannerSwift', '3.0.0'
 
   target 'CramTests' do
     inherit! :search_paths

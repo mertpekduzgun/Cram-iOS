@@ -11,17 +11,17 @@ import Firebase
 
 class RegisterViewController: BaseViewController {
     
-//    MARK: Outlet
+    //    MARK: Outlet
     @IBOutlet weak var topView: TopView!
     @IBOutlet weak var nameTextField: TextFieldView!
     @IBOutlet weak var emailTextField: TextFieldView!
     @IBOutlet weak var passwordTextField: TextFieldView!
     
-//    MARK: Variables
+    //    MARK: Variables
     internal var ref: DatabaseReference! = Database.database().reference()
-    internal var uid = Auth.auth().currentUser?.uid
+    internal var chatRooms: [String] = []
     
-//    MARK: Lifecycle
+    //    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         topView.topViewType = .register
@@ -32,31 +32,46 @@ class RegisterViewController: BaseViewController {
         passwordTextField.textFieldType = .password
     }
     
+    private var allValid: Bool! {
+        
+        if nameTextField.textField.text!.isEmpty {
+            Helper.showAlert(title: "Error", message: "Name cannot be blank!", style: .danger, position: .top)
+        } else if emailTextField.textField.text!.isEmpty {
+            Helper.showAlert(title: "Error", message: "Email cannot be blank!", style: .danger, position: .top)
+        } else if passwordTextField.textField.text!.isEmpty {
+            Helper.showAlert(title: "Error", message: "Password connot be blank!", style: .danger, position: .top)
+        }
+        
+        return nameTextField.isValid && emailTextField.isValid && passwordTextField.isValid
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    MARK: Sign Up
+    //    MARK: Sign Up
     @IBAction func tappedSignUp(_ sender: Any) {
-        Auth.auth().signInAnonymously(completion: nil)
-        Auth.auth().createUser(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (user, error) in
-            if error != nil {
-                print(error!) // TODO: ALERT
-            } else {
-//                self.ref.child("users").child(self.uid!).setValue(["name": self.nameTextField.textField.text, "email": self.emailTextField.textField.text])
-                
-                let fireStore = Firestore.firestore()
-                let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!] as [String: Any]
-                fireStore.collection("User").addDocument(data: userDict)
-                if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
+            Auth.auth().signInAnonymously(completion: nil)
+            Auth.auth().createUser(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (user, error) in
+                if error != nil {
+                    print(error!) // TODO: ALERT
+                } else {
+                    //                self.ref.child("users").child(self.uid!).setValue(["name": self.nameTextField.textField.text, "email": self.emailTextField.textField.text])
+                    
+                    let fireStore = Firestore.firestore()
+                    let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!, "date": FieldValue.serverTimestamp(), "chatRooms": self.chatRooms, "userID": user?.user.uid] as [String: Any]
+                    fireStore.collection("users").document((user?.user.uid)!).setData(userDict)
+                    if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+                    }
                 }
             }
         }
-    }
     
-//    MARK: Sign In
+    
+    //    MARK: Sign In
     @IBAction func tappedSignIn(_ sender: Any) {
         let vc = UIStoryboard.auth.instantiateViewController(withIdentifier: LoginViewController.reuseIdentifier) as! LoginViewController
         self.navigationController?.pushViewController(vc, animated: true)

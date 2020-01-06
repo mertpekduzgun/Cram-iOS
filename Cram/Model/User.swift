@@ -14,13 +14,15 @@ struct User {
     var uid: String
     var name: String
     var email: String
+    let imageURL: String?
     
     var dictionary: [String: Any] {
         
         return [
             "uid": uid,
             "name": name,
-            "email": email
+            "email": email,
+            "imageURL": imageURL ?? ""
         ]
         
     }
@@ -31,7 +33,8 @@ extension User {
     init?(dictionary: [String: Any]) {
         guard let uid = dictionary["uid"] as? String,
             let name = dictionary["name"] as? String,
-            let email = dictionary["email"] as? String
+            let email = dictionary["email"] as? String,
+            let imageURL = dictionary["imageURL"] as? String?
          
             
             
@@ -39,7 +42,7 @@ extension User {
                 return nil
         }
         
-        self.init(uid: uid, name: name, email: email)
+        self.init(uid: uid, name: name, email: email, imageURL: imageURL)
         
     }
 }

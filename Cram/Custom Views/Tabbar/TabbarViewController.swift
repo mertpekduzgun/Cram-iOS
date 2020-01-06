@@ -39,7 +39,7 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         for tabBarItem in tabBar.items! {
             tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.montserratMedium(ofsize: 11)], for: .normal)
 //            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
-//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.flatBlueColorDark], for: .selected)
+//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.flatSkyBlueColorDark], for: .selected)
         }
         
         let lineView = UIView(frame: CGRect(x: 0, y: 0, width: self.tabBar.frame.size.width, height: 1))
