@@ -20,15 +20,21 @@ class SettingViewController: BaseViewController {
 //    MARK: Properties
     private lazy var imagePicker: UIImagePickerController? = UIImagePickerController()
     internal var image = UIImage()
-    internal var currentUserName = App.shared.user?.name
+    internal var currentUser = Auth.auth().currentUser
     
-    private var user: User!
+    internal var userName: String = ""
+    internal var userEmail: String = ""
 
 //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getUser()
         initUI()
-        
     }
     
     func initUI() {
@@ -38,7 +44,6 @@ class SettingViewController: BaseViewController {
         navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationItem.title = "Settings"
         self.profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(imageTapped)))
-        self.nameLabel.text = currentUserName
     }
     
     @objc
@@ -50,6 +55,32 @@ class SettingViewController: BaseViewController {
         if let url = data.imageURL {
             Helper.setImageWithLoading(url: url, self.profileImageView)
         }
+    }
+    
+    func getUser() {
+        LoadingScreen.show("Loading...")
+
+        let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.currentUser?.uid)
+               
+               firestoreDatabase.getDocuments() { (snapshot, error) in
+                   if let error = error {
+                       print("Error: \(error)")
+                       return
+                   } else {
+                       if snapshot?.documents == nil {
+                           print("Empty")
+                       } else {
+                           for document in snapshot!.documents {
+                            self.userEmail = document.get("email") as! String
+                            self.userName = document.get("name") as! String
+                            self.nameLabel.text = self.userName
+                            LoadingScreen.hide()
+
+                           }
+                       }
+                   }
+               }
+        
     }
     
     

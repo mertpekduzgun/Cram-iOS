@@ -55,6 +55,7 @@ class ChatRoomViewController: BaseViewController {
     
     
     func getChatRooms() {
+        LoadingScreen.show("Loading...")
         let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.uid)
         
         firestoreDatabase.getDocuments() { (snapshot, error) in
@@ -67,6 +68,7 @@ class ChatRoomViewController: BaseViewController {
                 } else {
                     for document in snapshot!.documents {
                         self.chatRooms = document.get("chatRooms") as! [String]
+                        LoadingScreen.hide()
                     }
                 }
             }

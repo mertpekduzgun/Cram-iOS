@@ -32,9 +32,7 @@ class AddClassViewController: BaseViewController {
     @IBAction func saveButton(_ sender: Any) {
         
         let firestore = Firestore.firestore()
-        
-        
-        
+
         let classDictionary = ["courseName": self.nameTextField.text!, "section": self.sectionTextField.text!, "departmentName": self.departmentNameTextField.text!, "date": FieldValue.serverTimestamp(), "users": self.userArray] as [String : Any]
         firestore.collection("classes").document(self.nameTextField.text!).setData(classDictionary) { (error) in
             if error == nil {

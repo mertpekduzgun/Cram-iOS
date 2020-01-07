@@ -35,25 +35,6 @@ class FacultyViewController: BaseViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         
     }
-//    MARK: GetUserInfo
-    func getUserInfo() {
-        firestoreDatabase.collection("Users").whereField("email", isEqualTo: currentUser!.email!).getDocuments { (snapshot, error) in
-            if error != nil {
-                self.makeAlert(title: "Error", message: error?.localizedDescription ?? "Error")
-            } else {
-                if snapshot?.isEmpty == false && snapshot != nil {
-                    for document in snapshot!.documents {
-                        let userEmail = document.get("email") as? String
-                        let userName = document.get("name") as? String
-                        let imageURL = document.get("imageURL") as? String
-                        User(uid: self.currentUser!.uid, name: userName!, email: userEmail!, imageURL: imageURL)
-                            
-                        
-                    }
-                }
-            }
-        }
-    }
     
     func makeAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
