@@ -19,6 +19,8 @@
 		D64E039B23B78E6900EEBC2B /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E039423B78E6200EEBC2B /* Date+Extension.swift */; };
 		D64E039D23B78E6900EEBC2B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E039623B78E6600EEBC2B /* StringExtensions.swift */; };
 		D64E039E23B78E6900EEBC2B /* DateFormater+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E039723B78E6900EEBC2B /* DateFormater+Extension.swift */; };
+		D652186723CD173A00F3CFE7 /* ChatRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D652186623CD173A00F3CFE7 /* ChatRoom.swift */; };
+		D65218CD23CFA36A008EAA97 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65218CC23CFA36A008EAA97 /* BoardViewController.swift */; };
 		D657770223709A6A009CA875 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6EA236F5DE900CAE65E /* UIStoryboardExtensions.swift */; };
 		D657770323709A7B009CA875 /* UIWindowExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6F2236F5DE900CAE65E /* UIWindowExtensions.swift */; };
 		D657770423709A7E009CA875 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D665B6F1236F5DE900CAE65E /* UIViewExtensions.swift */; };
@@ -146,6 +148,8 @@
 		D64E039423B78E6200EEBC2B /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		D64E039623B78E6600EEBC2B /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		D64E039723B78E6900EEBC2B /* DateFormater+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DateFormater+Extension.swift"; sourceTree = "<group>"; };
+		D652186623CD173A00F3CFE7 /* ChatRoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoom.swift; sourceTree = "<group>"; };
+		D65218CC23CFA36A008EAA97 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		D657772423709DFB009CA875 /* Tabbar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Tabbar.xcassets; sourceTree = "<group>"; };
 		D65777262370B873009CA875 /* DepartmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentTableViewCell.swift; sourceTree = "<group>"; };
 		D65777292370BCCD009CA875 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
@@ -355,6 +359,14 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		D65218CB23CFA2BE008EAA97 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+				D65218CC23CFA36A008EAA97 /* BoardViewController.swift */,
+			);
+			path = Board;
+			sourceTree = "<group>";
+		};
 		D665B6F3236F5DE900CAE65E /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +546,7 @@
 		D6DF659E236CD872008EFB07 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				D65218CB23CFA2BE008EAA97 /* Board */,
 				D6F1D9C82381944A0001F157 /* Faculty */,
 				D6F1D9C9238194740001F157 /* Department */,
 				D603DC1B2385262300A8F7CF /* Class */,
@@ -653,6 +666,7 @@
 				D6ED7A3E2389627200C772D3 /* Department.swift */,
 				D6ED7A5B238D9E4F00C772D3 /* Class.swift */,
 				D695894523940EE400C9D208 /* Chat.swift */,
+				D652186623CD173A00F3CFE7 /* ChatRoom.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -969,6 +983,7 @@
 				D6DF65BA236DCD3C008EFB07 /* TextFieldView.swift in Sources */,
 				D68C3BF3236CA86900C10B40 /* ViewController.swift in Sources */,
 				D657770E23709A9C009CA875 /* UISearchBarExtensions.swift in Sources */,
+				D652186723CD173A00F3CFE7 /* ChatRoom.swift in Sources */,
 				D64E039823B78E6900EEBC2B /* NSAttributeString+Extension.swift in Sources */,
 				D657771323709AAA009CA875 /* UINavigationBarExtensions.swift in Sources */,
 				D64E039D23B78E6900EEBC2B /* StringExtensions.swift in Sources */,
@@ -1017,6 +1032,7 @@
 				D6ED7A5A238D923F00C772D3 /* LoadingView.swift in Sources */,
 				D64E039E23B78E6900EEBC2B /* DateFormater+Extension.swift in Sources */,
 				D60A380523B0004B00F69793 /* Helper.swift in Sources */,
+				D65218CD23CFA36A008EAA97 /* BoardViewController.swift in Sources */,
 				D657770C23709A97009CA875 /* UISliderExtensions.swift in Sources */,
 				D657771F23709ACB009CA875 /* UIBarButtonItemExtensions.swift in Sources */,
 				D6DF65C3236DD919008EFB07 /* UIFont+Extensions.swift in Sources */,

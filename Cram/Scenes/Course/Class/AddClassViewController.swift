@@ -16,9 +16,11 @@ class AddClassViewController: BaseViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var sectionLabel: UILabel!
     @IBOutlet weak var sectionTextField: UITextField!
-    @IBOutlet weak var departmentNameTextField: UITextField!
+    @IBOutlet weak var departmentNamePicker: UIPickerView!
     
-    var userArray: [String] = []
+    internal var userArray: [String] = []
+    internal var pickerData = ["Civil Engineering", "Computer Engineering", "Electrical and Electronics Engineering", "Industrial Engineering", "Mechanical Engineering", "Humanities and Social Sciences", "Information Technologies", "Mathematics", "Physics", "Psychology", "Architecture", "Industrial Design", "Interior Architecture and Environmental Design", "Economics", "International Relations", "Management"]
+    internal var departmentName = ""
     
     
     //    MARK: LifeCycle
@@ -33,11 +35,11 @@ class AddClassViewController: BaseViewController {
         
         let firestore = Firestore.firestore()
 
-        let classDictionary = ["courseName": self.nameTextField.text!, "section": self.sectionTextField.text!, "departmentName": self.departmentNameTextField.text!, "date": FieldValue.serverTimestamp(), "users": self.userArray] as [String : Any]
+        let classDictionary = ["courseName": self.nameTextField.text!, "section": self.sectionTextField.text!, "departmentName": self.departmentName, "date": FieldValue.serverTimestamp(), "users": self.userArray] as [String : Any]
         firestore.collection("classes").document(self.nameTextField.text!).setData(classDictionary) { (error) in
             if error == nil {
                 
-                let classDict = Class(name: self.nameTextField.text!, section: self.sectionTextField.text!, departmentName: self.departmentNameTextField.text!)
+                let classDict = Class(name: self.nameTextField.text!, section: self.sectionTextField.text!, departmentName: self.departmentName)
                 let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: ClassViewController.reuseIdentifier) as! ClassViewController
                 vc.classArray.append(classDict)
                 self.navigationController?.popToRootViewController(animated: true)
@@ -47,5 +49,27 @@ class AddClassViewController: BaseViewController {
         }
         
     }
+}
+
+extension AddClassViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        departmentName = pickerData[row]
+    }
+    
+    
+    
     
 }

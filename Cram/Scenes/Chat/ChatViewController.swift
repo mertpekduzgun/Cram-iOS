@@ -12,16 +12,18 @@ import MessageKit
 import InputBarAccessoryView
 
 class ChatViewController: MessagesViewController {
-   
+    
     //    MARK: Properties
     internal var currentUser = Auth.auth().currentUser!
     let firestoreDatabase = Firestore.firestore()
     private var ref: DocumentReference?
     internal var messages: [Message] = []
-        
+    
     internal var userArray: [String] = []
     
     internal var currentChatRoom: String = ""
+    
+    internal var userName: String = ""
     
     
     
@@ -43,23 +45,34 @@ class ChatViewController: MessagesViewController {
         
         print(userArray)
         print()
+        getUserName()
         
         
         loadChat()
     }
     
-//    func getUserID() {
-//        firestoreDatabase.collection("classes").document() { (snapshot, err) in
-//            if let err = err {
-//                print("Error getting documents: \(err)")
-//            } else {
-//                for document in snapshot!.documents {
-//                    self.documentsArray.append(document.documentID)
-//                }
-//            }
-//        }
-//    }
-
+    func getUserName() {
+        let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.currentUser.uid)
+        
+        firestoreDatabase.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                if snapshot?.documents == nil {
+                    print("Empty")
+                } else {
+                    for document in snapshot!.documents {
+                        if let userDisplayName = document.get("name") as? String {
+                            self.userName = userDisplayName
+                            
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     func loadChat() {
         
@@ -75,53 +88,56 @@ class ChatViewController: MessagesViewController {
                     return
                 }
                 if queryCount == 0 {
-//                    self.createNewChat()
+                    print("There is no User!")
                 } else if queryCount >= 1 {
                     for doc in snapshot!.documents {
+                        self.userArray = doc.get("users") as! [String]
+                        
                         let chat = Chat(dictionary: doc.data())
-                        if (chat?.users.contains(self.currentUser.uid))! {
-                            self.ref = doc.reference
-                            doc.reference.collection(self.currentChatRoom).order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
-                                if let error = error {
-                                    print("Error: \(error)")
-                                    return
-                                } else {
-                                    self.messages.removeAll()
-                                    for message in threadQuery!.documents {
-                                        let msg = Message(dictionary: message.data())
-                                        self.messages.append(msg!)
-                                        print("Data: \(msg?.content ?? "No Messages")")
-                                    }
-                                    self.messagesCollectionView.reloadData()
-                                    self.messagesCollectionView.scrollToBottom(animated: true)
+                        print("chat: ", chat)
+                        
+                        self.ref = doc.reference
+                        
+                        doc.reference.collection(self.currentChatRoom).order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
+                            if let error = error {
+                                print("Error: \(error)")
+                                return
+                            } else {
+                                self.messages.removeAll()
+                                for message in threadQuery!.documents {
+                                    let msg = Message(dictionary: message.data())
+                                    self.messages.append(msg!)
+                                    print("Data: \(msg?.content ?? "No Messages")")
                                 }
-                            })
-                            return
-                        }
+                                self.messagesCollectionView.reloadData()
+                                self.messagesCollectionView.scrollToBottom(animated: true)
+                            }
+                        })
+                        return
+                        
                     }
-//                    self.createNewChat()
                 }
             }
         }
     }
     
     
-//    func createNewChat() {
-////        let users = userArray
-////        let data: [String: Any] = [
-////            "users": users
-////        ]
-//
-//        let firestoreDatabase = Firestore.firestore().collection("classes").document(self.currentChatRoom)
-//        firestoreDatabase.updateData(data) { (error) in
-//            if let error = error {
-//                print("Unable to create chat! \(error)")
-//                return
-//            } else {
-//                self.loadChat()
-//            }
-//        }
-//    }
+    //    func createNewChat() {
+    ////        let users = userArray
+    ////        let data: [String: Any] = [
+    ////            "users": users
+    ////        ]
+    //
+    //        let firestoreDatabase = Firestore.firestore().collection("classes").document(self.currentChatRoom)
+    //        firestoreDatabase.updateData(data) { (error) in
+    //            if let error = error {
+    //                print("Unable to create chat! \(error)")
+    //                return
+    //            } else {
+    //                self.loadChat()
+    //            }
+    //        }
+    //    }
     
     private func insertNewMessage(_ message: Message) {
         messages.append(message)
@@ -154,7 +170,8 @@ class ChatViewController: MessagesViewController {
 extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate, InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
-        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: currentUser.displayName ?? "test name", content: text, created: Timestamp())
+        
+        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: self.userName ?? "test name", content: text, created: Timestamp())
         insertNewMessage(message)
         save(message)
         
@@ -164,7 +181,7 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     }
     
     func currentSender() -> SenderType {
-        return Sender(id: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.displayName ?? "Name not found")
+        return Sender(id: Auth.auth().currentUser?.uid ?? "", displayName: self.userName ?? "Name not found")
         
     }
     
@@ -186,17 +203,35 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
         return .zero
     }
     
-//    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-//        if message.sender.senderId == currentUser.uid {
-//            avatarView.image = image
-//        }
-//    }
+    //    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+    //        if message.sender.senderId == currentUser.uid {
+    //            avatarView.image = image
+    //        }
+    //    }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
         
         return .bubbleTail(corner, .curved)
     }
+    
+    
+    
+    func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 10
+    }
+    
+    func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+        return NSAttributedString(
+          string: name,
+          attributes: [
+              .font: UIFont.montserratMedium(ofsize: 10),
+            .foregroundColor: UIColor(white: 0.3, alpha: 1)
+          ]
+        )
+    }
+    
 }
 
 extension ChatViewController {
@@ -208,49 +243,49 @@ extension ChatViewController {
     }
     
     @objc open func navigationBarBackButtonPressed(animated: Bool = true) {
-           navigationController?.popViewController(animated: true)
-       }
+        navigationController?.popViewController(animated: true)
+    }
     
     func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBarRight: NavigationRight, navigationBackground: NavigationBackground) {
-           let navigationBarLeftButton = UIBarButtonItem()
-           switch navigationBarLeft {
-           case .whiteBack:
-               navigationBarLeftButton.image = UIImage(named: "back")
-               self.navigationItem.leftBarButtonItem = navigationBarLeftButton
-               self.navigationItem.leftBarButtonItem?.target = self
-               navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
-           case .hidden:
-               self.navigationItem.leftBarButtonItem = nil
-               self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
-           }
-           
-           switch navigationTitle {
-           case .logo:
-               let titleImageView = UIImageView(image: UIImage(named: "isik"))
-               self.navigationItem.titleView = titleImageView
-           case .hidden:
-               self.navigationItem.titleView = nil
-
-           }
-           let navigationBarRightButton = UIBarButtonItem()
-           switch navigationBarRight {
-           case .white:
-               navigationBarRightButton.image = UIImage(named: "add")
-               self.navigationItem.rightBarButtonItem = navigationBarRightButton
-               self.navigationItem.rightBarButtonItem?.target = self
-           case .hidden:
-               self.navigationItem.rightBarButtonItem = nil
-               self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
-           }
-           
-           switch navigationBackground {
-           case .blue:
-               self.navigationController?.navigationBar.barTintColor = UIColor.flatSkyBlueColorDark()
-               self.navigationController?.navigationBar.backgroundColor = UIColor.flatSkyBlueColorDark()
-           case .white:
-               self.navigationController?.navigationBar.barTintColor = UIColor.white
-               self.navigationController?.navigationBar.backgroundColor = UIColor.white
-           }
-           
-       }
+        let navigationBarLeftButton = UIBarButtonItem()
+        switch navigationBarLeft {
+        case .whiteBack:
+            navigationBarLeftButton.image = UIImage(named: "back")
+            self.navigationItem.leftBarButtonItem = navigationBarLeftButton
+            self.navigationItem.leftBarButtonItem?.target = self
+            navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
+        case .hidden:
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
+        }
+        
+        switch navigationTitle {
+        case .logo:
+            let titleImageView = UIImageView(image: UIImage(named: "isik"))
+            self.navigationItem.titleView = titleImageView
+        case .hidden:
+            self.navigationItem.titleView = nil
+            
+        }
+        let navigationBarRightButton = UIBarButtonItem()
+        switch navigationBarRight {
+        case .white:
+            navigationBarRightButton.image = UIImage(named: "add")
+            self.navigationItem.rightBarButtonItem = navigationBarRightButton
+            self.navigationItem.rightBarButtonItem?.target = self
+        case .hidden:
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
+        }
+        
+        switch navigationBackground {
+        case .blue:
+            self.navigationController?.navigationBar.barTintColor = UIColor.flatSkyBlueColorDark()
+            self.navigationController?.navigationBar.backgroundColor = UIColor.flatSkyBlueColorDark()
+        case .white:
+            self.navigationController?.navigationBar.barTintColor = UIColor.white
+            self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        }
+        
+    }
 }

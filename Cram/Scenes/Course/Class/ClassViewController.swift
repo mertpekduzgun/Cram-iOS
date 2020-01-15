@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 import CFAlertViewController
 
+protocol MyDataSendingDelegateProtocol {
+    func sendData(myData: String)
+}
+
 enum departmentType {
     case civil
     case computer
@@ -51,10 +55,13 @@ class ClassViewController: BaseViewController {
     internal var type: departmentType = .computer
 
     internal var currentClassName: String = ""
-    
     internal var currentSection: String = ""
-    
+    internal var currentImage = UIImage(named: "eng")
     internal var currentIndex = 0
+    
+    internal var delegate: MyDataSendingDelegateProtocol? = nil
+    
+//    internal var classInfoList = [classInfo]()
     
     var documentsArray: [String] = []
     
@@ -140,24 +147,64 @@ class ClassViewController: BaseViewController {
         
     }
     
+    
+    
     //    MARK: JoinClass
     func joinClass() {
         LoadingScreen.show("Loading...")
-        let classDecumentName = self.documentsArray[self.currentIndex]
+        print("Current Class: ", self.currentClassName)
+        let classRef = firestoreDatabase.collection("classes").document(self.currentClassName)
         
-        let classRef = firestoreDatabase.collection("classes").document(classDecumentName)
         classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
         
+        let testRef = firestoreDatabase.collection("classes").document("Data Structures")
+        
+        testRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+
+        
         let userRef = firestoreDatabase.collection("users").document(self.uid!)
-        userRef.updateData(["chatRooms": FieldValue.arrayUnion([classDecumentName])])
+        
+//        let chatRoom = ChatRoom(classNames: self.currentClassName, sections: self.currentSection)
+//        userRef.setData(chatRoom: chatRoom)
+        userRef.updateData(["chatRooms": FieldValue.arrayUnion([self.currentClassName])])
+        
+        let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
+        let vc = navController.topViewController as! ChatRoomViewController
+        vc.classSectionArray.append(self.currentSection) 
+        vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
+        print(tabBarController?.viewControllers)
         tabBarController?.selectedIndex = 1
         
             
     }
     
+//        func joinClass() {
+//            LoadingScreen.show("Loading...")
+//    //        let classDecumentName = self.documentsArray[self.currentIndex]
+//
+//            let fireStoreDatabase = Firestore.firestore().collection("classes").whereField("courseName", isEqualTo: self.currentClassName)
+//
+//            fireStoreDatabase.getDocuments { (snapshot, err) in
+//                if let error = err {
+//                print("Error: \(error)")
+//                return
+//                } else {
+//                    for doc in snapshot!.documents {
+//                        let classRef = self.firestoreDatabase.collection("classes").document(self.currentClassName)
+//                        classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+//
+//                        let userRef = self.firestoreDatabase.collection("users").document(self.uid!)
+//                        userRef.updateData(["chatRooms": FieldValue.arrayUnion([self.currentClassName])])
+//
+//                    }
+//                }
+//        }
+//            tabBarController?.selectedIndex = 1
+//        }
+    
     //    MARK: SeeBoard
     func seeBoard() {
-        if let vc = UIStoryboard.chats.instantiateViewController(withIdentifier: ChatViewController.reuseIdentifier) as? ChatViewController {
+        if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as? BoardViewController {
         navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -591,9 +638,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .computer {
@@ -602,22 +652,15 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
                 self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
                 self.currentClassName = cell.classNameLabel.text!
                 self.currentSection = cell.classSectionLabel.text!
-                self.openAlert()
+                self.joinClass()
+                print(self.currentIndex)
+                print(self.currentClassName)
+                print(self.currentSection)
+//                self.openAlert()
             }
-            
-            //            firestoreDatabase.collection("classes").document("courseName").addSnapshotListener { (documentSnapshot, error) in
-            //                guard let document = documentSnapshot else {
-            //                    print("Error fetching document: \(error!)")
-            //                    return
-            //                }
-            //                guard let data = document.data() else {
-            //                    print("Document data was empty.")
-            //                    return
-            //                }
-            //                print("Current data: \(data)")
-            //            }
         }
         
         
@@ -626,10 +669,13 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
                 
             }
-            
         }
         
         if type == .industrial {
@@ -638,9 +684,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .mechanical {
@@ -649,9 +698,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .humanities {
@@ -660,9 +712,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classSectionLabel.text = classArray[indexPath.row].section
             LoadingScreen.hide()
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .information {
@@ -670,9 +725,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .math {
@@ -680,9 +738,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .physics {
@@ -690,9 +751,13 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
+                self.currentImage = cell.classImageView.image
                 self.openAlert()
             }
-            
         }
         
         if type == .psychology {
@@ -700,9 +765,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .arch {
@@ -710,9 +778,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .industrialDesign {
@@ -720,9 +791,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .interiorArch {
@@ -730,9 +804,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .eco {
@@ -740,9 +817,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .internationalRelations {
@@ -750,9 +830,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         
         if type == .management {
@@ -760,9 +843,12 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             cell.classNameLabel.text = classArray[indexPath.row].name
             cell.classSectionLabel.text = classArray[indexPath.row].section
             cell.tapped = {
+                self.currentIndex = indexPath.row
+                self.currentImage = cell.classImageView.image
+                self.currentClassName = cell.classNameLabel.text!
+                self.currentSection = cell.classSectionLabel.text!
                 self.openAlert()
             }
-            
         }
         return cell
     }
