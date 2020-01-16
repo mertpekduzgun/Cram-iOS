@@ -35,9 +35,11 @@ class RegisterViewController: BaseViewController {
     private var allValid: Bool! {
         
         if nameTextField.textField.text!.isEmpty {
-            Helper.showAlert(title: "Error", message: "Name cannot be blank!", style: .danger, position: .top)
+            Helper.showAlert(title: "Error!", message: "Name cannot be blank!", style: .danger, position: .top)
         } else if emailTextField.textField.text!.isEmpty {
-            Helper.showAlert(title: "Error", message: "Email cannot be blank!", style: .danger, position: .top)
+            Helper.showAlert(title: "Error!", message: "Email cannot be blank!", style: .danger, position: .top)
+        } else if !emailTextField.isValid {
+            Helper.showAlert(title: "Error!", message: "Email address is not valid!", style: .danger, position: .top)
         } else if passwordTextField.textField.text!.isEmpty {
             Helper.showAlert(title: "Error", message: "Password connot be blank!", style: .danger, position: .top)
         }
@@ -52,6 +54,7 @@ class RegisterViewController: BaseViewController {
     
     //    MARK: Sign Up
     @IBAction func tappedSignUp(_ sender: Any) {
+        if self.allValid {
             Auth.auth().signInAnonymously(completion: nil)
             Auth.auth().createUser(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (user, error) in
                 if error != nil {
@@ -65,10 +68,12 @@ class RegisterViewController: BaseViewController {
                     if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
+                        Helper.showAlert(title: "Registeration Successful", message: "Welcome to Işık Cram!", style: .success, position: .top)
                     }
                 }
             }
         }
+    }
     
     
     //    MARK: Sign In
