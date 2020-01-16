@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController {
         Auth.auth().signIn(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (User, error) in
             
             if error != nil {
-                print("Login Error") // TODO: ALERT
+                Helper.showAlert(title: "Error!", message: "Email or password is wrong.", style: .warning, position: .top)
             } else {
                 print("Success") // TODO: Go to Courses VC
                 if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {

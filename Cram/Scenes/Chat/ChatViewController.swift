@@ -11,6 +11,7 @@ import Firebase
 import MessageKit
 import InputBarAccessoryView
 
+
 class ChatViewController: MessagesViewController {
     
     //    MARK: Properties
@@ -42,12 +43,8 @@ class ChatViewController: MessagesViewController {
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(UIColor.flatSkyBlueColorDark(), for: .normal)
         
-        
         print(userArray)
-        print()
         getUserName()
-        
-        
         loadChat()
     }
     
@@ -121,24 +118,6 @@ class ChatViewController: MessagesViewController {
         }
     }
     
-    
-    //    func createNewChat() {
-    ////        let users = userArray
-    ////        let data: [String: Any] = [
-    ////            "users": users
-    ////        ]
-    //
-    //        let firestoreDatabase = Firestore.firestore().collection("classes").document(self.currentChatRoom)
-    //        firestoreDatabase.updateData(data) { (error) in
-    //            if let error = error {
-    //                print("Unable to create chat! \(error)")
-    //                return
-    //            } else {
-    //                self.loadChat()
-    //            }
-    //        }
-    //    }
-    
     private func insertNewMessage(_ message: Message) {
         messages.append(message)
         messagesCollectionView.reloadData()
@@ -171,7 +150,7 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
         
-        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: self.userName ?? "test name", content: text, created: Timestamp())
+        let message = Message(id: UUID().uuidString, senderID: currentUser.uid, senderName: self.userName , content: text, created: Timestamp())
         insertNewMessage(message)
         save(message)
         
@@ -181,7 +160,7 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     }
     
     func currentSender() -> SenderType {
-        return Sender(id: Auth.auth().currentUser?.uid ?? "", displayName: self.userName ?? "Name not found")
+        return Sender(id: Auth.auth().currentUser?.uid ?? "", displayName: self.userName )
         
     }
     
@@ -203,19 +182,17 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
         return .zero
     }
     
-    //    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-    //        if message.sender.senderId == currentUser.uid {
-    //            avatarView.image = image
-    //        }
-    //    }
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        if message.sender.senderId == currentUser.uid {
+            avatarView.image = UIImage(named: "user")
+        }
+    }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
         
         return .bubbleTail(corner, .curved)
     }
-    
-    
     
     func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 10
@@ -224,13 +201,15 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     func cellBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
         return NSAttributedString(
-          string: name,
-          attributes: [
-              .font: UIFont.montserratMedium(ofsize: 10),
-            .foregroundColor: UIColor(white: 0.3, alpha: 1)
-          ]
+            string: name,
+            attributes: [
+                .font: UIFont.montserratMedium(ofsize: 10),
+                .foregroundColor: UIColor(white: 0.3, alpha: 1)
+            ]
         )
     }
+    
+    
     
 }
 
@@ -285,6 +264,11 @@ extension ChatViewController {
         case .white:
             self.navigationController?.navigationBar.barTintColor = UIColor.white
             self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        case .gray:
+            self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
+            self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        case .transparent:
+            self.navigationController?.navigationBar.makeTransparent()
         }
         
     }

@@ -65,31 +65,7 @@ class ChatRoomViewController: BaseViewController {
     func currentClassInfo() {
         
     }
-    
-    func getSectionNumber() {
-        LoadingScreen.show("Loading...")
-        let firestoreDatabase = Firestore.firestore()
-            .collection("classes")
-            .whereField("courseName", isEqualTo: self.currentClassName)
-        firestoreDatabase.getDocuments() { (snapshot, error) in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            } else {
-                if snapshot?.documents == nil {
-                    print("Empty")
-                } else {
-                    for document in snapshot!.documents {
-                        self.currentClassSection = document.get("section") as! String
-                        LoadingScreen.hide()
-                    }
-                }
-            }
-        }
         
-    }
-    
-    
     func getChatRooms() {
         LoadingScreen.show("Loading...")
         let firestoreDatabase = Firestore.firestore()
@@ -105,7 +81,6 @@ class ChatRoomViewController: BaseViewController {
                 } else {
                     for document in snapshot!.documents {
                         self.chatRooms = document.get("chatRooms") as! [String]
-                        LoadingScreen.hide()
                     }
                 }
             }
@@ -122,7 +97,6 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatRoomTableViewCell.reuseIdentifier, for: indexPath) as! ChatRoomTableViewCell
         cell.chatRoomLabel.text = self.chatRooms[indexPath.row]
-//        cell.chatRoomImageView.image = self.ImagesArray[indexPath.row]
         let firestoreDatabase = Firestore.firestore()
                    .collection("classes")
                    .whereField("courseName", isEqualTo: self.chatRooms[indexPath.row])

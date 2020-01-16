@@ -235,13 +235,107 @@
                     <view key="view" contentMode="scaleToFill" id="YWR-pX-i1J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-Oq-C0X">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="31799" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-v1-wkW">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcements:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUy-Bx-3bd">
+                                        <rect key="frame" x="15" y="20" width="158" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ES-CU-aET">
+                                        <rect key="frame" x="0.0" y="74" width="414" height="90"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="H1i-KY-Scd"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QvI-lY-12a" id="Nz0-4R-Ggt"/>
+                                            <outlet property="delegate" destination="QvI-lY-12a" id="dH4-wu-X0M"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Dates:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy9-Tw-DrY">
+                                        <rect key="frame" x="15" y="179" width="115" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e0j-QP-5Pe">
+                                        <rect key="frame" x="0.0" y="233" width="414" height="90"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="jaW-he-qwl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QvI-lY-12a" id="uoQ-Eb-wjf"/>
+                                            <outlet property="delegate" destination="QvI-lY-12a" id="3pI-lY-unM"/>
+                                        </connections>
+                                    </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam Dates:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnG-0m-Lq7">
+                                        <rect key="frame" x="15" y="338" width="120.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YwT-BW-mN1">
+                                        <rect key="frame" x="0.0" y="392" width="414" height="90"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="Zvv-O8-ytZ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="QvI-lY-12a" id="aYY-l4-o59"/>
+                                            <outlet property="delegate" destination="QvI-lY-12a" id="iuR-bO-QWP"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="YwT-BW-mN1" firstAttribute="top" secondItem="NnG-0m-Lq7" secondAttribute="bottom" constant="24" id="2ir-nB-aH9"/>
+                                    <constraint firstItem="0ES-CU-aET" firstAttribute="top" secondItem="MUy-Bx-3bd" secondAttribute="bottom" constant="24" id="9DL-Qp-Zxe"/>
+                                    <constraint firstItem="bGb-v1-wkW" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" id="BAr-bx-BUi"/>
+                                    <constraint firstItem="MUy-Bx-3bd" firstAttribute="top" secondItem="zYB-Oq-C0X" secondAttribute="top" constant="20" id="CKE-qG-vgX"/>
+                                    <constraint firstItem="0ES-CU-aET" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" id="GNc-wa-der"/>
+                                    <constraint firstItem="NnG-0m-Lq7" firstAttribute="top" secondItem="e0j-QP-5Pe" secondAttribute="bottom" constant="15" id="JTy-Hm-jrx"/>
+                                    <constraint firstAttribute="bottom" secondItem="bGb-v1-wkW" secondAttribute="bottom" id="LwV-lI-Mlq"/>
+                                    <constraint firstItem="Sy9-Tw-DrY" firstAttribute="top" secondItem="0ES-CU-aET" secondAttribute="bottom" constant="15" id="RCP-P5-hJp"/>
+                                    <constraint firstItem="e0j-QP-5Pe" firstAttribute="top" secondItem="Sy9-Tw-DrY" secondAttribute="bottom" constant="24" id="Y2t-JM-Njx"/>
+                                    <constraint firstItem="bGb-v1-wkW" firstAttribute="top" secondItem="zYB-Oq-C0X" secondAttribute="top" id="dzu-nA-jD6"/>
+                                    <constraint firstItem="NnG-0m-Lq7" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" constant="15" id="jgc-02-fxI"/>
+                                    <constraint firstAttribute="trailing" secondItem="e0j-QP-5Pe" secondAttribute="trailing" id="kFs-9t-o8j"/>
+                                    <constraint firstItem="e0j-QP-5Pe" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" id="mE9-fx-fVL"/>
+                                    <constraint firstAttribute="trailing" secondItem="bGb-v1-wkW" secondAttribute="trailing" id="mUA-Cs-k1j"/>
+                                    <constraint firstItem="Sy9-Tw-DrY" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" constant="15" id="mtc-3b-X4M"/>
+                                    <constraint firstAttribute="trailing" secondItem="0ES-CU-aET" secondAttribute="trailing" id="o0m-DA-8n9"/>
+                                    <constraint firstItem="YwT-BW-mN1" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" id="qgT-Mp-fp9"/>
+                                    <constraint firstAttribute="trailing" secondItem="YwT-BW-mN1" secondAttribute="trailing" id="wpR-u9-W5i"/>
+                                    <constraint firstItem="MUy-Bx-3bd" firstAttribute="leading" secondItem="zYB-Oq-C0X" secondAttribute="leading" constant="15" id="y1L-8o-xGc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="zYB-Oq-C0X" secondAttribute="bottom" id="AbC-G9-PEu"/>
+                            <constraint firstItem="zYB-Oq-C0X" firstAttribute="trailing" secondItem="nPa-xo-fEK" secondAttribute="trailing" id="S2t-uO-oQQ"/>
+                            <constraint firstItem="zYB-Oq-C0X" firstAttribute="leading" secondItem="nPa-xo-fEK" secondAttribute="leading" id="oEA-Oc-cWZ"/>
+                            <constraint firstItem="zYB-Oq-C0X" firstAttribute="top" secondItem="YWR-pX-i1J" secondAttribute="top" id="pqI-3P-F2Z"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nPa-xo-fEK"/>
                     </view>
+                    <connections>
+                        <outlet property="announceTableView" destination="0ES-CU-aET" id="4ox-su-Ecq"/>
+                        <outlet property="examTableView" destination="YwT-BW-mN1" id="NCa-yo-s85"/>
+                        <outlet property="quizTableView" destination="e0j-QP-5Pe" id="KK0-j7-Vky"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciY-eb-bJr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820" y="51"/>
+            <point key="canvasLocation" x="3818.8405797101454" y="50.892857142857139"/>
         </scene>
         <!--Faculty View Controller-->
         <scene sceneID="w5l-PA-Tcc">
@@ -319,6 +413,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="31799" width="6000" height="4001"/>
         <namedColor name="cramBlue">
             <color red="0.31999999284744263" green="0.58700001239776611" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

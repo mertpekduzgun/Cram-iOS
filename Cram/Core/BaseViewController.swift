@@ -21,6 +21,8 @@ enum NavigationTitle {
 enum NavigationBackground {
     case white
     case blue
+    case gray
+    case transparent
 }
 
 enum NavigationRight {
@@ -60,7 +62,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-
+        
     }
     
     func initialUI(navigationTitle: NavigationTitle, navigationBarLeft: NavigationLeft, navigationBarRight: NavigationRight, navigationBackground: NavigationBackground) {
@@ -82,7 +84,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             self.navigationItem.titleView = titleImageView
         case .hidden:
             self.navigationItem.titleView = nil
-
+            
         }
         let navigationBarRightButton = UIBarButtonItem()
         switch navigationBarRight {
@@ -103,6 +105,12 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         case .white:
             self.navigationController?.navigationBar.barTintColor = UIColor.white
             self.navigationController?.navigationBar.backgroundColor = UIColor.white
+        case .gray:
+            self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
+            self.navigationController?.navigationBar.backgroundColor = UIColor.darkGray
+        case .transparent:
+            self.navigationController?.navigationBar.makeTransparent()
+            
         }
         
         statusBarStyle = UIStatusBarStyle.lightContent
@@ -123,6 +131,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         let isTouchInBottomHalf = (pointOfTouch.y >= self.view.bounds.height / 2)
         return !isTouchInBottomHalf
     }
-        
+    
     
 }
