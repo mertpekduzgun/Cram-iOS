@@ -10,6 +10,7 @@ import UIKit
 
 enum NavigationLeft {
     case whiteBack
+    case close
     case hidden
 }
 
@@ -28,6 +29,7 @@ enum NavigationBackground {
 enum NavigationRight {
     case white
     case hidden
+    case board
 }
 
 class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
@@ -73,6 +75,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             self.navigationItem.leftBarButtonItem = navigationBarLeftButton
             self.navigationItem.leftBarButtonItem?.target = self
             navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
+        case .close:
+            navigationBarLeftButton.image = UIImage(named: "closeWhite")
+            self.navigationItem.leftBarButtonItem = navigationBarLeftButton
+            self.navigationItem.leftBarButtonItem?.target = self
+            navigationBarLeftButton.action = #selector(closedPressed(animated:))
         case .hidden:
             self.navigationItem.leftBarButtonItem = nil
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
@@ -93,6 +100,11 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             self.navigationItem.rightBarButtonItem = navigationBarRightButton
             self.navigationItem.rightBarButtonItem?.target = self
             navigationBarRightButton.action = #selector(addButtonPressed(animated:))
+        case .board:
+            navigationBarRightButton.image = UIImage(named: "chalkboard")
+            self.navigationItem.rightBarButtonItem = navigationBarRightButton
+            self.navigationItem.rightBarButtonItem?.target = self
+            navigationBarRightButton.action = #selector(boardPressed(animated:))
         case .hidden:
             self.navigationItem.rightBarButtonItem = nil
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
@@ -116,6 +128,10 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         statusBarStyle = UIStatusBarStyle.lightContent
     }
     
+    @objc open func closedPressed(animated: Bool = true) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @objc open func navigationBarBackButtonPressed(animated: Bool = true) {
         navigationController?.popViewController(animated: true)
     }
@@ -123,6 +139,13 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     @objc open func addButtonPressed(animated: Bool = true) {
         let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: AddClassViewController.reuseIdentifier) as! AddClassViewController
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc open func boardPressed(animated: Bool = true) {
+        let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as! BoardViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+
     }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {

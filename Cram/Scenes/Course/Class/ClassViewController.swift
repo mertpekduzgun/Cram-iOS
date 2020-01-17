@@ -152,7 +152,6 @@ class ClassViewController: BaseViewController {
     //    MARK: JoinClass
     func joinClass() {
         LoadingScreen.show("Loading...")
-        print("Current Class: ", self.currentClassName)
         let classRef = firestoreDatabase.collection("classes").document(self.currentClassName)
         
         classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
@@ -172,7 +171,6 @@ class ClassViewController: BaseViewController {
         let vc = navController.topViewController as! ChatRoomViewController
         vc.classSectionArray.append(self.currentSection) 
         vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
-        print(tabBarController?.viewControllers)
         tabBarController?.selectedIndex = 1
         
             
@@ -205,7 +203,8 @@ class ClassViewController: BaseViewController {
     //    MARK: SeeBoard
     func seeBoard() {
         if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as? BoardViewController {
-        navigationController?.pushViewController(vc, animated: true)
+        vc.currentClassName = self.currentClassName
+        present(vc, animated: true, completion: nil)
         }
     }
     

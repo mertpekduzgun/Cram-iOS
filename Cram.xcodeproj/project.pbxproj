@@ -82,6 +82,7 @@
 		D6A370342374AFE10061B4BD /* TopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A370332374AFE10061B4BD /* TopView.xib */; };
 		D6A849FD23D0EE8F004F8E37 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A849FB23D0EE8F004F8E37 /* BoardTableViewCell.swift */; };
 		D6A849FE23D0EE8F004F8E37 /* BoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A849FC23D0EE8F004F8E37 /* BoardTableViewCell.xib */; };
+		D6D08A9B23D247B8007CC11B /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */; };
 		D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65A2236CDA41008EFB07 /* Auth.storyboard */; };
 		D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */; };
 		D6DF65A7236CDA92008EFB07 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */; };
@@ -220,6 +221,7 @@
 		D6A370332374AFE10061B4BD /* TopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopView.xib; sourceTree = "<group>"; };
 		D6A849FB23D0EE8F004F8E37 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		D6A849FC23D0EE8F004F8E37 /* BoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardTableViewCell.xib; sourceTree = "<group>"; };
+		D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
 		D6DF65A2236CDA41008EFB07 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D6DF65A6236CDA92008EFB07 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 			children = (
 				D6A849FA23D0EE7B004F8E37 /* Cell */,
 				D65218CC23CFA36A008EAA97 /* BoardViewController.swift */,
+				D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -1029,6 +1032,7 @@
 				D657771823709AB8009CA875 /* UIGestureRecognizerExtensions.swift in Sources */,
 				D657771D23709AC6009CA875 /* UIButtonExtensions.swift in Sources */,
 				D657770F23709A9E009CA875 /* UIScrollViewExtensions.swift in Sources */,
+				D6D08A9B23D247B8007CC11B /* AddBoardViewController.swift in Sources */,
 				D6A3702E2374A5C50061B4BD /* FacultyTableViewCell.swift in Sources */,
 				D6DF65C8236DDE5E008EFB07 /* DesignableStackView.swift in Sources */,
 				D657771223709AA6009CA875 /* UINavigationControllerExtensions.swift in Sources */,

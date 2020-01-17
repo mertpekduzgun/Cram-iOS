@@ -31,7 +31,7 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .board, navigationBackground: .blue)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -233,6 +233,10 @@ extension ChatViewController {
             self.navigationItem.leftBarButtonItem = navigationBarLeftButton
             self.navigationItem.leftBarButtonItem?.target = self
             navigationBarLeftButton.action = #selector(navigationBarBackButtonPressed(animated:))
+        case .close:
+            navigationBarLeftButton.image = UIImage(named: "closeWhite")
+            self.navigationItem.leftBarButtonItem = navigationBarLeftButton
+            self.navigationItem.leftBarButtonItem?.target = self
         case .hidden:
             self.navigationItem.leftBarButtonItem = nil
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView(frame: .zero))
@@ -250,6 +254,10 @@ extension ChatViewController {
         switch navigationBarRight {
         case .white:
             navigationBarRightButton.image = UIImage(named: "add")
+            self.navigationItem.rightBarButtonItem = navigationBarRightButton
+            self.navigationItem.rightBarButtonItem?.target = self
+        case .board:
+            navigationBarRightButton.image = UIImage(named: "chalkboard")
             self.navigationItem.rightBarButtonItem = navigationBarRightButton
             self.navigationItem.rightBarButtonItem?.target = self
         case .hidden:
