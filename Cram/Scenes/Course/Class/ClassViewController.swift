@@ -113,102 +113,7 @@ class ClassViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    //    MARK: Alert
-    func openAlert() {
-        let alertController = CFAlertViewController(title: "",
-                                                    message: "",
-                                                    textAlignment: .center,
-                                                    preferredStyle: .actionSheet,
-                                                    didDismissAlertHandler: {(dismiss) in
-        })
-        
-        let joinAction = CFAlertAction(title: "Join Class",
-                                       style: .Default,
-                                       alignment: .justified,
-                                       backgroundColor: UIColor.flatSkyBlueColorDark(),
-                                       textColor: .white,
-                                       handler: { (action) in
-                                        self.joinClass()
-        })
-        
-        let boardAction = CFAlertAction(title: "See Board",
-                                        style: .Default,
-                                        alignment: .justified,
-                                        backgroundColor: UIColor.white,
-                                        textColor: UIColor.flatSkyBlueColorDark(),
-                                        handler: { (action) in
-                                            self.seeBoard()
-        })
-        
-        alertController.addAction(joinAction)
-        alertController.addAction(boardAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
-    
-    
-    
-    //    MARK: JoinClass
-    func joinClass() {
-        LoadingScreen.show("Loading...")
-        let classRef = firestoreDatabase.collection("classes").document(self.currentClassName)
-        
-        classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
-        
-        let testRef = firestoreDatabase.collection("classes").document("Data Structures")
-        
-        testRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
 
-        
-        let userRef = firestoreDatabase.collection("users").document(self.uid!)
-        
-//        let chatRoom = ChatRoom(classNames: self.currentClassName, sections: self.currentSection)
-//        userRef.setData(chatRoom: chatRoom)
-        userRef.updateData(["chatRooms": FieldValue.arrayUnion([self.currentClassName])])
-        
-        let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
-        let vc = navController.topViewController as! ChatRoomViewController
-        vc.classSectionArray.append(self.currentSection) 
-        vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
-        tabBarController?.selectedIndex = 1
-        
-            
-    }
-    
-//        func joinClass() {
-//            LoadingScreen.show("Loading...")
-//    //        let classDecumentName = self.documentsArray[self.currentIndex]
-//
-//            let fireStoreDatabase = Firestore.firestore().collection("classes").whereField("courseName", isEqualTo: self.currentClassName)
-//
-//            fireStoreDatabase.getDocuments { (snapshot, err) in
-//                if let error = err {
-//                print("Error: \(error)")
-//                return
-//                } else {
-//                    for doc in snapshot!.documents {
-//                        let classRef = self.firestoreDatabase.collection("classes").document(self.currentClassName)
-//                        classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
-//
-//                        let userRef = self.firestoreDatabase.collection("users").document(self.uid!)
-//                        userRef.updateData(["chatRooms": FieldValue.arrayUnion([self.currentClassName])])
-//
-//                    }
-//                }
-//        }
-//            tabBarController?.selectedIndex = 1
-//        }
-    
-    //    MARK: SeeBoard
-    func seeBoard() {
-        if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as? BoardViewController {
-        vc.currentClassName = self.currentClassName
-        present(vc, animated: true, completion: nil)
-        }
-    }
-    
-    
     //    MARK: GetClasses
     func getClasses() {
         
@@ -632,6 +537,9 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseIdentifier, for: indexPath) as! ClassTableViewCell
+        
+
+        
         if type == .civil {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
@@ -645,6 +553,7 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+        
         if type == .computer {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
@@ -654,11 +563,11 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
                 self.currentImage = cell.classImageView.image
                 self.currentClassName = cell.classNameLabel.text!
                 self.currentSection = cell.classSectionLabel.text!
-                self.joinClass()
+//                self.joinClass()
                 print(self.currentIndex)
                 print(self.currentClassName)
                 print(self.currentSection)
-//                self.openAlert()
+                self.openAlert()
             }
         }
         
@@ -853,4 +762,79 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+
+extension ClassViewController: UINavigationControllerDelegate {
+    
+    func openAlert() {
+           let alertController = CFAlertViewController(title: "",
+                                                       message: "",
+                                                       textAlignment: .center,
+                                                       preferredStyle: .actionSheet,
+                                                       didDismissAlertHandler: {(dismiss) in
+           })
+           
+           let joinAction = CFAlertAction(title: "Join Class",
+                                          style: .Default,
+                                          alignment: .justified,
+                                          backgroundColor: UIColor.flatSkyBlueColorDark(),
+                                          textColor: .white,
+                                          handler: { (action) in
+                                            self.joinClass()
+           })
+           
+           let boardAction = CFAlertAction(title: "See Board",
+                                           style: .Default,
+                                           alignment: .justified,
+                                           backgroundColor: UIColor.white,
+                                           textColor: UIColor.flatSkyBlueColorDark(),
+                                           handler: { (action) in
+                                               self.seeBoard()
+           })
+           
+           alertController.addAction(joinAction)
+           alertController.addAction(boardAction)
+           
+           self.present(alertController, animated: true, completion: nil)
+           
+       }
+    
+    
+    //    MARK: JoinClass
+    func joinClass() {
+            LoadingScreen.show("Loading...")
+        let classRef = firestoreDatabase.collection("classes").document(classArray[currentIndex].name)
+        print(self.currentIndex)
+            classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+            
+            let testRef = firestoreDatabase.collection("classes").document("Data Structures")
+            
+            testRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+
+            
+            let userRef = firestoreDatabase.collection("users").document(self.uid!)
+            
+    //        let chatRoom = ChatRoom(classNames: self.currentClassName, sections: self.currentSection)
+    //        userRef.setData(chatRoom: chatRoom)
+        userRef.updateData(["chatRooms": FieldValue.arrayUnion([classArray[currentIndex].name])])
+            
+            let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
+            let vc = navController.topViewController as! ChatRoomViewController
+            vc.classSectionArray.append(self.currentSection)
+            vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
+            tabBarController?.selectedIndex = 1
+            
+                
+        }
+    
+    //    MARK: SeeBoard
+    func seeBoard() {
+        if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as? BoardViewController {
+            vc.currentClassName = classArray[currentIndex].name
+        present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    
+}
 

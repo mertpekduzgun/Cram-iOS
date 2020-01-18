@@ -63,12 +63,12 @@ class BoardViewController: BaseViewController {
         announceTableView.estimatedRowHeight = announceTableView.rowHeight
         announceTableView.tableFooterView = UIView(frame: .zero)
         
-        quizTableView.register(UINib(nibName: BoardTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: BoardTableViewCell.reuseIdentifier)
+        quizTableView.register(UINib(nibName: QuizDateTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: QuizDateTableViewCell.reuseIdentifier)
         quizTableView.rowHeight = UITableView.automaticDimension
         quizTableView.estimatedRowHeight = quizTableView.rowHeight
         quizTableView.tableFooterView = UIView(frame: .zero)
         
-        examTableView.register(UINib(nibName: BoardTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: BoardTableViewCell.reuseIdentifier)
+        examTableView.register(UINib(nibName: ExamDateTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: ExamDateTableViewCell.reuseIdentifier)
         examTableView.rowHeight = UITableView.automaticDimension
         examTableView.estimatedRowHeight = examTableView.rowHeight
         examTableView.tableFooterView = UIView(frame: .zero)
@@ -114,7 +114,7 @@ class BoardViewController: BaseViewController {
                 if snapshot?.documents == nil {
                     print("Empty")
                 } else {
-                    self.announceArray.removeAll()
+                    self.quizArray.removeAll()
                     for document in snapshot!.documents {
                         self.quizArray = document.get("quizDates") as! [String]
                         }
@@ -134,7 +134,7 @@ class BoardViewController: BaseViewController {
                 if snapshot?.documents == nil {
                     print("Empty")
                 } else {
-                    self.announceArray.removeAll()
+                    self.examArray.removeAll()
                     for document in snapshot!.documents {
                         self.examArray = document.get("examDates") as! [String]
                         }
@@ -158,24 +158,20 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-//        Table View Celler aynı, üç farklı cell yarat...
-        
-        
+
         if tableView == announceTableView {
             let cell = announceTableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.reuseIdentifier, for: indexPath) as! BoardTableViewCell
             cell.cellLabel.text = announceArray[indexPath.row]
             return cell
         }
         if tableView == quizTableView {
-            let cell = quizTableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.reuseIdentifier, for: indexPath) as! BoardTableViewCell
+            let cell = quizTableView.dequeueReusableCell(withIdentifier: QuizDateTableViewCell.reuseIdentifier, for: indexPath) as! QuizDateTableViewCell
             cell.cellLabel.text = quizArray[indexPath.row]
 
             return cell
         }
         if tableView == examTableView {
-            let cell = examTableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.reuseIdentifier, for: indexPath) as! BoardTableViewCell
+            let cell = examTableView.dequeueReusableCell(withIdentifier: ExamDateTableViewCell.reuseIdentifier, for: indexPath) as! ExamDateTableViewCell
             cell.cellLabel.text = examArray[indexPath.row]
 
             return cell

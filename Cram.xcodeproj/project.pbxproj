@@ -82,6 +82,10 @@
 		D6A370342374AFE10061B4BD /* TopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A370332374AFE10061B4BD /* TopView.xib */; };
 		D6A849FD23D0EE8F004F8E37 /* BoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A849FB23D0EE8F004F8E37 /* BoardTableViewCell.swift */; };
 		D6A849FE23D0EE8F004F8E37 /* BoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A849FC23D0EE8F004F8E37 /* BoardTableViewCell.xib */; };
+		D6AAF84923D32BC600A781ED /* QuizDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AAF84723D32BC600A781ED /* QuizDateTableViewCell.swift */; };
+		D6AAF84A23D32BC600A781ED /* QuizDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AAF84823D32BC600A781ED /* QuizDateTableViewCell.xib */; };
+		D6AAF84D23D32CDC00A781ED /* ExamDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6AAF84B23D32CDC00A781ED /* ExamDateTableViewCell.swift */; };
+		D6AAF84E23D32CDC00A781ED /* ExamDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6AAF84C23D32CDC00A781ED /* ExamDateTableViewCell.xib */; };
 		D6D08A9B23D247B8007CC11B /* AddBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */; };
 		D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6DF65A2236CDA41008EFB07 /* Auth.storyboard */; };
 		D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */; };
@@ -221,6 +225,10 @@
 		D6A370332374AFE10061B4BD /* TopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopView.xib; sourceTree = "<group>"; };
 		D6A849FB23D0EE8F004F8E37 /* BoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardTableViewCell.swift; sourceTree = "<group>"; };
 		D6A849FC23D0EE8F004F8E37 /* BoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardTableViewCell.xib; sourceTree = "<group>"; };
+		D6AAF84723D32BC600A781ED /* QuizDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizDateTableViewCell.swift; sourceTree = "<group>"; };
+		D6AAF84823D32BC600A781ED /* QuizDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuizDateTableViewCell.xib; sourceTree = "<group>"; };
+		D6AAF84B23D32CDC00A781ED /* ExamDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamDateTableViewCell.swift; sourceTree = "<group>"; };
+		D6AAF84C23D32CDC00A781ED /* ExamDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExamDateTableViewCell.xib; sourceTree = "<group>"; };
 		D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBoardViewController.swift; sourceTree = "<group>"; };
 		D6DF65A2236CDA41008EFB07 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		D6DF65A4236CDA7E008EFB07 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -368,7 +376,9 @@
 		D65218CB23CFA2BE008EAA97 /* Board */ = {
 			isa = PBXGroup;
 			children = (
-				D6A849FA23D0EE7B004F8E37 /* Cell */,
+				D6AAF84623D32BA900A781ED /* ExamDateCell */,
+				D6AAF84523D32B9600A781ED /* QuizDateCell */,
+				D6A849FA23D0EE7B004F8E37 /* AddressCell */,
 				D65218CC23CFA36A008EAA97 /* BoardViewController.swift */,
 				D6D08A9A23D247B8007CC11B /* AddBoardViewController.swift */,
 			);
@@ -507,13 +517,31 @@
 			path = TopView;
 			sourceTree = "<group>";
 		};
-		D6A849FA23D0EE7B004F8E37 /* Cell */ = {
+		D6A849FA23D0EE7B004F8E37 /* AddressCell */ = {
 			isa = PBXGroup;
 			children = (
 				D6A849FB23D0EE8F004F8E37 /* BoardTableViewCell.swift */,
 				D6A849FC23D0EE8F004F8E37 /* BoardTableViewCell.xib */,
 			);
-			path = Cell;
+			path = AddressCell;
+			sourceTree = "<group>";
+		};
+		D6AAF84523D32B9600A781ED /* QuizDateCell */ = {
+			isa = PBXGroup;
+			children = (
+				D6AAF84723D32BC600A781ED /* QuizDateTableViewCell.swift */,
+				D6AAF84823D32BC600A781ED /* QuizDateTableViewCell.xib */,
+			);
+			path = QuizDateCell;
+			sourceTree = "<group>";
+		};
+		D6AAF84623D32BA900A781ED /* ExamDateCell */ = {
+			isa = PBXGroup;
+			children = (
+				D6AAF84B23D32CDC00A781ED /* ExamDateTableViewCell.swift */,
+				D6AAF84C23D32CDC00A781ED /* ExamDateTableViewCell.xib */,
+			);
+			path = ExamDateCell;
 			sourceTree = "<group>";
 		};
 		D6DF659A236CD7B9008EFB07 /* Custom Views */ = {
@@ -840,6 +868,7 @@
 				D6DF65B8236DCCA6008EFB07 /* TextFieldView.xib in Resources */,
 				D665B6CC236F59C200CAE65E /* Tabbar.storyboard in Resources */,
 				D6DF65B6236DC32E008EFB07 /* Montserrat-Regular.ttf in Resources */,
+				D6AAF84E23D32CDC00A781ED /* ExamDateTableViewCell.xib in Resources */,
 				D6F1D9D42381D5760001F157 /* Setting.storyboard in Resources */,
 				D6DF65A3236CDA41008EFB07 /* Auth.storyboard in Resources */,
 				D6F1D9CB238195ED0001F157 /* DepartmentTableViewCell.xib in Resources */,
@@ -852,6 +881,7 @@
 				D665B6CA236F3B3100CAE65E /* Colors.xcassets in Resources */,
 				D6A849FE23D0EE8F004F8E37 /* BoardTableViewCell.xib in Resources */,
 				D6DF65AF236DBEFF008EFB07 /* Cram.xcassets in Resources */,
+				D6AAF84A23D32BC600A781ED /* QuizDateTableViewCell.xib in Resources */,
 				D6DF65B5236DC32E008EFB07 /* Montserrat-SemiBold.ttf in Resources */,
 				D6ED7A58238D923100C772D3 /* LoadingView.xib in Resources */,
 				D657772523709DFB009CA875 /* Tabbar.xcassets in Resources */,
@@ -985,10 +1015,12 @@
 			files = (
 				D657770823709A89009CA875 /* UITableViewExtensions.swift in Sources */,
 				D632F3DB237216CF00603116 /* FacultyViewController.swift in Sources */,
+				D6AAF84D23D32CDC00A781ED /* ExamDateTableViewCell.swift in Sources */,
 				D665B6C6236F2F9200CAE65E /* DepartmentViewController.swift in Sources */,
 				D657772223709AD5009CA875 /* UIActivityExtensions.swift in Sources */,
 				D6DF65A5236CDA7E008EFB07 /* LoginViewController.swift in Sources */,
 				D665B6CE236F5A0600CAE65E /* TabbarViewController.swift in Sources */,
+				D6AAF84923D32BC600A781ED /* QuizDateTableViewCell.swift in Sources */,
 				D657770223709A6A009CA875 /* UIStoryboardExtensions.swift in Sources */,
 				D657770B23709A94009CA875 /* UIStackViewExtensions.swift in Sources */,
 				D6F1D9CE2381D5070001F157 /* ChatViewController.swift in Sources */,

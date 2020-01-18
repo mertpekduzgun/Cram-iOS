@@ -41,14 +41,17 @@ class AddBoardViewController: BaseViewController {
             self.announcementArray.append(self.addTextField.text ?? "")
             let ref = firestore.collection("boards").document(self.currentClassName)
             ref.updateData(["announcements": FieldValue.arrayUnion([self.addTextField.text ?? ""])])
+            self.dismiss(animated: true, completion: nil)
         } else if boardSection == "Quiz Dates" {
             self.quizDateArray.append(self.addTextField.text ?? "")
             let ref = firestore.collection("boards").document(self.currentClassName)
             ref.updateData(["quizDates": FieldValue.arrayUnion([self.addTextField.text ?? ""])])
+            self.dismiss(animated: true, completion: nil)
         } else {
             self.examDateArray.append(self.addTextField.text ?? "")
             let ref = firestore.collection("boards").document(self.currentClassName)
             ref.updateData(["examDates": FieldValue.arrayUnion([self.addTextField.text ?? ""])])
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
@@ -70,7 +73,7 @@ class AddBoardViewController: BaseViewController {
                 if queryCount == 0 {
                     let boardDictionary = ["announcements": self.announcementArray, "quizDates": self.quizDateArray, "examDates": self.examDateArray, "className": self.currentClassName, "created": FieldValue.serverTimestamp()] as [String : Any]
                     
-                    firestore.collection("boards").document(self.currentClassName).updateData(boardDictionary) { (error) in
+                    firestore.collection("boards").document(self.currentClassName).setData(boardDictionary) { (error) in
                         if error != nil {
                             print(error)
                         }
