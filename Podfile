@@ -16,10 +16,10 @@ target 'Cram' do
   pod 'MessageKit'
   pod 'IQKeyboardManagerSwift'
   pod 'CFAlertViewController'
-  pod 'Kingfisher'
   pod 'SkeletonView'
   pod 'SwiftEntryKit', '1.2.3'
   pod 'NotificationBannerSwift', '3.0.0'
+  pod 'SDWebImage', '5.5.1'
 
   target 'CramTests' do
     inherit! :search_paths

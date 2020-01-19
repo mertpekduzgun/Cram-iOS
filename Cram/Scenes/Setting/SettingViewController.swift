@@ -9,32 +9,34 @@
 import UIKit
 import Firebase
 import CFAlertViewController
-import Kingfisher
+import SDWebImage
+
 
 class SettingViewController: BaseViewController {
     
-//    MARK: Outlets
+    //    MARK: Outlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
-//    MARK: Properties
+    //    MARK: Properties
     private lazy var imagePicker: UIImagePickerController? = UIImagePickerController()
     internal var image = UIImage()
     internal var currentUser = Auth.auth().currentUser
     
     internal var userName: String = ""
     internal var userEmail: String = ""
-
-//    MARK: LifeCycle
+    
+    //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getUser()
         initUI()
+        getProfilePicture()
     }
     
     func initUI() {
@@ -51,47 +53,41 @@ class SettingViewController: BaseViewController {
         openAlert()
     }
     
-    private func loadData(data: User) {
-        if let url = data.imageURL {
-            Helper.setImageWithLoading(url: url, self.profileImageView)
-        }
-    }
-    
     func getUser() {
         LoadingScreen.show("Loading...")
-
+        
         let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.currentUser?.uid)
-               
-               firestoreDatabase.getDocuments() { (snapshot, error) in
-                   if let error = error {
-                       print("Error: \(error)")
-                       return
-                   } else {
-                       if snapshot?.documents == nil {
-                           print("Empty")
-                       } else {
-                           for document in snapshot!.documents {
-                            self.userEmail = document.get("email") as! String
-                            self.userName = document.get("name") as! String
-                            self.nameLabel.text = self.userName
-                            LoadingScreen.hide()
-
-                           }
-                       }
-                   }
-               }
+        
+        firestoreDatabase.getDocuments() { (snapshot, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                if snapshot?.documents == nil {
+                    print("Empty")
+                } else {
+                    for document in snapshot!.documents {
+                        self.userEmail = document.get("email") as! String
+                        self.userName = document.get("name") as! String
+                        self.nameLabel.text = self.userName
+                        LoadingScreen.hide()
+                        
+                    }
+                }
+            }
+        }
         
     }
     
     
     
-//    MARK: Logout
+    //    MARK: Logout
     @IBAction func logoutAction(_ sender: Any) {
         do {
             
             let alert = UIAlertController(title: "Logout!", message: "Are you sure you want to sign out?", preferredStyle: .alert)
             
-             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (alert) in
                 self.dismiss(animated: false, completion: nil)
             })
             cancel.setValue(UIColor.flatSkyBlueColorDark(), forKey: "titleTextColor")
@@ -108,7 +104,7 @@ class SettingViewController: BaseViewController {
             
             logout.setValue(UIColor.flatBlackColorDark(), forKey: "titleTextColor")
             alert.addAction(logout)
-
+            
             
             self.present(alert, animated: false)
             try Auth.auth().signOut()
@@ -139,21 +135,43 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         })
         
         let galleryAction = CFAlertAction(title: "Gallery",
-                                         style: .Default,
-                                         alignment: .justified,
-                                         backgroundColor: UIColor.white,
-                                         textColor: UIColor.flatSkyBlueColorDark(),
-                                         handler: { (action) in
+                                          style: .Default,
+                                          alignment: .justified,
+                                          backgroundColor: UIColor.white,
+                                          textColor: UIColor.flatSkyBlueColorDark(),
+                                          handler: { (action) in
                                             self.openGallery()
         })
         
         imagePicker?.delegate = self
-
+        
         alertController.addAction(cameraAction)
         alertController.addAction(galleryAction)
         
         self.present(alertController, animated: true, completion: nil)
         
+    }
+    
+    func getProfilePicture() {
+        Helper.showLoading(self.profileImageView)
+        let firestoreDatabase = Firestore.firestore().collection("images").whereField("imageOwner", isEqualTo: self.currentUser?.uid)
+        firestoreDatabase.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                if snapshot?.documents == nil {
+                    self.profileImageView.image = UIImage(named: "user")
+                } else {
+                    for document in snapshot!.documents {
+                        if let imageUrl = document.get("imageUrl") as? String {
+                            self.profileImageView.sd_setImage(with: URL(string: imageUrl))
+                            Helper.hideLoading(self.profileImageView)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func openCamera() {
@@ -177,6 +195,40 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         profileImageView.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        let storage = Storage.storage()
+        let storageReference = storage.reference()
+        
+        let mediaFolder = storageReference.child("media")
+        
+        if let data = profileImageView.image?.jpegData(compressionQuality: 0.5) {
+            let uuid = UUID().uuidString
+            let imageReference = mediaFolder.child("\(uuid).jpg")
+            imageReference.putData(data, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
+                } else {
+                    imageReference.downloadURL { (url, error) in
+                        if error == nil {
+                            let imageUrl = url?.absoluteString
+                            let firestore = Firestore.firestore()
+                            let snap = ["imageUrl": imageUrl!, "imageOwner": self.currentUser?.uid, "created": FieldValue.serverTimestamp()] as [String: Any]
+                            firestore.collection("images").document(self.currentUser!.uid).setData(snap) { (error) in
+                                if error != nil {
+                                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
+                                } else {
+                                    Helper.showAlert(title: "Success!", message: "Your profile picture has changed.", style: .success, position: .top)
+                                    self.getProfilePicture()
+                                    Helper.hideLoading(self.profileImageView)
+
+                                }
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

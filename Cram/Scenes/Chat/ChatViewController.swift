@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import MessageKit
 import InputBarAccessoryView
+import SDWebImage
 
 
 class ChatViewController: MessagesViewController {
@@ -19,19 +20,15 @@ class ChatViewController: MessagesViewController {
     let firestoreDatabase = Firestore.firestore()
     private var ref: DocumentReference?
     internal var messages: [Message] = []
-    
     internal var userArray: [String] = []
-    
     internal var currentChatRoom: String = ""
-    
     internal var userName: String = ""
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .board, navigationBackground: .blue)
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -47,7 +44,7 @@ class ChatViewController: MessagesViewController {
         getUserName()
         loadChat()
     }
-    
+        
     func getUserName() {
         let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.currentUser.uid)
         
@@ -184,7 +181,9 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.senderId == currentUser.uid {
-            avatarView.image = UIImage(named: "user")
+            SDWebImageManager.shared.loadImage(with: currentUser.photoURL, options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                avatarView.image = image
+            }
         }
     }
     

@@ -53,7 +53,7 @@ class ClassViewController: BaseViewController {
     internal var uid = Auth.auth().currentUser?.uid
     
     internal var type: departmentType = .computer
-
+    
     internal var currentClassName: String = ""
     internal var currentSection: String = ""
     internal var currentImage = UIImage(named: "eng")
@@ -61,7 +61,7 @@ class ClassViewController: BaseViewController {
     
     internal var delegate: MyDataSendingDelegateProtocol? = nil
     
-//    internal var classInfoList = [classInfo]()
+    //    internal var classInfoList = [classInfo]()
     
     var documentsArray: [String] = []
     
@@ -73,7 +73,7 @@ class ClassViewController: BaseViewController {
         topView.topViewType = .classroom
         if uid == "rxoKrlAlo9ezjwE03OLfXIasFr03" {
             initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .white, navigationBackground: .blue)
-
+            
         } else {
             initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         }
@@ -113,7 +113,7 @@ class ClassViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-
+    
     //    MARK: GetClasses
     func getClasses() {
         
@@ -538,7 +538,7 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseIdentifier, for: indexPath) as! ClassTableViewCell
         
-
+        
         
         if type == .civil {
             cell.classImageView.image = UIImage(named: "eng")
@@ -563,7 +563,7 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
                 self.currentImage = cell.classImageView.image
                 self.currentClassName = cell.classNameLabel.text!
                 self.currentSection = cell.classSectionLabel.text!
-//                self.joinClass()
+                //                self.joinClass()
                 print(self.currentIndex)
                 print(self.currentClassName)
                 print(self.currentSection)
@@ -767,71 +767,71 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
 extension ClassViewController: UINavigationControllerDelegate {
     
     func openAlert() {
-           let alertController = CFAlertViewController(title: "",
-                                                       message: "",
-                                                       textAlignment: .center,
-                                                       preferredStyle: .actionSheet,
-                                                       didDismissAlertHandler: {(dismiss) in
-           })
-           
-           let joinAction = CFAlertAction(title: "Join Class",
-                                          style: .Default,
-                                          alignment: .justified,
-                                          backgroundColor: UIColor.flatSkyBlueColorDark(),
-                                          textColor: .white,
-                                          handler: { (action) in
-                                            self.joinClass()
-           })
-           
-           let boardAction = CFAlertAction(title: "See Board",
-                                           style: .Default,
-                                           alignment: .justified,
-                                           backgroundColor: UIColor.white,
-                                           textColor: UIColor.flatSkyBlueColorDark(),
-                                           handler: { (action) in
-                                               self.seeBoard()
-           })
-           
-           alertController.addAction(joinAction)
-           alertController.addAction(boardAction)
-           
-           self.present(alertController, animated: true, completion: nil)
-           
-       }
+        let alertController = CFAlertViewController(title: "",
+                                                    message: "",
+                                                    textAlignment: .center,
+                                                    preferredStyle: .actionSheet,
+                                                    didDismissAlertHandler: {(dismiss) in
+        })
+        
+        let joinAction = CFAlertAction(title: "Join Class",
+                                       style: .Default,
+                                       alignment: .justified,
+                                       backgroundColor: UIColor.flatSkyBlueColorDark(),
+                                       textColor: .white,
+                                       handler: { (action) in
+                                        self.joinClass()
+        })
+        
+        let boardAction = CFAlertAction(title: "See Board",
+                                        style: .Default,
+                                        alignment: .justified,
+                                        backgroundColor: UIColor.white,
+                                        textColor: UIColor.flatSkyBlueColorDark(),
+                                        handler: { (action) in
+                                            self.seeBoard()
+        })
+        
+        alertController.addAction(joinAction)
+        alertController.addAction(boardAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
     
     
     //    MARK: JoinClass
     func joinClass() {
-            LoadingScreen.show("Loading...")
+        LoadingScreen.show("Loading...")
         let classRef = firestoreDatabase.collection("classes").document(classArray[currentIndex].name)
         print(self.currentIndex)
-            classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
-            
-            let testRef = firestoreDatabase.collection("classes").document("Data Structures")
-            
-            testRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
-
-            
-            let userRef = firestoreDatabase.collection("users").document(self.uid!)
-            
-    //        let chatRoom = ChatRoom(classNames: self.currentClassName, sections: self.currentSection)
-    //        userRef.setData(chatRoom: chatRoom)
+        classRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+        
+        let testRef = firestoreDatabase.collection("classes").document("Data Structures")
+        
+        testRef.updateData(["users": FieldValue.arrayUnion([self.uid])])
+        
+        
+        let userRef = firestoreDatabase.collection("users").document(self.uid!)
+        
+        //        let chatRoom = ChatRoom(classNames: self.currentClassName, sections: self.currentSection)
+        //        userRef.setData(chatRoom: chatRoom)
         userRef.updateData(["chatRooms": FieldValue.arrayUnion([classArray[currentIndex].name])])
-            
-            let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
-            let vc = navController.topViewController as! ChatRoomViewController
-            vc.classSectionArray.append(self.currentSection)
-            vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
-            tabBarController?.selectedIndex = 1
-            
-                
-        }
+        
+        let navController = self.tabBarController?.viewControllers![1] as! UINavigationController
+        let vc = navController.topViewController as! ChatRoomViewController
+        vc.classSectionArray.append(self.currentSection)
+        vc.ImagesArray.append(self.currentImage ?? UIImage(named: "eng")!)
+        tabBarController?.selectedIndex = 1
+        
+        
+    }
     
     //    MARK: SeeBoard
     func seeBoard() {
         if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: BoardViewController.reuseIdentifier) as? BoardViewController {
             vc.currentClassName = classArray[currentIndex].name
-        present(vc, animated: true, completion: nil)
+            present(vc, animated: true, completion: nil)
         }
     }
     

@@ -60,15 +60,12 @@ class RegisterViewController: BaseViewController {
                 if error != nil {
                     print(error!) // TODO: ALERT
                 } else {
-                    //                self.ref.child("users").child(self.uid!).setValue(["name": self.nameTextField.textField.text, "email": self.emailTextField.textField.text])
-                    
                     let fireStore = Firestore.firestore()
                     let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!, "date": FieldValue.serverTimestamp(), "chatRooms": self.chatRooms, "userID": user?.user.uid] as [String: Any]
                     fireStore.collection("users").document((user?.user.uid)!).setData(userDict)
                     if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true, completion: nil)
-                        Helper.showAlert(title: "Registeration Successful", message: "Welcome to Işık Cram!", style: .success, position: .top)
                     }
                 }
             }

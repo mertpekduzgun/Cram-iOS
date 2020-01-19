@@ -8,25 +8,10 @@
 
 import Foundation
 import UIKit
-import Kingfisher
 import SkeletonView
 import NotificationBannerSwift
 
 class Helper {
-    static func setImageWithLoading(url: String?,_ imageView: UIImageView){
-        showLoading(imageView)
-        if let url = URL(string: url ?? "") {
-            imageView.kf.setImage(with: url,completionHandler: { result in
-                switch result {
-                case .success:
-                    hideLoading(imageView)
-
-                case .failure:
-                    break
-                }
-            })
-        }
-    }
     
     static func showAlert(title:String,message: String,style:BannerStyle = .danger,position: BannerPosition = .top){
         let banner = NotificationBanner(title: NSLocalizedString(title, comment: ""), subtitle: message, style: style)

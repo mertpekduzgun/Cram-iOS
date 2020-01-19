@@ -37,10 +37,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JX6-AE-lXU">
-                                <rect key="frame" x="186" y="238" width="42" height="18.5"/>
+                                <rect key="frame" x="188.5" y="238" width="37" height="17.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-t4-Jwt">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="37" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Medium" family="Montserrat" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -55,10 +55,10 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdd-iM-9iT">
-                                <rect key="frame" x="0.0" y="281.5" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="280.5" width="414" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glp-me-WoE">
-                                        <rect key="frame" x="15" y="-0.5" width="54" height="31"/>
+                                        <rect key="frame" x="15" y="0.0" width="48" height="30"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15"/>
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
