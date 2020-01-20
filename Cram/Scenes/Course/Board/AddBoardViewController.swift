@@ -11,18 +11,20 @@ import Firebase
 
 class AddBoardViewController: BaseViewController {
     
+//    MARK: Outlets
     @IBOutlet weak var addTextField: UITextField!
     @IBOutlet weak var boardSectionPicker: UIPickerView!
     @IBOutlet weak var closeImageView: UIImageView!
     
+//    MARK: Properties
     internal var pickerData = ["Announcements", "Quiz Dates", "Exam Dates"]
-    
     internal var currentClassName = ""
     internal var boardSection = ""
     internal var announcementArray: [String] = []
     internal var quizDateArray: [String] = []
     internal var examDateArray: [String] = []
     
+//    MARK: Outlets
     override func viewDidLoad() {
         super.viewDidLoad()
         createBoard()
@@ -35,6 +37,7 @@ class AddBoardViewController: BaseViewController {
         
     }
     
+//    MARK: Save Button
     @IBAction func saveButtonPressed(_ sender: Any) {
         let firestore = Firestore.firestore()
         if boardSection == "Announcements" {
@@ -56,6 +59,7 @@ class AddBoardViewController: BaseViewController {
         
     }
     
+//    MARK: Create Board
     func createBoard() {
         let firestore = Firestore.firestore()
         
@@ -84,6 +88,7 @@ class AddBoardViewController: BaseViewController {
     }
 }
 
+// MARK: Picker
 extension AddBoardViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

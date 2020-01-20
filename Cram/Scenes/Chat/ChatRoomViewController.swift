@@ -11,16 +11,17 @@ import Firebase
 
 class ChatRoomViewController: BaseViewController {
     
+    //    MARK: Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    //    MARK: Properties
     internal var uid = Auth.auth().currentUser?.uid
     internal var currentClassName: String = ""
     internal var currentClassSection: String = ""
     internal var currentIndex = 0
     internal var classSectionArray: [String] = []
     internal var ImagesArray: [UIImage] = []
-    
-    
+    internal var userArray: [String] = []
     
     internal var chatRoomArray = [Class]() {
         didSet {
@@ -37,35 +38,36 @@ class ChatRoomViewController: BaseViewController {
         }
     }
     
-    internal var userArray: [String] = []
-    
-    
+    //    MARK: Lifecyles
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
-        self.navigationItem.title = "Chats"
-        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        tableView.register(UINib(nibName: ChatRoomTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: ChatRoomTableViewCell.reuseIdentifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.tableFooterView = UIView(frame: .zero)
-        
-        
+        initUI()
+        setupTableViewUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let notificationCenter: NotificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(currentClassInfo), name: .notificationClassInfo, object: nil)
         getChatRooms()
         print(self.classSectionArray)
     }
     
-    @objc
-    func currentClassInfo() {
-        
+    //  MARK: Setup UI
+    func initUI() {
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
+        self.navigationItem.title = "Chats"
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
-        
+    
+    //    MARK: Setup TableView
+    func setupTableViewUI() {
+        tableView.register(UINib(nibName: ChatRoomTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: ChatRoomTableViewCell.reuseIdentifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    
+    //    MARK: Get Chat Rooms
     func getChatRooms() {
         LoadingScreen.show("Loading...")
         let firestoreDatabase = Firestore.firestore()
@@ -89,6 +91,7 @@ class ChatRoomViewController: BaseViewController {
     }
 }
 
+//  MARK: TableView
 extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.chatRooms.count
@@ -98,26 +101,25 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ChatRoomTableViewCell.reuseIdentifier, for: indexPath) as! ChatRoomTableViewCell
         cell.chatRoomLabel.text = self.chatRooms[indexPath.row]
         let firestoreDatabase = Firestore.firestore()
-                   .collection("classes")
-                   .whereField("courseName", isEqualTo: self.chatRooms[indexPath.row])
-               firestoreDatabase.getDocuments() { (snapshot, error) in
-                   if let error = error {
-                       print("Error: \(error)")
-                       return
-                   } else {
-                       if snapshot?.documents == nil {
-                           print("Empty")
-                       } else {
-                           for document in snapshot!.documents {
-                               let classSection = document.get("section") as! String
-                                cell.chatRoomSectionLabel.text = classSection
-                               LoadingScreen.hide()
-                           }
-                       }
-                   }
-               }
+            .collection("classes")
+            .whereField("courseName", isEqualTo: self.chatRooms[indexPath.row])
+        firestoreDatabase.getDocuments() { (snapshot, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                if snapshot?.documents == nil {
+                    print("Empty")
+                } else {
+                    for document in snapshot!.documents {
+                        let classSection = document.get("section") as! String
+                        cell.chatRoomSectionLabel.text = classSection
+                        LoadingScreen.hide()
+                    }
+                }
+            }
+        }
         
-
         
         cell.tapped = {
             LoadingScreen.show("Loading...")
@@ -160,15 +162,15 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
             Firestore.firestore().collection("users")
                 .document(self.uid!)
                 .updateData(["chatRooms": FieldValue.arrayRemove([self.chatRooms[indexPath.row]])]) { err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    LoadingScreen.show("Loading...")
-                    print("Document successfully updated")
-                    print(self.chatRooms[indexPath.row])
-                    self.chatRooms.remove(at: indexPath.row)
-                    self.getChatRooms()
-                }
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        LoadingScreen.show("Loading...")
+                        print("Document successfully updated")
+                        print(self.chatRooms[indexPath.row])
+                        self.chatRooms.remove(at: indexPath.row)
+                        self.getChatRooms()
+                    }
             }
             
             
@@ -181,6 +183,3 @@ extension ChatRoomViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension Notification.Name {
-    static let notificationClassInfo = Notification.Name("NotificationClassInfo")
-}

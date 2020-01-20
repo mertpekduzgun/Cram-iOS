@@ -11,12 +11,15 @@ import Firebase
 
 class BoardViewController: BaseViewController {
     
+    //    MARK: Outlets
     @IBOutlet weak var announceTableView: UITableView!
     @IBOutlet weak var quizTableView: UITableView!
     @IBOutlet weak var examTableView: UITableView!
     @IBOutlet weak var closeImageView: UIImageView!
     @IBOutlet weak var addBoardImageView: UIImageView!
     
+    
+    //    MARK: Properties
     internal var currentClassName = ""
     
     internal var announceArray: [String] = [] {
@@ -37,23 +40,25 @@ class BoardViewController: BaseViewController {
         }
     }
     
+    
+    //    MARK: Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         initUI()
-        self.closeImageView.isUserInteractionEnabled = true
-        self.closeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closedPressed(animated:))))
-        self.addBoardImageView.isUserInteractionEnabled = true
-        self.addBoardImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addBoardButtonPressed)))
-        
         getAnnouncements()
         getQuizDates()
         getExamDates()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.closeImageView.isUserInteractionEnabled = true
+        self.closeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closedPressed(animated:))))
+        self.addBoardImageView.isUserInteractionEnabled = true
+        self.addBoardImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addBoardButtonPressed)))
+    }
+    
+//    MARK: Setup UI
     func initUI() {
         initialUI(navigationTitle: .hidden, navigationBarLeft: .close, navigationBarRight: .hidden, navigationBackground: .blue)
         self.title = "Board"
@@ -74,6 +79,7 @@ class BoardViewController: BaseViewController {
         examTableView.tableFooterView = UIView(frame: .zero)
     }
     
+//    MARK: Add Button
     @objc
     func addBoardButtonPressed() {
         if let vc = UIStoryboard.courses.instantiateViewController(withIdentifier: AddBoardViewController.reuseIdentifier) as? AddBoardViewController {
@@ -82,6 +88,7 @@ class BoardViewController: BaseViewController {
         }
     }
     
+//    MARK: Get Announcements
     func getAnnouncements() {
         let firestoreDatabase = Firestore.firestore().collection("boards").whereField("className", isEqualTo: self.currentClassName)
         
@@ -96,13 +103,13 @@ class BoardViewController: BaseViewController {
                     self.announceArray.removeAll()
                     for document in snapshot!.documents {
                         self.announceArray = document.get("announcements") as! [String]
-                        }
                     }
                 }
             }
         }
+    }
     
-    
+//    MARK: Get Quiz Dates
     func getQuizDates() {
         let firestoreDatabase = Firestore.firestore().collection("boards").whereField("className", isEqualTo: self.currentClassName)
         
@@ -117,12 +124,12 @@ class BoardViewController: BaseViewController {
                     self.quizArray.removeAll()
                     for document in snapshot!.documents {
                         self.quizArray = document.get("quizDates") as! [String]
-                        }
                     }
                 }
             }
+        }
     }
-    
+//    MARK: Get Exam Dates
     func getExamDates() {
         let firestoreDatabase = Firestore.firestore().collection("boards").whereField("className", isEqualTo: self.currentClassName)
         
@@ -137,13 +144,14 @@ class BoardViewController: BaseViewController {
                     self.examArray.removeAll()
                     for document in snapshot!.documents {
                         self.examArray = document.get("examDates") as! [String]
-                        }
                     }
                 }
             }
+        }
     }
 }
 
+// MARK: Table View
 extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -158,7 +166,7 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if tableView == announceTableView {
             let cell = announceTableView.dequeueReusableCell(withIdentifier: BoardTableViewCell.reuseIdentifier, for: indexPath) as! BoardTableViewCell
             cell.cellLabel.text = announceArray[indexPath.row]
@@ -167,13 +175,13 @@ extension BoardViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == quizTableView {
             let cell = quizTableView.dequeueReusableCell(withIdentifier: QuizDateTableViewCell.reuseIdentifier, for: indexPath) as! QuizDateTableViewCell
             cell.cellLabel.text = quizArray[indexPath.row]
-
+            
             return cell
         }
         if tableView == examTableView {
             let cell = examTableView.dequeueReusableCell(withIdentifier: ExamDateTableViewCell.reuseIdentifier, for: indexPath) as! ExamDateTableViewCell
             cell.cellLabel.text = examArray[indexPath.row]
-
+            
             return cell
         }
         return UITableViewCell()

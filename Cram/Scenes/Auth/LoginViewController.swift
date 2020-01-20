@@ -12,7 +12,7 @@ import ChameleonFramework
 
 class LoginViewController: BaseViewController {
     
-//    MARK: Outlet
+//    MARK: Outlets
     @IBOutlet weak var topView: TopView!
     @IBOutlet weak var emailTextField: TextFieldView!
     @IBOutlet weak var passwordTextField: TextFieldView!
@@ -20,25 +20,33 @@ class LoginViewController: BaseViewController {
 //    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.topViewType = .login
+        initUI()
+        setupTextFieldUI()
         hideKeyboardWhenTappedAround()
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
-        emailTextField.textFieldType = .email
-        passwordTextField.textFieldType = .password
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-//    Sign In
+//    MARK: Setup UI
+    func initUI() {
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
+        topView.topViewType = .login
+    }
+    
+//    MARK: Setup Text Field
+    func setupTextFieldUI() {
+        emailTextField.textFieldType = .email
+        passwordTextField.textFieldType = .password
+    }
+    
+//    MARK: Sign In
     @IBAction func tappedSignIn(_ sender: Any) {
         Auth.auth().signIn(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (User, error) in
-            
             if error != nil {
                 Helper.showAlert(title: "Error!", message: "Email or password is wrong.", style: .warning, position: .top)
             } else {
-                print("Success") // TODO: Go to Courses VC
                 if let vc = UIStoryboard.tabbar.instantiateInitialViewController() {
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)

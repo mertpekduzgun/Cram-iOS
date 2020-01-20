@@ -12,7 +12,6 @@ import MessageKit
 import InputBarAccessoryView
 import SDWebImage
 
-
 class ChatViewController: MessagesViewController {
     
     //    MARK: Properties
@@ -23,28 +22,40 @@ class ChatViewController: MessagesViewController {
     internal var userArray: [String] = []
     internal var currentChatRoom: String = ""
     internal var userName: String = ""
+    internal var senderImageView: UIImageView = UIImageView(image: UIImage(named: "user"))
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
+        setupCollectionViewUI()
         hideKeyboardWhenTappedAround()
+        getUserName()
+        getProfilePicture()
+        loadChat()
+    }
+    
+    //    MARK: Setup UI
+    func initUI() {
         initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
+        self.title = self.currentChatRoom
+    }
+    
+    //    MARK: Setup Message Collection View
+    func setupCollectionViewUI() {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesDisplayDelegate = self
         messagesCollectionView.messagesLayoutDelegate = self
         messageInputBar.delegate = self
         
-        self.title = self.currentChatRoom
-        navigationItem.largeTitleDisplayMode = .never
-        maintainPositionOnKeyboardFrameChanged = true
         messageInputBar.inputTextView.tintColor = .black
         messageInputBar.sendButton.setTitleColor(UIColor.flatSkyBlueColorDark(), for: .normal)
-        
-        print(userArray)
-        getUserName()
-        loadChat()
+        maintainPositionOnKeyboardFrameChanged = true
+        navigationItem.largeTitleDisplayMode = .never
     }
-        
+    
+    //    MARK: Get User Name
     func getUserName() {
         let firestoreDatabase = Firestore.firestore().collection("users").whereField("userID", isEqualTo: self.currentUser.uid)
         
@@ -67,7 +78,28 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    func getProfilePicture() {
+        let firestoreDatabase = Firestore.firestore().collection("images").whereField("imageOwner", isEqualTo: self.currentUser.uid)
+        firestoreDatabase.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            } else {
+                if snapshot?.documents == nil {
+                    print(error)
+                } else {
+                    for document in snapshot!.documents {
+                        if let imageUrl = document.get("imageUrl") as? String {
+                            self.senderImageView.sd_setImage(with: URL(string: imageUrl))
+                        }
+                    }
+                }
+            }
+        }
+    }
     
+    
+    //    MARK: Load Chat
     func loadChat() {
         
         let firestoreDatabase = Firestore.firestore().collection("classes").whereField("users", arrayContains: self.currentUser.uid)
@@ -115,6 +147,7 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    //    MARK: Insert Message
     private func insertNewMessage(_ message: Message) {
         messages.append(message)
         messagesCollectionView.reloadData()
@@ -123,6 +156,7 @@ class ChatViewController: MessagesViewController {
         }
     }
     
+    //    MARK: Save Action
     private func save(_ message: Message) {
         let data: [String: Any] = [
             "content": message.content,
@@ -143,6 +177,7 @@ class ChatViewController: MessagesViewController {
     }
 }
 
+// MARK: Messages
 extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, MessagesLayoutDelegate, InputBarAccessoryViewDelegate {
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String) {
@@ -182,6 +217,11 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         if message.sender.senderId == currentUser.uid {
             SDWebImageManager.shared.loadImage(with: currentUser.photoURL, options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
+                
+                avatarView.image = self.senderImageView.image
+            }
+        } else {
+            SDWebImageManager.shared.loadImage(with: currentUser.photoURL, options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
                 avatarView.image = image
             }
         }
@@ -206,10 +246,7 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
                 .foregroundColor: UIColor(white: 0.3, alpha: 1)
             ]
         )
-    }
-    
-    
-    
+    }   
 }
 
 extension ChatViewController {

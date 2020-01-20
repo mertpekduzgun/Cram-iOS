@@ -53,6 +53,7 @@ class SettingViewController: BaseViewController {
         openAlert()
     }
     
+//    MARK: Get User Name and Email
     func getUser() {
         LoadingScreen.show("Loading...")
         
@@ -152,6 +153,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         
     }
     
+//    MARK: Get Profil Photo
     func getProfilePicture() {
         Helper.showLoading(self.profileImageView)
         let firestoreDatabase = Firestore.firestore().collection("images").whereField("imageOwner", isEqualTo: self.currentUser?.uid)
@@ -162,6 +164,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
             } else {
                 if snapshot?.documents == nil {
                     self.profileImageView.image = UIImage(named: "user")
+                    Helper.hideLoading(self.profileImageView)
                 } else {
                     for document in snapshot!.documents {
                         if let imageUrl = document.get("imageUrl") as? String {

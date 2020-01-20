@@ -10,10 +10,12 @@ import UIKit
 
 class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
     
+//    MARK: Tab Bar Controllers
     var courseViewController: UIViewController!
     var chatRoomViewController: UIViewController!
     var settingViewController: UIViewController!
 
+//    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -22,24 +24,22 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         chatRoomViewController = UIStoryboard.chats.instantiateInitialViewController()!
         settingViewController = UIStoryboard.settings.instantiateInitialViewController()!
         
-        courseViewController.tabBarItem.image = UIImage(named: "course") // TODO: tabbar image
-        courseViewController.tabBarItem.selectedImage = UIImage(named: "courseSelected") // TODO:
+        courseViewController.tabBarItem.image = UIImage(named: "course")
+        courseViewController.tabBarItem.selectedImage = UIImage(named: "courseSelected")
         courseViewController.tabBarItem.title = "Courses"
         
-        chatRoomViewController.tabBarItem.image = UIImage(named: "chat") // TODO: tabbar image
-        chatRoomViewController.tabBarItem.selectedImage = UIImage(named: "chatSelected") // TODO:
+        chatRoomViewController.tabBarItem.image = UIImage(named: "chat")
+        chatRoomViewController.tabBarItem.selectedImage = UIImage(named: "chatSelected")
         chatRoomViewController.tabBarItem.title = "Chats"
         
-        settingViewController.tabBarItem.image = UIImage(named: "setting") // TODO: tabbar image
-        settingViewController.tabBarItem.selectedImage = UIImage(named: "settingSelected") // TODO:
+        settingViewController.tabBarItem.image = UIImage(named: "setting")
+        settingViewController.tabBarItem.selectedImage = UIImage(named: "settingSelected")
         settingViewController.tabBarItem.title = "Settings"
         
         viewControllers = [courseViewController, chatRoomViewController, settingViewController]
         
         for tabBarItem in tabBar.items! {
             tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.montserratMedium(ofsize: 11)], for: .normal)
-//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.lightGray], for: .normal)
-//            tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.flatSkyBlueColorDark], for: .selected)
         }
         
         let lineView = UIView(frame: CGRect(x: 0, y: 0, width: self.tabBar.frame.size.width, height: 1))
@@ -48,6 +48,7 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         
     }
     
+//    MARK: Tabbar Controller
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let tabBarIndex = self.selectedIndex
         if self.viewControllers![tabBarIndex] == viewController{

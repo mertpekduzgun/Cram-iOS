@@ -10,10 +10,6 @@ import UIKit
 import Firebase
 import CFAlertViewController
 
-protocol MyDataSendingDelegateProtocol {
-    func sendData(myData: String)
-}
-
 enum departmentType {
     case civil
     case computer
@@ -48,42 +44,53 @@ class ClassViewController: BaseViewController {
         }
     }
     
+//    MARK: Properties
     let firestoreDatabase = Firestore.firestore()
-    
     internal var uid = Auth.auth().currentUser?.uid
-    
     internal var type: departmentType = .computer
-    
     internal var currentClassName: String = ""
     internal var currentSection: String = ""
     internal var currentImage = UIImage(named: "eng")
     internal var currentIndex = 0
-    
-    internal var delegate: MyDataSendingDelegateProtocol? = nil
-    
-    //    internal var classInfoList = [classInfo]()
-    
     var documentsArray: [String] = []
     
-    //    MARK: LifeCycle
+//    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationItem.title = "Courses"
-        topView.topViewType = .classroom
+        initUI()
+        setupTableView()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getClasses()
+        getDocumentID()
+    }
+    
+//    MARK: Setup UI
+    func initUI() {
         if uid == "rxoKrlAlo9ezjwE03OLfXIasFr03" {
             initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .white, navigationBackground: .blue)
             
         } else {
             initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
         }
+        topView.topViewType = .classroom
+        self.navigationItem.title = "Courses"
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+    }
+    
+//    MARK: Setup TableView
+    func setupTableView() {
         tableView.register(UINib(nibName: ClassTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: ClassTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.tableFooterView = UIView(frame: .zero)
-        
     }
     
+//    MARK: Get Document ID
     func getDocumentID() {
         firestoreDatabase.collection("classes").getDocuments() { (snapshot, err) in
             if let err = err {
@@ -97,13 +104,9 @@ class ClassViewController: BaseViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        getClasses()
-        getDocumentID()
-    }
     
-    //    MARK: BackButton
+    
+//    MARK: BackButton
     override func navigationBarBackButtonPressed(animated: Bool = true) {
         navigationController?.popViewController(animated: true)
     }
@@ -113,10 +116,9 @@ class ClassViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
-    //    MARK: GetClasses
+
+//    MARK: GetClasses
     func getClasses() {
-        
         switch type {
         case .civil:
             let firestoreDatabase = Firestore.firestore().collection("classes").whereField("departmentName", isEqualTo: "Civil Engineering")
@@ -538,8 +540,6 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ClassTableViewCell.reuseIdentifier, for: indexPath) as! ClassTableViewCell
         
-        
-        
         if type == .civil {
             cell.classImageView.image = UIImage(named: "eng")
             cell.classNameLabel.text = classArray[indexPath.row].name
@@ -552,7 +552,6 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
                 self.openAlert()
             }
         }
-        
         
         if type == .computer {
             cell.classImageView.image = UIImage(named: "eng")
@@ -570,7 +569,6 @@ extension ClassViewController: UITableViewDelegate, UITableViewDataSource {
                 self.openAlert()
             }
         }
-        
         
         if type == .electrical {
             cell.classImageView.image = UIImage(named: "eng")

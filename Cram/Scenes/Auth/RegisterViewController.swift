@@ -11,7 +11,7 @@ import Firebase
 
 class RegisterViewController: BaseViewController {
     
-    //    MARK: Outlet
+    //    MARK: Outlets
     @IBOutlet weak var topView: TopView!
     @IBOutlet weak var nameTextField: TextFieldView!
     @IBOutlet weak var emailTextField: TextFieldView!
@@ -24,16 +24,30 @@ class RegisterViewController: BaseViewController {
     //    MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        topView.topViewType = .register
+        initUI()
+        setupTextFieldUI()
         hideKeyboardWhenTappedAround()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+//    MARK: Setup UI
+    func initUI() {
         initialUI(navigationTitle: .hidden, navigationBarLeft: .hidden, navigationBarRight: .hidden, navigationBackground: .blue)
+        topView.topViewType = .register
+    }
+    
+//    MARK: Setup TextField UI
+    func setupTextFieldUI() {
         nameTextField.textFieldType = .name
         emailTextField.textFieldType = .email
         passwordTextField.textFieldType = .password
     }
     
+//    MARK: Check TextField Texts
     private var allValid: Bool! {
-        
         if nameTextField.textField.text!.isEmpty {
             Helper.showAlert(title: "Error!", message: "Name cannot be blank!", style: .danger, position: .top)
         } else if emailTextField.textField.text!.isEmpty {
@@ -45,20 +59,15 @@ class RegisterViewController: BaseViewController {
         }
         
         return nameTextField.isValid && emailTextField.isValid && passwordTextField.isValid
-        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    //    MARK: Sign Up
+//    MARK: Sign Up
     @IBAction func tappedSignUp(_ sender: Any) {
         if self.allValid {
             Auth.auth().signInAnonymously(completion: nil)
             Auth.auth().createUser(withEmail: emailTextField.textField.text!, password: passwordTextField.textField.text!) { (user, error) in
                 if error != nil {
-                    print(error!) // TODO: ALERT
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
                 } else {
                     let fireStore = Firestore.firestore()
                     let userDict = ["email": self.emailTextField.textField.text!, "name": self.nameTextField.textField.text!, "date": FieldValue.serverTimestamp(), "chatRooms": self.chatRooms, "userID": user?.user.uid] as [String: Any]
@@ -73,7 +82,7 @@ class RegisterViewController: BaseViewController {
     }
     
     
-    //    MARK: Sign In
+//    MARK: Go To Sign In
     @IBAction func tappedSignIn(_ sender: Any) {
         let vc = UIStoryboard.auth.instantiateViewController(withIdentifier: LoginViewController.reuseIdentifier) as! LoginViewController
         self.navigationController?.pushViewController(vc, animated: true)

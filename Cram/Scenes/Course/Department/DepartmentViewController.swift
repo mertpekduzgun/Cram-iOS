@@ -36,14 +36,8 @@ class DepartmentViewController: BaseViewController {
     //    MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        self.navigationItem.title = "Courses"
-        topView.topViewType = .department
-        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
-        tableView.register(UINib(nibName: DepartmentTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: DepartmentTableViewCell.reuseIdentifier)
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.tableFooterView = UIView(frame: .zero)
+        initUI()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,13 +46,30 @@ class DepartmentViewController: BaseViewController {
         
     }
     
-    //    MARK: GetDepartmemts
+//    MARK: Setup UI
+    func initUI() {
+        initialUI(navigationTitle: .hidden, navigationBarLeft: .whiteBack, navigationBarRight: .hidden, navigationBackground: .blue)
+        topView.topViewType = .department
+        self.navigationItem.title = "Courses"
+        navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+    }
+    
+//    MARK: Setup TableView
+    func setupTableView() {
+        tableView.register(UINib(nibName: DepartmentTableViewCell.reuseIdentifier, bundle: .main), forCellReuseIdentifier: DepartmentTableViewCell.reuseIdentifier)
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.tableFooterView = UIView(frame: .zero)
+        
+    }
+    
+//    MARK: GetDepartmemts
     func getDepartments() {
         switch type {
         case .engineering:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Engineering").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
-                    print(error) // TODO: Alert
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
                 } else {
                     if snapshot?.isEmpty == false && snapshot != nil {
                         self.departmentArray.removeAll()
@@ -76,7 +87,7 @@ class DepartmentViewController: BaseViewController {
         case .artsScience:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "ArtsScience").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
-                    print("error") // TODO: Alert
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
                 } else {
                     if snapshot?.isEmpty == false && snapshot != nil {
                         self.departmentArray.removeAll()
@@ -96,7 +107,7 @@ class DepartmentViewController: BaseViewController {
         case .architecture:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Architecture").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
-                    print("error") // TODO: Alert
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
                 } else {
                     if snapshot?.isEmpty == false && snapshot != nil {
                         self.departmentArray.removeAll()
@@ -116,7 +127,7 @@ class DepartmentViewController: BaseViewController {
         case .economics:
             firestoreDatabase.collection("departments").whereField("facultyName", isEqualTo: "Economics").order(by: "name", descending: false).addSnapshotListener { (snapshot, error) in
                 if error != nil {
-                    print("error") // TODO: Alert
+                    Helper.showAlert(title: "Error!", message: error?.localizedDescription ?? "Error")
                 } else {
                     if snapshot?.isEmpty == false && snapshot != nil {
                         self.departmentArray.removeAll()
