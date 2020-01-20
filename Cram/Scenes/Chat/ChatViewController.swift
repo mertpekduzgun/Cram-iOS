@@ -233,6 +233,26 @@ extension ChatViewController: MessagesDataSource, MessagesDisplayDelegate, Messa
         return .bubbleTail(corner, .curved)
     }
     
+    func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 10
+    }
+    
+    func isTimeLabelVisible(at indexPath: IndexPath) -> Bool {
+        return indexPath.section % 3 == 0 && !isPreviousMessageSameSender(at: indexPath)
+    }
+    
+    func isPreviousMessageSameSender(at indexPath: IndexPath) -> Bool {
+        guard indexPath.section - 1 >= 0 else { return false }
+        return messages[indexPath.section].senderName == messages[indexPath.section - 1].senderName
+    }
+    
+    func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        if isTimeLabelVisible(at: indexPath) {
+            return NSAttributedString(string: MessageKitDateFormatter.shared.string(from: message.sentDate), attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10), NSAttributedString.Key.foregroundColor: UIColor.darkGray])
+        }
+        return nil
+    }
+    
     func cellBottomLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 10
     }
