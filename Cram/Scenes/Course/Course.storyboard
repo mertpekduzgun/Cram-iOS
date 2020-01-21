@@ -239,7 +239,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zYB-Oq-C0X">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="31799" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-v1-wkW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chalkboardGreen" translatesAutoresizingMaskIntoConstraints="NO" id="bGb-v1-wkW">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcements:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUy-Bx-3bd">
@@ -526,7 +526,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="31799" width="6000" height="4001"/>
+        <image name="chalkboardGreen" width="960" height="800"/>
         <image name="close" width="512" height="512"/>
         <image name="closeWhite" width="25" height="27"/>
         <image name="editBoard" width="512" height="512"/>
