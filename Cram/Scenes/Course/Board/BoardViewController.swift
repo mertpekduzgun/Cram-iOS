@@ -45,9 +45,6 @@ class BoardViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        getAnnouncements()
-        getQuizDates()
-        getExamDates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +53,9 @@ class BoardViewController: BaseViewController {
         self.closeImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closedPressed(animated:))))
         self.addBoardImageView.isUserInteractionEnabled = true
         self.addBoardImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addBoardButtonPressed)))
+        getAnnouncements()
+        getQuizDates()
+        getExamDates()
     }
     
 //    MARK: Setup UI
