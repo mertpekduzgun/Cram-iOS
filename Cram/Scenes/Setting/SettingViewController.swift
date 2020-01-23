@@ -37,6 +37,7 @@ class SettingViewController: BaseViewController {
         getUser()
         initUI()
         getProfilePicture()
+
     }
     
     func initUI() {
@@ -155,11 +156,12 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
     
 //    MARK: Get Profil Photo
     func getProfilePicture() {
-        Helper.showLoading(self.profileImageView)
+//        Helper.showLoading(self.profileImageView)
         let firestoreDatabase = Firestore.firestore().collection("images").whereField("imageOwner", isEqualTo: self.currentUser?.uid)
         firestoreDatabase.getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error: \(error)")
+
                 return
             } else {
                 if snapshot?.documents == nil {
@@ -169,7 +171,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                     for document in snapshot!.documents {
                         if let imageUrl = document.get("imageUrl") as? String {
                             self.profileImageView.sd_setImage(with: URL(string: imageUrl))
-                            Helper.hideLoading(self.profileImageView)
+//                            Helper.hideLoading(self.profileImageView)
                         }
                     }
                 }
