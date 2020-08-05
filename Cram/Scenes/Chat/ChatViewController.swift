@@ -334,6 +334,5 @@ extension ChatViewController {
         case .transparent:
             self.navigationController?.navigationBar.makeTransparent()
         }
-        
     }
 }
