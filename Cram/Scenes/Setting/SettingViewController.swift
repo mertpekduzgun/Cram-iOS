@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CFAlertViewController
 import SDWebImage
-s
+
 class SettingViewController: BaseViewController {
     
     //    MARK: Outlets
