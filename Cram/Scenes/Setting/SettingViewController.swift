@@ -10,8 +10,7 @@ import UIKit
 import Firebase
 import CFAlertViewController
 import SDWebImage
-
-
+s
 class SettingViewController: BaseViewController {
     
     //    MARK: Outlets
@@ -37,7 +36,7 @@ class SettingViewController: BaseViewController {
         getUser()
         initUI()
         getProfilePicture()
-
+        
     }
     
     func initUI() {
@@ -54,7 +53,7 @@ class SettingViewController: BaseViewController {
         openAlert()
     }
     
-//    MARK: Get User Name and Email
+    //    MARK: Get User Name and Email
     func getUser() {
         LoadingScreen.show("Loading...")
         
@@ -78,10 +77,7 @@ class SettingViewController: BaseViewController {
                 }
             }
         }
-        
     }
-    
-    
     
     //    MARK: Logout
     @IBAction func logoutAction(_ sender: Any) {
@@ -154,14 +150,14 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
         
     }
     
-//    MARK: Get Profil Photo
+    //    MARK: Get Profil Photo
     func getProfilePicture() {
-//        Helper.showLoading(self.profileImageView)
+        //        Helper.showLoading(self.profileImageView)
         let firestoreDatabase = Firestore.firestore().collection("images").whereField("imageOwner", isEqualTo: self.currentUser?.uid)
         firestoreDatabase.getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error: \(error)")
-
+                
                 return
             } else {
                 if snapshot?.documents == nil {
@@ -171,7 +167,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                     for document in snapshot!.documents {
                         if let imageUrl = document.get("imageUrl") as? String {
                             self.profileImageView.sd_setImage(with: URL(string: imageUrl))
-//                            Helper.hideLoading(self.profileImageView)
+                            //                            Helper.hideLoading(self.profileImageView)
                         }
                     }
                 }
@@ -225,10 +221,9 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
                                     Helper.showAlert(title: "Success!", message: "Your profile picture has changed.", style: .success, position: .top)
                                     self.getProfilePicture()
                                     Helper.hideLoading(self.profileImageView)
-
+                                    
                                 }
                             }
-                            
                         }
                     }
                 }
